@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% if title %}{{ title }} — {% endif %}Marina Kuzminchuk</title>
+  <meta name="description" content="My designs are rooted in user research while expressing values through a distinct visual identity." />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+  <div class="shell">
+
+    <nav>
+      <a href="/" {% if page.url == "/" %}class="active"{% endif %}>Work</a>
+      <a href="/about/" {% if page.url == "/about/" %}class="active"{% endif %}>About</a>
+    </nav>
+
+    {{ content | safe }}
+
+    <footer>
+      <span id="clock"></span>
+    </footer>
+
+  </div>
+  <script src="/assets/js/clock.js"></script>
+</body>
+</html>
