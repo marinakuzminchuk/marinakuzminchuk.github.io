@@ -2,31 +2,69 @@
 layout: base.njk
 ---
 
-<header class="site-header">
-  <h1>Marina Kuzminchuk</h1>
-  <p class="tagline">UX/UI Designer · Berlin</p>
+<header class="hero">
+  <p class="hero-name">Marina Kuzminchuk</p>
+  <h1 class="hero-tagline">UX/UI designer who makes complex products feel simple — from research to developer handoff.</h1>
+  <p class="hero-meta">
+    <span>Berlin</span>
+    <a href="mailto:marina.a.kuzminchuk@gmail.com">marina.a.kuzminchuk@gmail.com</a>
+    <a href="/about/">About</a>
+  </p>
 </header>
 
-<ul class="project-list">
+<section class="work-section">
+  <p class="section-label">Selected work</p>
 
-  <li class="project-item">
-    <span class="project-year">2026</span>
-    <div>
-      <a href="/unicbank/">
-        <p class="project-title">UnicBank</p>
+  <div class="project-cards">
+
+    <article class="project-card">
+      <a href="/unicbank/" class="card-cover card-cover--unic" aria-label="UnicBank case study">
+        <div>
+          <p class="cover-unic-eyebrow">Balance</p>
+          <p class="cover-unic-amount">€ 4,291.00</p>
+        </div>
+        <div class="cover-unic-card-shape"></div>
       </a>
-      <p class="project-desc">Neobank iOS App — end-to-end UX/UI concept, 65 screens, clickable prototype</p>
-    </div>
-  </li>
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="card-badge">B2C</span>
+          <span class="card-badge">iOS</span>
+          <span class="card-badge">Fintech</span>
+          <span class="card-badge">2026</span>
+        </div>
+        <h2 class="card-title"><a href="/unicbank/">UnicBank</a></h2>
+        <p class="card-desc">Neobank app concept — reduced core banking actions to 2 taps, compressed onboarding to 90 seconds, 65 screens with full developer handoff.</p>
+        <p class="card-methodology">Research · Competitive analysis · UX/UI Design · Prototyping · Handoff</p>
+        <a href="/unicbank/" class="card-link">View case study →</a>
+      </div>
+    </article>
 
-  <li class="project-item">
-    <span class="project-year">2026</span>
-    <div>
-      <a href="/subscout/">
-        <p class="project-title">SubScout</p>
+    <article class="project-card">
+      <a href="/subscout/" class="card-cover card-cover--sub" aria-label="SubScout case study">
+        <div>
+          <p class="cover-sub-eyebrow">Monthly total</p>
+          <p class="cover-sub-amount">€ 127.43</p>
+        </div>
+        <div class="cover-sub-cats">
+          <span class="sub-cat sub-cat--red">Entertainment</span>
+          <span class="sub-cat sub-cat--teal">Productivity</span>
+          <span class="sub-cat sub-cat--blue">Health</span>
+          <span class="sub-cat sub-cat--green">Storage</span>
+        </div>
       </a>
-      <p class="project-desc">Subscription Management App — 18 user flow scenarios, 28 screens, analytics views</p>
-    </div>
-  </li>
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="card-badge">B2C</span>
+          <span class="card-badge">iOS</span>
+          <span class="card-badge">Productivity</span>
+          <span class="card-badge">2026</span>
+        </div>
+        <h2 class="card-title"><a href="/subscout/">SubScout</a></h2>
+        <p class="card-desc">Subscription management app — brought fragmented subscription data into one clear, actionable view across 28 screens and 18 user scenarios.</p>
+        <p class="card-methodology">Research · UX/UI Design · Data visualisation · Prototyping</p>
+        <a href="/subscout/" class="card-link">View case study →</a>
+      </div>
+    </article>
 
-</ul>
+  </div>
+</section>
