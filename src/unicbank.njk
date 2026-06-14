@@ -1,249 +1,406 @@
 ---
 layout: base.njk
-title: UnicBank
+title: UnicBank — Reducing time-to-value in mobile banking
+description: A UX/UI case study redesigning core mobile banking flows — registration, account opening, cards and transfers — to help users reach value faster.
 permalink: /unicbank/
 ---
 
-<a class="case-back" href="/">← Work</a>
+<div class="case-body">
 
-<div class="case-study">
-
-  <h1 class="case-title">UnicBank</h1>
-  <p class="case-sub">Neobank App · iOS Concept · 2026</p>
-  <a class="case-ext" href="https://www.behance.net/gallery/248270055/UnicBank-Neobank-App-UXUI" target="_blank" rel="noopener">View on Behance ↗</a>
-
-  <div class="meta-row">
-    <div>
-      <p class="meta-label">Role</p>
-      <p class="meta-value">UX/UI Designer</p>
-    </div>
-    <div>
-      <p class="meta-label">Duration</p>
-      <p class="meta-value">2026, 8 weeks</p>
-    </div>
-    <div>
-      <p class="meta-label">Tools</p>
-      <p class="meta-value">Figma · iOS HIG</p>
-    </div>
+  <!-- Top bar -->
+  <div class="case-shell">
+    <nav class="case-topbar">
+      <a href="/" class="case-back">← Work</a>
+      <div class="case-topnav">
+        <a href="#snapshot">Project</a>
+        <a href="#challenge">Challenge</a>
+        <a href="#decisions">Decisions</a>
+        <a href="#outcomes">Outcomes</a>
+      </div>
+    </nav>
   </div>
 
-  <nav class="toc">
-    <p class="toc-label">Contents</p>
-    <ul class="toc-list">
-      <li><a href="#overview">Overview</a></li>
-      <li><a href="#research">Research</a></li>
-      <li><a href="#competitive">Competitive analysis</a></li>
-      <li><a href="#flows">User flows</a></li>
-      <li><a href="#design">Design</a></li>
-      <li><a href="#uikit">UI Kit</a></li>
-      <li><a href="#prototype">Prototype</a></li>
-      <li><a href="#reflections">Reflections</a></li>
-    </ul>
-  </nav>
+  <!-- 01 — HERO -->
+  <div class="case-shell">
+    <section class="case-hero">
+      <div class="sec-label"><span>1</span>Case study</div>
+      <div class="case-hero-grid">
+        <div>
+          <h1 class="case-hero-title">UNIC <em>Bank</em></h1>
+          <p class="case-hero-sub">
+            Reducing time-to-value in mobile banking — a UX/UI redesign of the
+            registration, account-opening and transfer flows for a B2C fintech concept.
+          </p>
+        </div>
+        <div class="case-hero-img">
+          <img src="/assets/img/unic-hero.jpg"
+               alt="Three UNIC Bank iOS screens: registration, guided home, and scheduled transfer confirmation." />
+        </div>
+      </div>
+    </section>
+  </div>
 
-  <!-- Overview -->
-  <section class="section" id="overview">
-    <h2>Overview</h2>
-    <p>
-      Mobile banking apps are often among the most complex products people use daily — yet they're opened for the simplest of reasons: check balance, send money, see a card transaction. UnicBank is a neobank app concept for iOS that inverts this relationship. Core functionality is available in one tap from the home screen, while advanced features — savings goals, FX rates, card controls — unfold progressively as users deepen their relationship with the app.
-    </p>
-    <p>
-      The project covered the full UX/UI process: user research and competitive analysis, end-to-end user flow definition, 65 screens of wireframes and high-fidelity designs, a reusable component library, and a clickable Figma prototype prepared for developer handoff.
-    </p>
-  </section>
+  <!-- 02 — SNAPSHOT -->
+  <div class="case-shell" id="snapshot">
+    <section class="case-section">
+      <div class="sec-label"><span>2</span>Project snapshot</div>
+      <div class="snapshot-grid">
+        <div class="meta-card">
+          <p class="meta-card-label">Role</p>
+          <p class="meta-card-value">UX / UI Designer</p>
+        </div>
+        <div class="meta-card">
+          <p class="meta-card-label">Type</p>
+          <p class="meta-card-value">B2C fintech concept</p>
+        </div>
+        <div class="meta-card">
+          <p class="meta-card-label">Platform</p>
+          <p class="meta-card-value">iOS mobile app</p>
+        </div>
+        <div class="meta-card">
+          <p class="meta-card-label">Duration</p>
+          <p class="meta-card-value">8 weeks</p>
+        </div>
+      </div>
+      <div class="scope-card">
+        <p class="meta-card-label">Scope</p>
+        <p class="meta-card-value">Competitor analysis · User interviews · Hypothesis validation · UX flows · UI design · Interactive prototype · Developer handoff</p>
+      </div>
+    </section>
+  </div>
 
-  <!-- Research -->
-  <section class="section" id="research">
-    <h2>Research</h2>
-    <p>
-      To ground the design in real needs, I conducted user interviews and gathered observations from people who use mobile banking several times a week. Participants ranged from students managing a first account to professionals handling multiple currencies and international transfers.
-    </p>
+  <!-- 03 — CHALLENGE -->
+  <div class="case-shell" id="challenge">
+    <section class="case-section">
+      <div class="sec-label"><span>3</span>The challenge</div>
+      <h2 class="case-heading">
+        Unlock useful banking actions before full account setup — then
+        progressively guide users toward full banking functionality.
+      </h2>
+      <div class="challenge-pair">
+        <div class="challenge-card challenge-card--neutral">
+          <p class="challenge-card-label">Core banking requirements</p>
+          <h3 class="challenge-card-title">What the product had to support</h3>
+          <ul class="challenge-list">
+            <li>1. Registration and bank account opening</li>
+            <li>2. UNIC Bank cards and third-party card management</li>
+            <li>3. Domestic and international transfers</li>
+          </ul>
+        </div>
+        <div class="challenge-card challenge-card--violet">
+          <p class="challenge-card-label">What had to be different</p>
+          <h3 class="challenge-card-title">Reduce time to first value</h3>
+          <p>
+            Competing apps front-load setup before users can do anything useful.
+            UNIC needed to reverse that order without making the product feel incomplete.
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
 
-    <h3>Key themes</h3>
-    <ul>
-      <li><strong>Speed above all.</strong> The most common action — checking the current balance — should require zero navigation. Users resent unlocking an app only to tap through three screens to see a number.</li>
-      <li><strong>Trust through familiarity.</strong> Financial apps carry higher stakes than social apps. Native iOS patterns reduce cognitive load and signal reliability; unfamiliar gestures or layouts create hesitation around money.</li>
-      <li><strong>Hidden power features.</strong> Card management, spending analytics, and international transfer settings are frequently needed but almost universally buried. Users either didn't know features existed or gave up finding them.</li>
-    </ul>
+  <!-- 04 — COMPETITOR ANALYSIS -->
+  <div class="case-shell">
+    <section class="case-section">
+      <div class="sec-label"><span>4</span>Competitor analysis</div>
+      <h2 class="case-heading">Four opportunities, mapped against the market.</h2>
 
-    <div class="callout">
-      "I just want to see my balance and send money. I don't need three onboarding screens every time I open the app."
-    </div>
-  </section>
+      <div class="comp-table-wrap" style="margin-top:3rem;">
+        <div class="comp-table-head">
+          <span>Opportunity</span>
+          <span>Wise</span>
+          <span>Revolut</span>
+          <span>N26</span>
+        </div>
+        <div class="comp-table-row">
+          <span>Split registration and bank account opening</span>
+          <span><span class="comp-mark comp-mark--yes">✓</span></span>
+          <span><span class="comp-mark comp-mark--no">—</span></span>
+          <span><span class="comp-mark comp-mark--no">—</span></span>
+        </div>
+        <div class="comp-table-row">
+          <span>Home screen as progressive onboarding</span>
+          <span><span class="comp-mark comp-mark--yes">✓</span></span>
+          <span><span class="comp-mark comp-mark--partial">~</span></span>
+          <span><span class="comp-mark comp-mark--no">—</span></span>
+        </div>
+        <div class="comp-table-row">
+          <span>Frictionless scheduled transfers</span>
+          <span><span class="comp-mark comp-mark--partial">~</span></span>
+          <span><span class="comp-mark comp-mark--yes">✓</span></span>
+          <span><span class="comp-mark comp-mark--partial">~</span></span>
+        </div>
+        <div class="comp-table-row">
+          <span>Quick transfers to recent recipients</span>
+          <span><span class="comp-mark comp-mark--partial">~</span></span>
+          <span><span class="comp-mark comp-mark--yes">✓</span></span>
+          <span><span class="comp-mark comp-mark--partial">~</span></span>
+        </div>
+      </div>
+      <div class="comp-legend">
+        <div class="comp-legend-item"><span class="comp-mark comp-mark--yes">✓</span> Strong</div>
+        <div class="comp-legend-item"><span class="comp-mark comp-mark--partial">~</span> Partial</div>
+        <div class="comp-legend-item"><span class="comp-mark comp-mark--no">—</span> Gap</div>
+        <span style="color:var(--muted);font-size:0.75rem;">Marks reflect each competitor against the identified opportunity at the time of analysis.</span>
+      </div>
+    </section>
+  </div>
 
-  <!-- Competitive Analysis -->
-  <section class="section" id="competitive">
-    <h2>Competitive analysis</h2>
-    <p>
-      I analysed four neobanks — Revolut, N26, Monzo, and Wise — across dimensions that directly affect task efficiency and perceived trust.
-    </p>
+  <!-- 05 — INTERVIEWS -->
+  <div class="case-shell">
+    <section class="case-section">
+      <div class="sec-label"><span>5</span>Interviews</div>
 
-    <table class="compare-table">
-      <thead>
-        <tr>
-          <th>Dimension</th>
-          <th>Revolut</th>
-          <th>N26</th>
-          <th>Monzo</th>
-          <th class="hl">UnicBank</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Taps to send money</td>
-          <td>4</td>
-          <td>5</td>
-          <td>4</td>
-          <td class="hl">2</td>
-        </tr>
-        <tr>
-          <td>Balance visible on open</td>
-          <td>Yes</td>
-          <td>Yes</td>
-          <td>Yes</td>
-          <td class="hl">Yes</td>
-        </tr>
-        <tr>
-          <td>Card controls reachable</td>
-          <td>3 taps</td>
-          <td>Buried</td>
-          <td>2 taps</td>
-          <td class="hl">1 tap</td>
-        </tr>
-        <tr>
-          <td>iOS-native feel</td>
-          <td>Partial</td>
-          <td>No</td>
-          <td>Partial</td>
-          <td class="hl">Full</td>
-        </tr>
-        <tr>
-          <td>International transfer steps</td>
-          <td>6</td>
-          <td>7</td>
-          <td>5</td>
-          <td class="hl">3</td>
-        </tr>
-        <tr>
-          <td>Onboarding length</td>
-          <td>Long</td>
-          <td>Long</td>
-          <td>Medium</td>
-          <td class="hl">Short + progressive</td>
-        </tr>
-      </tbody>
-    </table>
+      <div class="hypotheses-intro">
+        <h2 class="case-heading">
+          Confirmed 3 hypotheses and identified a <em>key insight</em>
+        </h2>
+        <p class="case-body-text" style="margin-top:0.5rem;">
+          Users struggled most with long sign-up and unclear onboarding, were
+          concerned about unintended scheduled transfers, and preferred access to
+          recent transactions over recent recipients.
+        </p>
+      </div>
 
-    <p>
-      The analysis confirmed the opportunity: existing apps optimise for feature completeness, not task speed. UnicBank targets the opposite — fast defaults with power features accessible when needed.
-    </p>
-  </section>
+      <div class="hypotheses-grid">
+        <div class="hyp-card hyp-card--yes">
+          <div class="hyp-status">Confirmed</div>
+          <h4 class="hyp-title">Split registration and bank account opening</h4>
+          <p class="hyp-note">Users wanted to explore before giving full KYC data.</p>
+        </div>
+        <div class="hyp-card hyp-card--yes">
+          <div class="hyp-status">Confirmed</div>
+          <h4 class="hyp-title">Home screen as progressive onboarding</h4>
+          <p class="hyp-note">Users needed clearer guidance after registration.</p>
+        </div>
+        <div class="hyp-card hyp-card--yes">
+          <div class="hyp-status">
+            <span>Confirmed</span>
+            <span class="hyp-badge">Insight</span>
+          </div>
+          <h4 class="hyp-title">Scheduled transfers with <span style="background:rgba(255,255,255,0.15);padding:0.05rem 0.4rem;border-radius:100px;">confirmation control</span></h4>
+          <p class="hyp-note">Users wanted automation without silent money movement.</p>
+        </div>
+        <div class="hyp-card hyp-card--no">
+          <div class="hyp-status">Not confirmed</div>
+          <h4 class="hyp-title">Quick transfers to recent recipients</h4>
+          <p class="hyp-note">Users showed more interest in recent transactions.</p>
+        </div>
+      </div>
 
-  <!-- User Flows -->
-  <section class="section" id="flows">
-    <h2>User flows</h2>
-    <p>
-      I mapped end-to-end flows for four core scenarios, charting every decision point, error state, and alternative path. Each flow was benchmarked against the competitor average number of steps.
-    </p>
+      <!-- AI in the loop -->
+      <div class="ai-loop">
+        <div class="ai-loop-header">AI in the loop</div>
+        <div class="ai-loop-steps">
+          <div>
+            <p class="ai-step-num">1. Hypothesis refinement</p>
+            <p class="ai-step-body">Helped sharpen each opportunity into a specific assumption to validate in interviews.</p>
+          </div>
+          <div>
+            <p class="ai-step-num">2. Question check</p>
+            <p class="ai-step-body">Checked questions for bias and assumptions using The Mom Test principles.</p>
+          </div>
+          <div>
+            <p class="ai-step-num">3. Transcript structuring</p>
+            <p class="ai-step-body">Transcribed Zoom calls and grouped answers by question.</p>
+          </div>
+          <div>
+            <p class="ai-step-num">4. Evidence tagging</p>
+            <p class="ai-step-body">Tagged responses as strong, weak or no support for each hypothesis.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 
-    <h3>1 — Onboarding & account creation</h3>
-    <p>
-      Identity verification is split across two moments: a short initial registration (name, email, phone) followed by ID verification triggered only when the user first needs a feature that requires it. This progressive KYC approach reduced the initial onboarding to under 90 seconds, versus the 4–7 minute competitor average.
-    </p>
+  <!-- 06 — KEY UX DECISIONS -->
+  <div class="case-shell" id="decisions">
+    <section class="case-section">
+      <div class="sec-label"><span>6</span>Key UX decisions</div>
+      <h2 class="case-heading">Three decisions that shape the product.</h2>
 
-    <h3>2 — Home screen interaction</h3>
-    <p>
-      The home screen shows live balance, the last three transactions, a quick-send row of recent recipients, and a card widget — all without scrolling. Advanced widgets (savings goal progress, FX rates, spending breakdown) appear below the fold and are surfaced contextually based on usage patterns.
-    </p>
+      <!-- Decision 01 -->
+      <div class="decision-article">
+        <div>
+          <h3 class="decision-title">1. Split registration from bank account opening.</h3>
+          <p class="decision-body">
+            The user can sign up, browse and use lightweight features without
+            committing to a full KYC flow up front. Account opening becomes contextual.
+          </p>
+        </div>
+        <div class="compare-pair">
+          <div class="compare-card compare-card--before">
+            <p class="compare-label">Before</p>
+            <ol class="compare-list" style="padding-left:0;list-style:none;">
+              <li>1. Sign up</li>
+              <li>2. ID verification</li>
+              <li>3. Address proof</li>
+              <li>4. Account opening</li>
+              <li style="text-decoration:line-through;opacity:0.5;">5. First useful action</li>
+            </ol>
+            <span class="compare-badge">~10 min to value</span>
+          </div>
+          <div class="compare-card compare-card--after">
+            <p class="compare-label">After</p>
+            <ol class="compare-list" style="padding-left:0;list-style:none;">
+              <li>1. Short registration</li>
+              <li>2. Guided home screen</li>
+              <li>3. First useful action</li>
+              <li>4. Account opening later</li>
+            </ol>
+            <span class="compare-badge">~3 min to value</span>
+          </div>
+        </div>
+      </div>
 
-    <h3>3 — Card management</h3>
-    <p>
-      The card widget on the home screen is tappable and expands to a card detail sheet: freeze/unfreeze, spending limits, online payments toggle, and virtual card number — all within a single bottom sheet, no separate screen stack.
-    </p>
+      <!-- Decision 02 -->
+      <div class="decision-article">
+        <div>
+          <h3 class="decision-title">2. Home screen as progressive onboarding.</h3>
+          <p class="decision-body">
+            The home screen is a dashboard and a discovery layer at the same time.
+            It surfaces the next meaningful action based on what the user has already done.
+          </p>
+        </div>
+        <div class="annotated-img">
+          <img src="/assets/img/unic-home.jpg"
+               alt="UNIC Bank home screen showing progressive onboarding with balance card, quick actions, and guided next step." />
+        </div>
+      </div>
 
-    <h3>4 — International transfers</h3>
-    <p>
-      Currency selection, amount entry, recipient, and confirmation are consolidated into a 3-step flow. Exchange rate and fee are shown before commitment. The flow supports both saved recipients and new ones via IBAN scan.
-    </p>
-  </section>
+      <!-- Decision 03 -->
+      <div class="decision-article">
+        <div>
+          <h3 class="decision-title">3. Scheduled transfers with confirmation.</h3>
+          <p class="decision-body">
+            Users can choose to receive a confirmation notification before each scheduled
+            transfer is executed. Automation stays convenient, while users remain in control.
+          </p>
+        </div>
+        <div>
+          <div class="compare-card compare-card--before" style="border-style:solid;">
+            <p class="compare-label">The flow</p>
+            <ol class="compare-list" style="padding-left:0;list-style:none;gap:0.85rem;">
+              <li style="font-size:0.95rem;">1. Set up transfer with recurring frequency</li>
+              <li style="font-size:0.95rem;">2. Toggle on "Require confirmation before sending"</li>
+              <li style="font-size:0.95rem;">3. Receive push notification before each execution</li>
+              <li style="font-size:0.95rem;">4. Review and confirm — or skip the transfer</li>
+            </ol>
+          </div>
+          <p class="decision-body" style="margin-top:1.25rem;">
+            Tested insight: users wanted recurring payments to be convenient without
+            allowing money to move silently. This toggle gives automation with control.
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
 
-  <!-- Design -->
-  <section class="section" id="design">
-    <h2>Design</h2>
-    <p>
-      65 screens across all flows, built to Apple's Human Interface Guidelines. The visual language uses glass morphism — translucent card surfaces layered over a deep navy gradient — to create depth while keeping the interface legible and premium.
-    </p>
+  <!-- 07 — DESIGN SCREENS -->
+  <div class="case-shell">
+    <section class="case-section">
+      <div class="sec-label"><span>7</span>Design</div>
+      <h2 class="case-heading">65 screens. End-to-end, ready to ship.</h2>
+      <p class="case-body-text" style="margin-top:1.5rem;max-width:600px;">
+        Four core flows — registration, account opening, card management, and
+        international transfers — built to Apple HIG with a full component library
+        and annotated handoff materials.
+      </p>
+      <div class="case-gallery">
+        <img src="/assets/img/unic-gallery.jpg"
+             alt="Eight UNIC Bank screens showing registration, home, card management, and transfer flows." />
+      </div>
+    </section>
+  </div>
 
-    <h3>Typography</h3>
-    <p>
-      SF Pro throughout, following iOS weight conventions. Financial figures (balance, amounts, exchange rates) use the tabular numeric variant to prevent layout shifts during live updates. A tight weight hierarchy — Regular for body, Semibold for amounts, Bold for primary CTAs — reduces visual noise.
-    </p>
-
-    <h3>Colour</h3>
-    <p>
-      Deep navy (#0D1B3E) as the primary brand surface; high-contrast amber (#F5A623) for primary actions and key financial figures; a neutral light grey (#F2F4F8) for secondary surfaces and input backgrounds. The palette passes WCAG AA contrast requirements across all text sizes.
-    </p>
-
-    <h3>Home screen innovation</h3>
-    <p>
-      The central design decision was treating the home screen as a control panel rather than a dashboard. Every element either completes a task or starts one — nothing is purely decorative. The balance card doubles as a quick-send trigger; tapping a transaction opens its full detail without navigating away from the home context.
-    </p>
-  </section>
-
-  <!-- UI Kit -->
-  <section class="section" id="uikit">
-    <h2>UI Kit</h2>
-    <p>
-      To support developer handoff and ensure visual consistency across 65 screens, I built a component library of 40+ reusable elements, organised into four categories.
-    </p>
-    <ul>
-      <li><strong>Foundations</strong> — colour tokens, typography scale, spacing grid, icon set</li>
-      <li><strong>Inputs</strong> — text fields, amount entry, search, dropdowns, toggles, segmented controls</li>
-      <li><strong>Cards & surfaces</strong> — balance card, transaction row, recipient chip, notification banner</li>
-      <li><strong>Navigation & overlays</strong> — tab bar variants, bottom sheets, action sheets, modals, toasts</li>
-    </ul>
-    <p>
-      Each component includes all interactive states: default, focused, filled, error, disabled, and loading. Annotations document spacing values, corner radii, and animation specs for iOS native transitions.
-    </p>
-  </section>
-
-  <!-- Prototype -->
-  <section class="section" id="prototype">
-    <h2>Prototype</h2>
-    <p>
-      A fully clickable Figma prototype covers all four user flows with realistic transitions — slide, sheet present, and fade — matching iOS native behaviour. The prototype was used both for internal review and for a round of informal usability walkthroughs.
-    </p>
-    <p>
-      Handoff materials include: annotated screens with spacing and type specs, a component library linked to all frames, and a written interaction guide describing custom gestures and animation timing.
-    </p>
-    <p>
-      <a href="https://www.behance.net/gallery/248270055/UnicBank-Neobank-App-UXUI" target="_blank" rel="noopener">View full project on Behance ↗</a>
-    </p>
-  </section>
-
-  <!-- Reflections -->
-  <section class="section" id="reflections">
-    <h2>Reflections</h2>
-
-    <h3>1 — Simplicity is made of hundreds of small decisions</h3>
-    <p>
-      Every element on the home screen was challenged: does this belong here, or is it a second-tap feature? That question, repeated across every screen, is what produces a genuinely simple interface. There is no single "simple" decision — just the accumulation of many constrained ones.
-    </p>
-
-    <h3>2 — iOS guidelines accelerate rather than constrain</h3>
-    <p>
-      Committing fully to Apple's HIG eliminated a category of decisions entirely — transitions, sheet behaviour, typography scale — and made developer conversations faster. The constraint became a creative boundary rather than a limitation.
-    </p>
-
-    <h3>3 — Next: usability testing</h3>
-    <p>
-      The progressive disclosure model for KYC and advanced features is a hypothesis. The natural next step would be moderated usability sessions to validate whether users discover card controls and FX features at the right moment, or whether they need earlier signposting.
-    </p>
-  </section>
-
-  <div class="case-footer-nav">
-    <a href="#top">↑ Back to top</a>
-    <a href="/subscout/">SubScout →</a>
+  <!-- 08 — OUTCOMES -->
+  <div class="case-shell" id="outcomes">
+    <section class="case-section">
+      <div class="sec-label"><span>8</span>Concept outcomes &amp; validation</div>
+      <div class="outcomes-grid">
+        <div class="outcomes-card outcomes-card--light">
+          <p class="outcomes-card-label">Concept outcomes</p>
+          <ul class="outcomes-list">
+            <li class="outcome-item">
+              <span class="outcome-num">1.</span>
+              <span>
+                <span class="outcome-content-title">Registration became a lightweight entry</span>
+                <span class="outcome-content-body">Full KYC moved from the first step to the moment when account opening became relevant.</span>
+              </span>
+            </li>
+            <li class="outcome-item">
+              <span class="outcome-num">2.</span>
+              <span>
+                <span class="outcome-content-title">Home screen became a guided starting point</span>
+                <span class="outcome-content-body">The first home screen explained available actions instead of showing a passive empty state.</span>
+              </span>
+            </li>
+            <li class="outcome-item">
+              <span class="outcome-num">3.</span>
+              <span>
+                <span class="outcome-content-title">Scheduled transfers gained confirmation control</span>
+                <span class="outcome-content-body">Users could keep recurring payments convenient without allowing money to move silently.</span>
+              </span>
+            </li>
+            <li class="outcome-item">
+              <span class="outcome-num">4.</span>
+              <span>
+                <span class="outcome-content-title">Recent recipients were deprioritized</span>
+                <span class="outcome-content-body">Testing showed stronger interest in recent transactions than quick access to recent recipients.</span>
+              </span>
+            </li>
+          </ul>
+        </div>
+        <div class="outcomes-card outcomes-card--violet">
+          <p class="outcomes-card-label">Prototype validation</p>
+          <ul class="validation-list">
+            <li class="validation-item">
+              <p class="validation-title">Time to first useful interaction</p>
+              <p class="validation-value">~10 min → ~3 min</p>
+              <p class="validation-note">Estimated from the prototype flow.</p>
+            </li>
+            <li class="validation-item">
+              <p class="validation-title">Next-action clarity</p>
+              <p class="validation-note">Users understood what to do next from the first home screen.</p>
+            </li>
+            <li class="validation-item">
+              <p class="validation-title">Account-opening timing</p>
+              <p class="validation-note">Users recognized full account opening as a contextual next step, not an upfront blocker.</p>
+            </li>
+            <li class="validation-item">
+              <p class="validation-title">Transfer confirmation clarity</p>
+              <p class="validation-note">Users understood that scheduled transfers would not be sent without confirmation.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
   </div>
 
 </div>
+
+<!-- Footer -->
+<footer class="case-footer">
+  <div class="case-footer-inner">
+    <div>
+      <div class="sec-label" style="color:rgba(255,255,255,0.45);">
+        <span style="color:rgba(255,255,255,0.45);">—</span>Get in touch
+      </div>
+      <h2 class="case-footer-title">Let's design <em>the next one.</em></h2>
+    </div>
+    <div style="display:flex;flex-direction:column;justify-content:flex-end;gap:1.5rem;">
+      <a href="mailto:marina.a.kuzminchuk@gmail.com" class="case-footer-email">marina.a.kuzminchuk@gmail.com</a>
+      <div class="case-footer-links">
+        <a href="https://www.behance.net/marinakuzminchuk" target="_blank" rel="noopener">Behance</a>
+        <a href="https://www.linkedin.com/in/marinakuzminchuk/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.behance.net/gallery/248270055/UnicBank-Neobank-App-UXUI" target="_blank" rel="noopener">View on Behance ↗</a>
+      </div>
+    </div>
+  </div>
+  <div style="border-top:1px solid rgba(255,255,255,0.08);">
+    <div class="case-footer-bottom">
+      <span>Marina Kuzminchuk · UnicBank case study · 2026</span>
+      <span><a href="/subscout/" style="color:rgba(255,255,255,0.4);">Next: SubScout →</a></span>
+    </div>
+  </div>
+</footer>

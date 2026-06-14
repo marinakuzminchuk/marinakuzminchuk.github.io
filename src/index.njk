@@ -2,77 +2,90 @@
 layout: base.njk
 ---
 
-<header class="top-bar">
-  <span class="top-name">Marina Kuzminchuk</span>
-  <div class="top-links">
-    <a href="https://www.linkedin.com/in/marinakuzminchuk/" target="_blank" rel="noopener">LinkedIn ↗</a>
-    <a href="/assets/MarinaKuzminchuk_CV.pdf" target="_blank" rel="noopener">CV ↗</a>
+<div class="home-wrap">
+
+  <!-- Top bar -->
+  <header class="top-bar">
+    <span class="top-name">Marina Kuzminchuk</span>
+    <div class="top-links">
+      <a href="/assets/MarinaKuzminchuk_CV.pdf" target="_blank" rel="noopener">CV ↗</a>
+      <a href="https://www.linkedin.com/in/marinakuzminchuk/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+  </header>
+
+  <!-- Hero + Skills card -->
+  <div class="card hero-card">
+    <div class="hero-blob" aria-hidden="true"></div>
+
+    <h1 class="hero-title">UX/UI<br><span class="title-light">Designer</span></h1>
+
+    <p class="hero-bio">
+      I'm a UX/UI Designer with 2 years of software development experience.
+      I leverage user-centered research, AI-powered prototyping, and systems
+      thinking to create intuitive, visually appealing web and mobile interfaces
+      that stand out and are ready to ship.
+    </p>
+
+    <p class="skills-label">Things I'm good at</p>
+    <div class="chips">
+      <span class="chip">User flows</span>
+      <span class="chip">Wireframing</span>
+      <span class="chip">Design systems</span>
+      <span class="chip">Web &amp; Mobile UI</span>
+      <span class="chip">Technical feasibility</span>
+      <span class="chip">Visual design</span>
+      <span class="chip">Usability testing</span>
+      <span class="chip">AI-assisted workflows</span>
+      <span class="chip">User research</span>
+      <span class="chip">Developer handoff</span>
+    </div>
   </div>
-</header>
 
-<section class="hero-desc">
-  <h1 class="hero-tagline">UX/UI designer who makes complex products feel simple — from research to developer handoff.</h1>
-  <p class="hero-bio">
-    Two years into my engineering career at Cross4Channel, I kept noticing the same pattern: the hardest conversations weren't about how to build something — they were about what it should actually do. I was already contributing to UX decisions, so the move to design felt less like a pivot and more like following where my attention was already going.
-  </p>
-  <p class="hero-bio">
-    I work from research to handoff — user interviews, flow mapping, wireframing, high-fidelity design, usability testing. My engineering background means I understand implementation constraints and design things that are feasible to build.
-  </p>
-</section>
+  <!-- Latest Projects card -->
+  <div class="card projects-card">
+    <p class="section-label">Latest Projects</p>
 
-<section class="work-section">
-  <p class="section-label">Selected work</p>
+    <div class="project-list">
 
-  <div class="project-cards">
-
-    <article class="project-card">
-      <a href="/unicbank/" class="card-cover card-cover--unic" aria-label="UnicBank case study">
-        <div>
-          <p class="cover-unic-eyebrow">Balance</p>
-          <p class="cover-unic-amount">€ 4,291.00</p>
+      <a href="/unicbank/" class="project-item">
+        <div class="project-info">
+          <p class="project-eyebrow">UnicBank / UX/UI Case Study / 2026</p>
+          <h2 class="project-name">Neobank App</h2>
+          <p class="project-tags">UX/UI Design / Mobile App / User Flows /<br>Wireframing / Prototyping / Visual Design</p>
+          <span class="project-arrow">↗</span>
         </div>
-        <div class="cover-unic-card-shape"></div>
-      </a>
-      <div class="card-body">
-        <div class="card-meta">
-          <span class="card-badge">B2C</span>
-          <span class="card-badge">iOS</span>
-          <span class="card-badge">Fintech</span>
-          <span class="card-badge">2026</span>
-        </div>
-        <h2 class="card-title"><a href="/unicbank/">UnicBank</a></h2>
-        <p class="card-desc">Neobank app concept — reduced core banking actions to 2 taps, compressed onboarding to 90 seconds, 65 screens with full developer handoff.</p>
-        <p class="card-methodology">Research · Competitive analysis · UX/UI Design · Prototyping · Handoff</p>
-        <a href="/unicbank/" class="card-link">View case study →</a>
-      </div>
-    </article>
-
-    <article class="project-card">
-      <a href="/subscout/" class="card-cover card-cover--sub" aria-label="SubScout case study">
-        <div>
-          <p class="cover-sub-eyebrow">Monthly total</p>
-          <p class="cover-sub-amount">€ 127.43</p>
-        </div>
-        <div class="cover-sub-cats">
-          <span class="sub-cat sub-cat--red">Entertainment</span>
-          <span class="sub-cat sub-cat--teal">Productivity</span>
-          <span class="sub-cat sub-cat--blue">Health</span>
-          <span class="sub-cat sub-cat--green">Storage</span>
+        <div class="project-thumb">
+          <img src="/assets/img/unic-hero.jpg" alt="UnicBank mobile banking app screens" />
         </div>
       </a>
-      <div class="card-body">
-        <div class="card-meta">
-          <span class="card-badge">B2C</span>
-          <span class="card-badge">iOS</span>
-          <span class="card-badge">Productivity</span>
-          <span class="card-badge">2026</span>
-        </div>
-        <h2 class="card-title"><a href="/subscout/">SubScout</a></h2>
-        <p class="card-desc">Subscription management app — brought fragmented subscription data into one clear, actionable view across 28 screens and 18 user scenarios.</p>
-        <p class="card-methodology">Research · UX/UI Design · Data visualisation · Prototyping</p>
-        <a href="/subscout/" class="card-link">View case study →</a>
-      </div>
-    </article>
 
+      <a href="/subscout/" class="project-item">
+        <div class="project-info">
+          <p class="project-eyebrow">SUBScout / UX/UI Case Study / 2025</p>
+          <h2 class="project-name">Subscription Management App</h2>
+          <p class="project-tags">UX/UI Design / Mobile App / Product Discovery / User Flows /<br>Wireframing / Prototyping / Visual Design</p>
+          <span class="project-arrow">↗</span>
+        </div>
+        <div class="project-thumb project-thumb--sub" aria-hidden="true">
+          <p class="sub-viz-label">Monthly total</p>
+          <p class="sub-viz-total">€127.43</p>
+          <div class="sub-viz-bars">
+            <div class="sub-viz-bar" style="height:52%;background:#7B61FF;"></div>
+            <div class="sub-viz-bar" style="height:38%;background:#C7B8FF;"></div>
+            <div class="sub-viz-bar" style="height:70%;background:#7B61FF;"></div>
+            <div class="sub-viz-bar" style="height:28%;background:#C7B8FF;"></div>
+            <div class="sub-viz-bar" style="height:60%;background:#7B61FF;"></div>
+            <div class="sub-viz-bar" style="height:44%;background:#C7B8FF;"></div>
+          </div>
+        </div>
+      </a>
+
+    </div>
   </div>
-</section>
+
+  <!-- Email footer -->
+  <div class="card email-card">
+    email: <a href="mailto:marina.a.kuzminchuk@gmail.com">marina.a.kuzminchuk@gmail.com</a>
+  </div>
+
+</div>

@@ -1,196 +1,398 @@
 ---
 layout: base.njk
-title: SubScout
+title: SUBScout — Subscription Management App
+description: A UX/UI case study designing an iOS app that brings fragmented subscription data into one clear, actionable view.
 permalink: /subscout/
 ---
 
-<a class="case-back" href="/">← Work</a>
+<div class="case-body">
 
-<div class="case-study">
-
-  <h1 class="case-title">SubScout</h1>
-  <p class="case-sub">Subscription Management App · iOS Concept · 2026</p>
-  <a class="case-ext" href="https://www.behance.net/gallery/247834289/SUBScout-Subscription-Management-App" target="_blank" rel="noopener">View on Behance ↗</a>
-
-  <div class="meta-row">
-    <div>
-      <p class="meta-label">Role</p>
-      <p class="meta-value">UX/UI Designer</p>
-    </div>
-    <div>
-      <p class="meta-label">Duration</p>
-      <p class="meta-value">2026, 6 weeks</p>
-    </div>
-    <div>
-      <p class="meta-label">Tools</p>
-      <p class="meta-value">Figma</p>
-    </div>
+  <!-- Top bar -->
+  <div class="case-shell">
+    <nav class="case-topbar">
+      <a href="/" class="case-back">← Work</a>
+      <div class="case-topnav">
+        <a href="#snapshot">Project</a>
+        <a href="#research">Research</a>
+        <a href="#decisions">Design</a>
+        <a href="#outcomes">Prototype</a>
+      </div>
+    </nav>
   </div>
 
-  <nav class="toc">
-    <p class="toc-label">Contents</p>
-    <ul class="toc-list">
-      <li><a href="#overview">Overview</a></li>
-      <li><a href="#research">Research</a></li>
-      <li><a href="#flows">User flows</a></li>
-      <li><a href="#design">Design</a></li>
-      <li><a href="#features">Key features</a></li>
-      <li><a href="#prototype">Prototype</a></li>
-      <li><a href="#reflections">Reflections</a></li>
-    </ul>
-  </nav>
+  <!-- 01 — HERO -->
+  <div class="case-shell">
+    <section class="case-hero">
+      <div class="sec-label"><span>1</span>Case study</div>
+      <div class="case-hero-grid">
+        <div>
+          <h1 class="case-hero-title">SUB<em>Scout</em></h1>
+          <p class="case-hero-sub">
+            The average person pays for 4–6 subscriptions they've forgotten about.
+            SUBScout is an iOS app concept that brings all of that into one clear,
+            actionable view.
+          </p>
+        </div>
+        <div class="case-hero-img" style="background:#10101E;display:flex;align-items:center;justify-content:center;min-height:260px;padding:2.5rem;">
+          <div style="width:100%;">
+            <p style="font-size:0.6rem;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:0.3rem;">Analytics · August</p>
+            <p style="font-size:2rem;font-weight:700;color:#FFFFFF;letter-spacing:-0.03em;margin-bottom:1.5rem;">36.49 EUR</p>
+            <div style="display:flex;gap:6px;align-items:flex-end;height:80px;margin-bottom:1.25rem;">
+              <div style="flex:1;height:45%;background:#7B61FF;border-radius:3px 3px 0 0;opacity:0.7;"></div>
+              <div style="flex:1;height:55%;background:#7B61FF;border-radius:3px 3px 0 0;opacity:0.8;"></div>
+              <div style="flex:1;height:70%;background:#7B61FF;border-radius:3px 3px 0 0;opacity:0.9;"></div>
+              <div style="flex:1;height:60%;background:#7B61FF;border-radius:3px 3px 0 0;"></div>
+              <div style="flex:1;height:80%;background:#C7B8FF;border-radius:3px 3px 0 0;"></div>
+              <div style="flex:1;height:100%;background:#C7B8FF;border-radius:3px 3px 0 0;"></div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:0.5rem;">
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:0.5rem 0.75rem;background:rgba(255,255,255,0.06);border-radius:8px;">
+                <span style="font-size:0.78rem;color:rgba(255,255,255,0.8);">Music</span>
+                <span style="font-size:0.78rem;color:rgba(255,255,255,0.5);">13.99€</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:0.5rem 0.75rem;background:rgba(255,255,255,0.06);border-radius:8px;">
+                <span style="font-size:0.78rem;color:rgba(255,255,255,0.8);">Streaming</span>
+                <span style="font-size:0.78rem;color:rgba(255,255,255,0.5);">15.90€</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 
-  <!-- Overview -->
-  <section class="section" id="overview">
-    <h2>Overview</h2>
-    <p>
-      The average person pays for 4–6 subscriptions they've forgotten about. Streaming services, SaaS tools, fitness apps, cloud storage — each auto-renews quietly, and the costs accumulate invisibly across different cards and billing cycles. SubScout is an iOS app concept designed to bring all of that into one clear view.
-    </p>
-    <p>
-      The project focused on making complex, fragmented subscription data feel manageable: structured to reduce cognitive load, searchable and filterable for quick retrieval, and analytical enough to help users make informed decisions about what to keep and what to cancel.
-    </p>
-    <p>
-      The work covered research, 18 user flow scenarios from core to edge cases, 28 screens of wireframes and high-fidelity designs, and a clickable Figma prototype.
-    </p>
-  </section>
+  <!-- 02 — SNAPSHOT -->
+  <div class="case-shell" id="snapshot">
+    <section class="case-section">
+      <div class="sec-label"><span>2</span>Project snapshot</div>
+      <div class="snapshot-grid">
+        <div class="meta-card">
+          <p class="meta-card-label">Role</p>
+          <p class="meta-card-value">UX / UI Designer</p>
+        </div>
+        <div class="meta-card">
+          <p class="meta-card-label">Type</p>
+          <p class="meta-card-value">B2C productivity concept</p>
+        </div>
+        <div class="meta-card">
+          <p class="meta-card-label">Platform</p>
+          <p class="meta-card-value">iOS mobile app</p>
+        </div>
+        <div class="meta-card">
+          <p class="meta-card-label">Duration</p>
+          <p class="meta-card-value">6 weeks</p>
+        </div>
+      </div>
+      <div class="scope-card">
+        <p class="meta-card-label">Scope</p>
+        <p class="meta-card-value">User research · 18 user flow scenarios · 28 screens · Wireframing · High-fidelity design · Interactive prototype</p>
+      </div>
+    </section>
+  </div>
 
-  <!-- Research -->
-  <section class="section" id="research">
-    <h2>Research</h2>
-    <p>
-      I began with research into how people currently track subscriptions — or fail to. Most rely on memory, bank statement scrolling, or informal notes. The problem isn't awareness that subscriptions exist; it's the absence of a single source of truth.
-    </p>
+  <!-- 03 — RESEARCH -->
+  <div class="case-shell" id="research">
+    <section class="case-section">
+      <div class="sec-label"><span>3</span>Research</div>
+      <h2 class="case-heading">One problem, three types of user.</h2>
+      <p class="case-body-text" style="margin-top:1.5rem;max-width:600px;">
+        Most people rely on memory, bank statement scrolling, or informal notes to
+        track subscriptions. The problem isn't awareness that subscriptions exist —
+        it's the absence of a single source of truth.
+      </p>
 
-    <h3>Core user scenarios identified</h3>
-    <ul>
-      <li><strong>The forgetter</strong> — pays for services they no longer use, discovers them only when checking a bank statement after the fact.</li>
-      <li><strong>The optimiser</strong> — actively wants to reduce spend, but lacks a clear breakdown of what they pay, when, and whether it's worth it.</li>
-      <li><strong>The sharer</strong> — splits subscriptions with family or flatmates and needs to track who owes what across shared plans.</li>
-    </ul>
+      <div class="challenge-pair" style="margin-top:2.5rem;">
+        <div class="challenge-card challenge-card--neutral">
+          <p class="challenge-card-label">User archetypes</p>
+          <h3 class="challenge-card-title">Who uses SUBScout</h3>
+          <ul class="challenge-list">
+            <li><strong>The forgetter</strong> — pays for services they no longer use, discovers them only on bank statements.</li>
+            <li><strong>The optimiser</strong> — actively wants to reduce spend but lacks a clear breakdown.</li>
+            <li><strong>The sharer</strong> — splits subscriptions with family and needs to track shared costs.</li>
+          </ul>
+        </div>
+        <div class="challenge-card challenge-card--violet">
+          <p class="challenge-card-label">Key pain points</p>
+          <h3 class="challenge-card-title">What needed to change</h3>
+          <ul class="challenge-list" style="color:rgba(255,255,255,0.88);">
+            <li>No consolidated view across apps, stores, and cards.</li>
+            <li>Renewal surprises — charges hit before users notice.</li>
+            <li>Cancellation friction — users forget where to cancel.</li>
+            <li>Monthly total unknown until calculated manually.</li>
+          </ul>
+        </div>
+      </div>
 
-    <h3>Key pain points</h3>
-    <ul>
-      <li>No consolidated view — subscriptions live across different email accounts, app stores, and bank cards.</li>
-      <li>Renewal surprises — upcoming payments aren't visible until they've already hit the account.</li>
-      <li>Cancellation friction — users know they want to cancel but can't remember where or how to do it.</li>
-      <li>No spend clarity — the monthly total is unknown until calculated manually.</li>
-    </ul>
+      <div style="border-left:2px solid var(--stroke-lavender);padding:1rem 1.5rem;margin-top:2.5rem;font-size:0.95rem;color:var(--muted);font-style:italic;max-width:640px;">
+        "I don't even know what I'm paying for until I check my bank app at the end of the month and see charges I didn't expect."
+      </div>
+    </section>
+  </div>
 
-    <div class="callout">
-      "I don't even know what I'm paying for until I check my bank app at the end of the month and see charges I didn't expect."
-    </div>
-  </section>
+  <!-- 04 — USER FLOWS -->
+  <div class="case-shell">
+    <section class="case-section">
+      <div class="sec-label"><span>4</span>User flows</div>
+      <h2 class="case-heading">18 scenarios — from core flows to edge cases.</h2>
+      <p class="case-body-text" style="margin-top:1.5rem;max-width:580px;">
+        This range ensured the design held up across realistic, irregular usage
+        patterns — not just the happy path.
+      </p>
 
-  <!-- User Flows -->
-  <section class="section" id="flows">
-    <h2>User flows</h2>
-    <p>
-      I mapped 18 scenarios in total: 6 main flows covering the core product, 8 additional flows for secondary functionality, and 4 edge-case flows for error and empty states. This range ensured the design held up across realistic, irregular usage patterns — not just the happy path.
-    </p>
+      <div class="outcomes-grid" style="margin-top:2.5rem;">
+        <div class="outcomes-card outcomes-card--light">
+          <p class="outcomes-card-label">6 main flows</p>
+          <ul class="outcomes-list">
+            <li class="outcome-item">
+              <span class="outcome-num">1.</span>
+              <span><span class="outcome-content-title">Onboarding</span><span class="outcome-content-body">First launch, permissions, adding the first subscription.</span></span>
+            </li>
+            <li class="outcome-item">
+              <span class="outcome-num">2.</span>
+              <span><span class="outcome-content-title">Add subscription</span><span class="outcome-content-body">Manual entry with name, amount, billing cycle, category, renewal date.</span></span>
+            </li>
+            <li class="outcome-item">
+              <span class="outcome-num">3.</span>
+              <span><span class="outcome-content-title">Dashboard overview</span><span class="outcome-content-body">All subscriptions with total monthly cost prominently shown.</span></span>
+            </li>
+            <li class="outcome-item">
+              <span class="outcome-num">4.</span>
+              <span><span class="outcome-content-title">Search &amp; filter</span><span class="outcome-content-body">Find subscriptions by name, category, cost range, or frequency.</span></span>
+            </li>
+            <li class="outcome-item">
+              <span class="outcome-num">5.</span>
+              <span><span class="outcome-content-title">Subscription detail</span><span class="outcome-content-body">Full history, editing, and cancellation reminders.</span></span>
+            </li>
+            <li class="outcome-item">
+              <span class="outcome-num">6.</span>
+              <span><span class="outcome-content-title">Analytics view</span><span class="outcome-content-body">Monthly spend breakdown by category with trend over time.</span></span>
+            </li>
+          </ul>
+        </div>
+        <div class="outcomes-card outcomes-card--violet">
+          <p class="outcomes-card-label">8 additional + 4 edge cases</p>
+          <ul class="validation-list">
+            <li class="validation-item">
+              <p class="validation-title">Shared plan management</p>
+              <p class="validation-note">Track who owes what across shared plans.</p>
+            </li>
+            <li class="validation-item">
+              <p class="validation-title">Currency conversion</p>
+              <p class="validation-note">International subscriptions in multiple currencies.</p>
+            </li>
+            <li class="validation-item">
+              <p class="validation-title">Annual vs monthly comparison</p>
+              <p class="validation-note">Full-year cost projection most users have never calculated.</p>
+            </li>
+            <li class="validation-item">
+              <p class="validation-title">Empty states &amp; errors</p>
+              <p class="validation-note">New account, invalid data, interrupted onboarding, closed-app notifications.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
 
-    <h3>6 main flows</h3>
-    <ul>
-      <li><strong>Onboarding</strong> — first launch, permissions, and adding the first subscription</li>
-      <li><strong>Add subscription</strong> — manual entry with name, amount, billing cycle, category, and renewal date</li>
-      <li><strong>Dashboard overview</strong> — browsing all subscriptions with total monthly cost prominently shown</li>
-      <li><strong>Search & filter</strong> — finding subscriptions by name, category, cost range, or billing frequency</li>
-      <li><strong>Subscription detail</strong> — viewing full history, editing details, setting a cancellation reminder</li>
-      <li><strong>Analytics view</strong> — monthly spend breakdown by category with trend over time</li>
-    </ul>
+  <!-- 05 — KEY DESIGN DECISIONS -->
+  <div class="case-shell" id="decisions">
+    <section class="case-section">
+      <div class="sec-label"><span>5</span>Key design decisions</div>
+      <h2 class="case-heading">Data clarity through restraint.</h2>
 
-    <h3>8 additional flows</h3>
-    <p>
-      Covering shared plan management, currency conversion for international subscriptions, notification preferences, archiving cancelled subscriptions, annual vs. monthly cost comparison, exporting a spend report, dark mode toggle, and widget configuration.
-    </p>
+      <!-- Decision 01 -->
+      <div class="decision-article">
+        <div>
+          <h3 class="decision-title">1. Surface renewals before they happen.</h3>
+          <p class="decision-body">
+            A dedicated section at the top of the dashboard surfaces renewals
+            within the next 7 days — directly addressing the most common pain
+            point: renewal surprises.
+          </p>
+        </div>
+        <div class="compare-pair">
+          <div class="compare-card compare-card--before">
+            <p class="compare-label">The problem</p>
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:0.65rem;font-size:0.92rem;color:var(--muted);">
+              <li>Charges appear after the fact</li>
+              <li>No advance warning system</li>
+              <li>Buried in calendar or bank app</li>
+            </ul>
+          </div>
+          <div class="compare-card compare-card--after">
+            <p class="compare-label">The solution</p>
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:0.65rem;font-size:0.92rem;">
+              <li>Renewals strip on dashboard</li>
+              <li>7-day lookahead always visible</li>
+              <li>Push notification reminders</li>
+            </ul>
+          </div>
+        </div>
+      </div>
 
-    <h3>4 edge-case flows</h3>
-    <p>
-      Empty states for a new account with no subscriptions, error handling for invalid subscription data, interrupted onboarding recovery, and behaviour when a renewal reminder fires while the app is closed.
-    </p>
-  </section>
+      <!-- Decision 02 -->
+      <div class="decision-article">
+        <div>
+          <h3 class="decision-title">2. Category system that links list to analytics.</h3>
+          <p class="decision-body">
+            Each subscription gets a category — Entertainment, Productivity, Health,
+            Storage — with a distinct colour token. The colour runs as a left border
+            on each list row and fills the analytics chart, creating a visual link
+            without overloading the interface.
+          </p>
+        </div>
+        <div>
+          <div class="compare-card compare-card--before" style="border-style:solid;">
+            <p class="compare-label">Category colours</p>
+            <div style="display:flex;flex-direction:column;gap:0.6rem;margin-top:0.5rem;">
+              <div style="display:flex;align-items:center;gap:0.75rem;">
+                <div style="width:3px;height:2rem;background:#e74c3c;border-radius:2px;flex-shrink:0;"></div>
+                <span style="font-size:0.88rem;">Entertainment</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:0.75rem;">
+                <div style="width:3px;height:2rem;background:#1abc9c;border-radius:2px;flex-shrink:0;"></div>
+                <span style="font-size:0.88rem;">Productivity</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:0.75rem;">
+                <div style="width:3px;height:2rem;background:#3498db;border-radius:2px;flex-shrink:0;"></div>
+                <span style="font-size:0.88rem;">Health</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:0.75rem;">
+                <div style="width:3px;height:2rem;background:#27ae60;border-radius:2px;flex-shrink:0;"></div>
+                <span style="font-size:0.88rem;">Storage</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-  <!-- Design -->
-  <section class="section" id="design">
-    <h2>Design</h2>
-    <p>
-      28 screens across all flows. The design system prioritises data clarity above aesthetics — subscription data is inherently tabular and repetitive, so the challenge was making it scannable without feeling like a spreadsheet.
-    </p>
+      <!-- Decision 03 -->
+      <div class="decision-article">
+        <div>
+          <h3 class="decision-title">3. Fast subscription setup — under 30 seconds.</h3>
+          <p class="decision-body">
+            A search-first entry field pulls from a library of 200+ common services
+            with pre-filled logos and typical pricing, falling back to manual entry
+            for anything unlisted.
+          </p>
+        </div>
+        <div>
+          <div class="compare-pair">
+            <div class="compare-card compare-card--before">
+              <p class="compare-label">Manual entry (fallback)</p>
+              <ul style="list-style:none;display:flex;flex-direction:column;gap:0.55rem;font-size:0.88rem;color:var(--muted);">
+                <li>Service name</li>
+                <li>Monthly amount</li>
+                <li>Billing cycle</li>
+                <li>Renewal date</li>
+                <li>Category</li>
+              </ul>
+            </div>
+            <div class="compare-card compare-card--after">
+              <p class="compare-label">Search-first entry</p>
+              <ul style="list-style:none;display:flex;flex-direction:column;gap:0.55rem;font-size:0.88rem;">
+                <li>Find service by name</li>
+                <li>Logo + price pre-filled</li>
+                <li>Set billing &amp; date</li>
+                <li>Done in one step</li>
+              </ul>
+              <span class="compare-badge">~30 sec to add</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 
-    <h3>Information hierarchy</h3>
-    <p>
-      Each subscription row shows exactly what a user needs to act on it: service name and logo, monthly cost, next renewal date, and category tag. Secondary details — billing history, annual total, sharing status — sit one level deeper in the detail view. Nothing competes with the cost figure.
-    </p>
+  <!-- 06 — OUTCOMES -->
+  <div class="case-shell" id="outcomes">
+    <section class="case-section">
+      <div class="sec-label"><span>6</span>Prototype &amp; reflections</div>
+      <h2 class="case-heading">28 screens. Every state accounted for.</h2>
+      <p class="case-body-text" style="margin-top:1.5rem;max-width:580px;">
+        The prototype covers all six main flows with realistic transitions and was
+        designed to be self-navigable — a first-time viewer can explore without a guide.
+      </p>
 
-    <h3>Colour and category system</h3>
-    <p>
-      Subscriptions are organised into categories — Entertainment, Productivity, Health, Storage, Other — each with a distinct colour token. The category colour runs as a subtle left border on each row and as a fill in the analytics pie chart, creating a visual link between the list and the breakdown without overloading the interface.
-    </p>
-
-    <h3>Upcoming payments</h3>
-    <p>
-      A dedicated section at the top of the dashboard surfaces renewals within the next 7 days. This directly addresses the most common pain point — renewal surprises — by making upcoming charges impossible to miss rather than buried in a calendar view.
-    </p>
-  </section>
-
-  <!-- Key Features -->
-  <section class="section" id="features">
-    <h2>Key features</h2>
-
-    <h3>Subscription dashboard</h3>
-    <p>
-      The main view shows total monthly spend, an upcoming renewals strip, and a categorised list of all subscriptions. A persistent summary bar at the top keeps the total cost visible while scrolling through the full list.
-    </p>
-
-    <h3>Search and filtering</h3>
-    <p>
-      Full-text search across subscription names combined with multi-select filters: category, billing frequency (monthly / annual / weekly), cost range, and status (active / paused / cancelled). Filter state is preserved between sessions so frequent filters don't need to be reapplied.
-    </p>
-
-    <h3>Subscription setup</h3>
-    <p>
-      Adding a subscription takes under 30 seconds. A search-first entry field pulls from a library of 200+ common services with pre-filled logos and typical pricing, falling back to manual entry for anything unlisted. Billing cycle and renewal date are set in a single step using a native iOS date picker.
-    </p>
-
-    <h3>Analytics views</h3>
-    <p>
-      A monthly spend chart shows cost trend over the past 6 months. A category breakdown shows where money is going. An annual projection calculates the full-year cost including annual subscriptions — a figure most users have never seen before.
-    </p>
-  </section>
-
-  <!-- Prototype -->
-  <section class="section" id="prototype">
-    <h2>Prototype</h2>
-    <p>
-      A clickable Figma prototype covers all six main flows with realistic transitions. The prototype was designed to be self-navigable — a first-time viewer can move through the app without a guide, which made it useful for informal usability walkthroughs.
-    </p>
-    <p>
-      <a href="https://www.behance.net/gallery/247834289/SUBScout-Subscription-Management-App" target="_blank" rel="noopener">View full project on Behance ↗</a>
-    </p>
-  </section>
-
-  <!-- Reflections -->
-  <section class="section" id="reflections">
-    <h2>Reflections</h2>
-
-    <h3>1 — Edge cases reveal structural weaknesses</h3>
-    <p>
-      Designing the 4 edge-case flows exposed gaps in the main flows that weren't visible during happy-path design. The interrupted onboarding recovery scenario, in particular, required rethinking how subscription state was persisted — a change that improved the main flow too.
-    </p>
-
-    <h3>2 — Data clarity requires restraint</h3>
-    <p>
-      The temptation with a data-heavy app is to show everything: full billing history, detailed analytics, granular filters, all at once. The design process was largely one of removal — hiding data that users don't need at that moment, surfacing it only when they navigate toward it.
-    </p>
-
-    <h3>3 — Next: real-data testing</h3>
-    <p>
-      The analytics views are based on assumed usage patterns. With real users and real subscription data, the most valuable chart or summary might be different from what was designed. A/B testing the dashboard layout against actual engagement would be the first post-launch experiment.
-    </p>
-  </section>
-
-  <div class="case-footer-nav">
-    <a href="#top">↑ Back to top</a>
-    <a href="/unicbank/">← UnicBank</a>
+      <div class="outcomes-grid" style="margin-top:2.5rem;">
+        <div class="outcomes-card outcomes-card--light">
+          <p class="outcomes-card-label">Design outcomes</p>
+          <ul class="outcomes-list">
+            <li class="outcome-item">
+              <span class="outcome-num">1.</span>
+              <span>
+                <span class="outcome-content-title">Renewals impossible to miss</span>
+                <span class="outcome-content-body">Upcoming charges surface at the top of the dashboard, not buried in a calendar.</span>
+              </span>
+            </li>
+            <li class="outcome-item">
+              <span class="outcome-num">2.</span>
+              <span>
+                <span class="outcome-content-title">Monthly total always visible</span>
+                <span class="outcome-content-body">A persistent summary bar keeps the cost visible while scrolling through the full list.</span>
+              </span>
+            </li>
+            <li class="outcome-item">
+              <span class="outcome-num">3.</span>
+              <span>
+                <span class="outcome-content-title">Edge cases revealed structural gaps</span>
+                <span class="outcome-content-body">The interrupted onboarding scenario required rethinking subscription state persistence — improving the main flow too.</span>
+              </span>
+            </li>
+            <li class="outcome-item">
+              <span class="outcome-num">4.</span>
+              <span>
+                <span class="outcome-content-title">Data clarity requires restraint</span>
+                <span class="outcome-content-body">The design process was largely one of removal — hiding data users don't need at that moment.</span>
+              </span>
+            </li>
+          </ul>
+        </div>
+        <div class="outcomes-card outcomes-card--violet">
+          <p class="outcomes-card-label">What's next</p>
+          <ul class="validation-list">
+            <li class="validation-item">
+              <p class="validation-title">Real-data testing</p>
+              <p class="validation-note">Analytics views are based on assumed patterns. With real data, the most valuable chart might differ from what was designed.</p>
+            </li>
+            <li class="validation-item">
+              <p class="validation-title">A/B test dashboard layout</p>
+              <p class="validation-note">Testing subscription list vs analytics-first against actual engagement would be the first post-launch experiment.</p>
+            </li>
+            <li class="validation-item">
+              <p class="validation-title">Bank integration</p>
+              <p class="validation-note">Auto-detection from bank transaction data would dramatically reduce manual entry friction.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
   </div>
 
 </div>
+
+<!-- Footer -->
+<footer class="case-footer">
+  <div class="case-footer-inner">
+    <div>
+      <div class="sec-label" style="color:rgba(255,255,255,0.45);">
+        <span style="color:rgba(255,255,255,0.45);">—</span>Get in touch
+      </div>
+      <h2 class="case-footer-title">Let's design <em>the next one.</em></h2>
+    </div>
+    <div style="display:flex;flex-direction:column;justify-content:flex-end;gap:1.5rem;">
+      <a href="mailto:marina.a.kuzminchuk@gmail.com" class="case-footer-email">marina.a.kuzminchuk@gmail.com</a>
+      <div class="case-footer-links">
+        <a href="https://www.behance.net/marinakuzminchuk" target="_blank" rel="noopener">Behance</a>
+        <a href="https://www.linkedin.com/in/marinakuzminchuk/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.behance.net/gallery/247834289/SUBScout-Subscription-Management-App" target="_blank" rel="noopener">View on Behance ↗</a>
+      </div>
+    </div>
+  </div>
+  <div style="border-top:1px solid rgba(255,255,255,0.08);">
+    <div class="case-footer-bottom">
+      <span>Marina Kuzminchuk · SUBScout case study · 2025</span>
+      <span><a href="/unicbank/" style="color:rgba(255,255,255,0.4);">← UnicBank</a></span>
+    </div>
+  </div>
+</footer>
