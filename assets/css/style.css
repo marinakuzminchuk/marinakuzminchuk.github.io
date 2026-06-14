@@ -333,23 +333,12 @@ img { display: block; max-width: 100%; }
 
 /* Section labels */
 .sec-label {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  font-size: 0.65rem;
-  font-weight: 500;
-  letter-spacing: 0.18em;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: #3D3A4B;
   margin-bottom: 2rem;
-}
-
-.sec-label::after {
-  content: '';
-  display: inline-block;
-  width: 2rem;
-  height: 1px;
-  background: var(--border);
 }
 
 /* Case hero */
@@ -409,11 +398,12 @@ img { display: block; max-width: 100%; }
 }
 
 .case-heading {
-  font-size: clamp(1.5rem, 3.5vw, 2.75rem);
+  font-size: clamp(1.75rem, 3.5vw, 3rem);
   font-weight: 700;
   line-height: 1.05;
   letter-spacing: -0.025em;
   max-width: 700px;
+  color: var(--text);
 }
 
 .case-heading em {
@@ -423,8 +413,8 @@ img { display: block; max-width: 100%; }
 }
 
 .case-body-text {
-  font-size: 0.95rem;
-  color: var(--muted);
+  font-size: 1rem;
+  color: #4A4557;
   line-height: 1.75;
 }
 
@@ -493,10 +483,10 @@ img { display: block; max-width: 100%; }
 }
 
 .challenge-card-label {
-  font-size: 0.62rem;
-  letter-spacing: 0.18em;
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: #3D3A4B;
   margin-bottom: 1.25rem;
 }
 
@@ -589,8 +579,8 @@ img { display: block; max-width: 100%; }
   flex-wrap: wrap;
   gap: 1.5rem;
   margin-top: 1.25rem;
-  font-size: 0.75rem;
-  color: var(--muted);
+  font-size: 0.78rem;
+  color: #4A4557;
 }
 
 .comp-legend-item {
@@ -742,16 +732,17 @@ img { display: block; max-width: 100%; }
 }
 
 .decision-title {
-  font-size: 1.35rem;
-  font-weight: 600;
+  font-size: 1.5rem;
+  font-weight: 700;
   line-height: 1.2;
+  color: var(--text);
   margin-bottom: 1.1rem;
 }
 
 .decision-body {
-  font-size: 0.88rem;
-  color: var(--muted);
-  line-height: 1.7;
+  font-size: 0.95rem;
+  color: #4A4557;
+  line-height: 1.75;
 }
 
 /* Before / After */
@@ -884,10 +875,10 @@ img { display: block; max-width: 100%; }
 }
 
 .outcomes-card-label {
-  font-size: 0.62rem;
-  letter-spacing: 0.18em;
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: #3D3A4B;
   margin-bottom: 1.5rem;
 }
 
@@ -923,9 +914,9 @@ img { display: block; max-width: 100%; }
 }
 
 .outcome-content-body {
-  font-size: 0.85rem;
-  color: var(--muted);
-  line-height: 1.5;
+  font-size: 0.88rem;
+  color: #4A4557;
+  line-height: 1.55;
 }
 
 .validation-list {
