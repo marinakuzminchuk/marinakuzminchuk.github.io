@@ -924,69 +924,6 @@ img { display: block; max-width: 100%; }
   color: rgba(255,255,255,0.75);
 }
 
-/* Case study footer */
-.case-footer {
-  background: var(--text);
-  color: white;
-  margin-top: 5rem;
-}
-
-.case-footer-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 5rem 2.5rem;
-  display: grid;
-  grid-template-columns: 7fr 5fr;
-  gap: 2.5rem;
-  align-items: end;
-}
-
-.case-footer-title {
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
-  font-weight: 700;
-  line-height: 0.95;
-  letter-spacing: -0.03em;
-  margin-top: 2.5rem;
-}
-
-.case-footer-title em {
-  font-family: "Fraunces", serif;
-  font-style: italic;
-  font-weight: 400;
-}
-
-.case-footer-email {
-  font-size: 1.3rem;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  color: white;
-  display: block;
-  margin-bottom: 1.5rem;
-}
-
-.case-footer-email:hover { opacity: 0.8; text-decoration: underline; }
-
-.case-footer-links {
-  display: flex;
-  gap: 1.5rem;
-  font-size: 0.82rem;
-  color: rgba(255,255,255,0.55);
-}
-
-.case-footer-links a { color: rgba(255,255,255,0.55); }
-.case-footer-links a:hover { color: white; text-decoration: none; }
-
-.case-footer-bottom {
-  border-top: 1px solid rgba(255,255,255,0.1);
-  padding: 1.25rem 2.5rem;
-  max-width: 1100px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.72rem;
-  color: rgba(255,255,255,0.4);
-}
-
 /* ================================================
    ABOUT PAGE
    ================================================ */
@@ -1101,7 +1038,6 @@ img { display: block; max-width: 100%; }
   .ai-loop-steps      { grid-template-columns: repeat(2, 1fr); }
   .outcomes-grid      { grid-template-columns: 1fr; }
   .hypotheses-intro   { grid-template-columns: 1fr; }
-  .case-footer-inner  { grid-template-columns: 1fr; }
   .compare-pair       { grid-template-columns: 1fr; }
   .decision-img-pair  { flex-direction: column; align-items: center; }
   .decision-img-triple { grid-template-columns: 1fr; }
