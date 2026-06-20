@@ -113,9 +113,9 @@ img { display: block; max-width: 100%; }
 .home-hero {
   display: flex;
   align-items: flex-end;
-  gap: 2rem;
-  padding: 3.5rem 0 4rem;
-  min-height: 540px;
+  gap: 4rem;
+  padding: 3.5rem 0 3.5rem;
+  min-height: 490px;
 }
 
 .hero-left {
@@ -162,7 +162,7 @@ img { display: block; max-width: 100%; }
 
 /* Skills section */
 .home-skills {
-  padding: 1rem 0 1rem;
+  padding: 2rem 0 2rem;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -201,7 +201,7 @@ img { display: block; max-width: 100%; }
 
 /* Projects section */
 .home-projects {
-  padding: 1rem 0 1rem;
+  padding: 2rem 0 2rem;
 }
 
 .projects-heading {
@@ -210,7 +210,7 @@ img { display: block; max-width: 100%; }
   font-weight: 700;
   color: #000;
   line-height: 1;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .project-list {
@@ -1125,6 +1125,14 @@ img { display: block; max-width: 100%; }
    RESPONSIVE
    ================================================ */
 
+/* Wide tablet — stack project cards before phones get clipped */
+@media (max-width: 1400px) {
+  .project-card       { flex-direction: column; align-items: flex-start; min-height: auto; gap: 2rem; }
+  .project-info       { max-width: 100%; }
+  .project-screens    { align-self: center; width: 100%; justify-content: center; }
+  .phone-screen       { width: 45%; max-width: 180px; height: auto; }
+}
+
 /* Tablet — reduce page margin */
 @media (max-width: 1024px) {
   :root { --page-px: 3rem; }
@@ -1132,7 +1140,6 @@ img { display: block; max-width: 100%; }
   .top-name           { font-size: 1.25rem; }
   .top-links a        { font-size: 1.25rem; }
   .home-hero          { min-height: 360px; gap: 1.5rem; padding: 2.5rem 0 3rem; }
-  .phone-screen       { width: 160px; }
   .project-card       { border-radius: 28px; padding: 2rem; }
   .home-email-card    { border-radius: 28px; }
 }
@@ -1144,7 +1151,7 @@ img { display: block; max-width: 100%; }
   .top-links          { gap: 1rem; }
   .top-links a        { font-size: 1.1rem; }
 
-  .home-hero          { flex-direction: column; align-items: stretch; min-height: auto; gap: 0; padding: 2.5rem 0 0; }
+  .home-hero          { flex-direction: column; align-items: stretch; min-height: auto; gap: 0; padding: 2.5rem 0 2rem; }
   .hero-left          { flex: none; }
   .hero-right         { flex: none; padding-top: 1.5rem; }
   .hero-bio           { max-width: 100%; }
@@ -1152,10 +1159,7 @@ img { display: block; max-width: 100%; }
   .home-skills        { padding: 2.5rem 0; }
   .home-projects      { padding: 2.5rem 0 2rem; }
 
-  .project-card       { flex-direction: column; align-items: flex-start; min-height: auto; gap: 2rem; padding: 2rem; border-radius: 24px; }
-  .project-info       { max-width: 100%; }
-  .project-screens    { align-self: center; width: 100%; justify-content: center; }
-  .phone-screen       { width: 45%; max-width: 180px; height: auto; }
+  .project-card       { border-radius: 24px; padding: 2rem; }
   .project-name       { font-size: 1.5rem; }
   .project-name--lg   { font-size: 1.75rem; }
   .home-email-card    { border-radius: 24px; }
@@ -1172,7 +1176,7 @@ img { display: block; max-width: 100%; }
   .top-links a        { font-size: 0.9rem; }
   .link-arrow         { font-size: 0.85rem; }
 
-  .home-hero          { padding: 2rem 0 0; }
+  .home-hero          { padding: 2rem 0 2rem; }
   .hero-title         { font-size: clamp(3rem, 14vw, 4rem); }
   .hero-bio           { font-size: 1.05rem; }
   .hero-right         { padding-top: 1.25rem; }
