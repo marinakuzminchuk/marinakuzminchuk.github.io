@@ -291,7 +291,6 @@ img { display: block; max-width: 100%; }
 
 .phone-screen {
   width: 200px;
-  height: 426px;
   object-fit: cover;
   object-position: top;
   display: block;
@@ -304,7 +303,7 @@ img { display: block; max-width: 100%; }
   border: 1.5px solid #dedede;
   border-radius: 40px;
   padding: 2rem 2.5rem;
-  margin-bottom: 1.5rem;
+  margin: 1.5rem 0;
 }
 
 .home-email-card p {
@@ -1133,7 +1132,7 @@ img { display: block; max-width: 100%; }
   .top-name           { font-size: 1.25rem; }
   .top-links a        { font-size: 1.25rem; }
   .home-hero          { min-height: 360px; gap: 1.5rem; padding: 2.5rem 0 3rem; }
-  .phone-screen       { width: 160px; height: 342px; }
+  .phone-screen       { width: 160px; }
   .project-card       { border-radius: 28px; padding: 2rem; }
   .home-email-card    { border-radius: 28px; }
 }
