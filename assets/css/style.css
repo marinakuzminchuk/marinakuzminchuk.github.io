@@ -1135,8 +1135,7 @@ img { display: block; max-width: 100%; }
 
   .top-name           { font-size: 1.25rem; }
   .top-links a        { font-size: 1.25rem; }
-  .home-hero          { min-height: 360px; gap: 1.5rem; padding: 2.5rem 0 0; }
-  .hero-right         { padding-bottom: 3rem; }
+  .home-hero          { min-height: 360px; gap: 1.5rem; padding: 2.5rem 0 3rem; }
   .phone-screen       { width: 160px; height: 342px; }
   .project-card       { border-radius: 28px; padding: 2rem; }
   .home-email-card    { border-radius: 28px; }
@@ -1149,8 +1148,9 @@ img { display: block; max-width: 100%; }
   .top-links          { gap: 1rem; }
   .top-links a        { font-size: 1.1rem; }
 
-  .home-hero          { grid-template-columns: 1fr; min-height: auto; gap: 0; padding: 2.5rem 0 0; }
-  .hero-right         { padding-bottom: 0; padding-top: 1.5rem; align-items: flex-start; }
+  .home-hero          { flex-direction: column; align-items: stretch; min-height: auto; gap: 0; padding: 2.5rem 0 0; }
+  .hero-left          { flex: none; }
+  .hero-right         { flex: none; padding-top: 1.5rem; }
   .hero-bio           { max-width: 100%; }
 
   .home-skills        { padding: 2.5rem 0; }
