@@ -16,6 +16,7 @@
   --radius-lg:       16px;
   --radius-md:       12px;
   --gap:             10px;
+  --page-px:         100px;
 }
 
 /* ================================================
@@ -23,7 +24,7 @@
    ================================================ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: clip; }
 
 body {
   background: var(--bg);
@@ -58,7 +59,7 @@ img { display: block; max-width: 100%; }
 .home-wrap {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 80px 4rem;
+  padding: 0 var(--page-px) 4rem;
 }
 
 /* Top bar */
@@ -352,7 +353,7 @@ img { display: block; max-width: 100%; }
 .case-shell {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 0 2.5rem;
+  padding: 0 var(--page-px);
 }
 
 /* Case study sticky header */
@@ -1032,7 +1033,7 @@ img { display: block; max-width: 100%; }
 .about-wrap {
   max-width: 700px;
   margin: 0 auto;
-  padding: 1.5rem 1.25rem 3rem;
+  padding: 1.5rem var(--page-px) 3rem;
   display: flex;
   flex-direction: column;
   gap: var(--gap);
@@ -1131,21 +1132,10 @@ img { display: block; max-width: 100%; }
    RESPONSIVE
    ================================================ */
 
-/* Large desktop: full Figma sizing */
-@media (min-width: 1280px) {
-  .home-wrap { padding: 0 80px 4rem; }
-}
-
-/* Medium desktop / large tablet */
-@media (max-width: 1279px) and (min-width: 1025px) {
-  .home-wrap    { padding: 0 3rem 4rem; }
-  .hero-title   { font-size: clamp(4rem, 8vw, 7rem); }
-  .phone-screen { width: 180px; height: 385px; }
-}
-
-/* Small tablet / large phone — still two-column hero */
+/* Tablet — reduce page margin */
 @media (max-width: 1024px) {
-  .home-wrap          { padding: 0 2rem 3rem; }
+  :root { --page-px: 3rem; }
+
   .top-name           { font-size: 1.25rem; }
   .top-links a        { font-size: 1.25rem; }
   .home-hero          { min-height: 360px; gap: 1.5rem; padding: 2.5rem 0 0; }
@@ -1155,23 +1145,20 @@ img { display: block; max-width: 100%; }
   .home-email-card    { border-radius: 28px; }
 }
 
-/* Tablet portrait / large phone — switch to single column */
+/* Large phone — single-column hero */
 @media (max-width: 860px) {
-  .home-wrap          { padding: 0 1.5rem 3rem; }
-  .top-bar            { padding: 1.5rem 0 1.5rem; }
+  .top-bar            { padding: 1.5rem 0; }
   .top-name           { font-size: 1.1rem; }
   .top-links          { gap: 1rem; }
   .top-links a        { font-size: 1.1rem; }
 
-  /* Single-column hero */
   .home-hero          { grid-template-columns: 1fr; min-height: auto; gap: 0; padding: 2.5rem 0 0; }
   .hero-right         { padding-bottom: 0; padding-top: 1.5rem; align-items: flex-start; }
   .hero-bio           { max-width: 100%; }
 
-  .home-skills        { padding: 2.5rem 0 2.5rem; }
+  .home-skills        { padding: 2.5rem 0; }
   .home-projects      { padding: 2.5rem 0 2rem; }
 
-  /* Stack project cards vertically */
   .project-card       { flex-direction: column; align-items: flex-start; min-height: auto; gap: 2rem; padding: 2rem; border-radius: 24px; }
   .project-info       { max-width: 100%; }
   .project-screens    { align-self: center; width: 100%; justify-content: center; }
@@ -1182,9 +1169,10 @@ img { display: block; max-width: 100%; }
   .home-email-card p  { font-size: 1.1rem; }
 }
 
-/* Mobile */
-@media (max-width: 600px) {
-  .home-wrap          { padding: 0 1.25rem 2.5rem; }
+/* Mobile — 24 px margin */
+@media (max-width: 768px) {
+  :root { --page-px: 1.5rem; }
+
   .top-bar            { padding: 1.25rem 0; }
   .top-name           { font-size: 0.9rem; letter-spacing: 0.05em; }
   .top-links          { gap: 0.75rem; }
@@ -1213,19 +1201,8 @@ img { display: block; max-width: 100%; }
 
   .home-email-card    { border-radius: 20px; padding: 1.25rem 1.5rem; }
   .home-email-card p  { font-size: 0.9rem; }
-}
 
-/* Very small phones */
-@media (max-width: 375px) {
-  .home-wrap  { padding: 0 1rem 2rem; }
-  .hero-title { font-size: clamp(2.5rem, 13vw, 3.5rem); }
-  .chip       { font-size: 0.8rem; height: 36px; }
-}
-
-/* ================================================
-   CASE STUDY RESPONSIVE
-   ================================================ */
-@media (max-width: 768px) {
+  /* Case study layouts */
   .case-hero-grid     { grid-template-columns: 1fr; }
   .case-hero-img      { order: -1; }
   .snapshot-grid      { grid-template-columns: repeat(2, 1fr); }
@@ -1238,10 +1215,14 @@ img { display: block; max-width: 100%; }
   .compare-pair       { grid-template-columns: 1fr; }
   .decision-img-pair  { flex-direction: column; align-items: center; }
   .decision-img-triple { grid-template-columns: 1fr; }
-  .case-shell         { padding: 0 1.25rem; }
 }
 
+/* Small mobile — 20 px margin */
 @media (max-width: 480px) {
+  :root { --page-px: 1.25rem; }
+
+  .hero-title     { font-size: clamp(2.5rem, 13vw, 3.5rem); }
+  .chip           { font-size: 0.8rem; height: 36px; }
   .snapshot-grid  { grid-template-columns: 1fr 1fr; }
   .hypotheses-grid { grid-template-columns: 1fr; }
   .ai-loop-steps  { grid-template-columns: 1fr; }
