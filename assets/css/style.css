@@ -110,22 +110,20 @@ img { display: block; max-width: 100%; }
 
 /* Hero section */
 .home-hero {
-  display: grid;
-  grid-template-columns: 44% 56%;
+  display: flex;
+  align-items: flex-end;
   gap: 2rem;
-  padding: 3.5rem 0 0;
-  min-height: 440px;
+  padding: 3.5rem 0 4rem;
+  min-height: 540px;
 }
 
 .hero-left {
-  display: flex;
-  align-items: flex-start;
+  flex: 0 0 44%;
+  align-self: flex-start;
 }
 
 .hero-right {
-  display: flex;
-  align-items: flex-end;
-  padding-bottom: 4rem;
+  flex: 1;
 }
 
 .hero-title {
@@ -1161,7 +1159,7 @@ img { display: block; max-width: 100%; }
   .project-card       { flex-direction: column; align-items: flex-start; min-height: auto; gap: 2rem; padding: 2rem; border-radius: 24px; }
   .project-info       { max-width: 100%; }
   .project-screens    { align-self: center; width: 100%; justify-content: center; }
-  .phone-screen       { width: 45%; max-width: 180px; height: auto; aspect-ratio: 200/430; }
+  .phone-screen       { width: 45%; max-width: 180px; height: auto; }
   .project-name       { font-size: 1.5rem; }
   .project-name--lg   { font-size: 1.75rem; }
   .home-email-card    { border-radius: 24px; }
