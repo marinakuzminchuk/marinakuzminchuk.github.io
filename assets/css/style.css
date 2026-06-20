@@ -176,12 +176,6 @@ img { display: block; max-width: 100%; }
 
 .chips {
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.chips-row {
-  display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
 }
@@ -197,7 +191,7 @@ img { display: block; max-width: 100%; }
   padding: 0 1rem;
   border: 1.5px solid #dedede;
   border-radius: 100px;
-  background: #f3f3f3;
+  background: #ffffff;
   color: #000;
   line-height: 1.4;
   white-space: nowrap;
