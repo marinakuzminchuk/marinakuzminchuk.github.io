@@ -9,82 +9,91 @@ layout: base.njk
     <header class="top-bar">
       <span class="top-name">Marina Kuzminchuk</span>
       <div class="top-links">
-        <a href="/assets/MarinaKuzminchuk_CV.pdf" target="_blank" rel="noopener">CV ↗</a>
-        <a href="https://www.linkedin.com/in/marinakuzminchuk/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="/assets/MarinaKuzminchuk_CV.pdf" target="_blank" rel="noopener">CV <span class="link-arrow">↗</span></a>
+        <a href="https://www.linkedin.com/in/marinakuzminchuk/" target="_blank" rel="noopener">LinkedIn <span class="link-arrow">↗</span></a>
       </div>
     </header>
 
+    <hr class="home-divider">
+
     <!-- Hero -->
     <section class="home-hero">
-      <h1 class="hero-title">UX/UI<br><em>Designer</em></h1>
+      <div class="hero-left">
+        <h1 class="hero-title">UX/UI<br>Designer</h1>
+      </div>
+      <div class="hero-right">
+        <p class="hero-bio">
+          I'm a UX/UI Designer with <strong><em>2 years of software
+          development</em></strong> experience. I leverage <strong><em>user-centered
+          research</em></strong>, <strong><em>AI-powered prototyping</em></strong>, and
+          <strong><em>systems thinking</em></strong> to create
+          <strong><em>intuitive, visually appealing web and mobile interfaces</em></strong>
+          that stand out and are ready to ship.
+        </p>
+      </div>
+    </section>
 
-      <p class="hero-bio">
-        I'm a UX/UI Designer with 2 years of software development experience.
-        I leverage user-centered research, AI-powered prototyping, and systems
-        thinking to create intuitive, visually appealing web and mobile interfaces
-        that stand out and are ready to ship.
-      </p>
-
-      <p class="skills-label">Things I'm good at</p>
+    <!-- Skills -->
+    <section class="home-skills">
+      <p class="skills-heading">Things I'm good at</p>
       <div class="chips">
-        <span class="chip">User flows</span>
-        <span class="chip">Wireframing</span>
-        <span class="chip">Design systems</span>
-        <span class="chip">Web &amp; Mobile UI</span>
-        <span class="chip">Technical feasibility</span>
-        <span class="chip">Visual design</span>
-        <span class="chip">Usability testing</span>
-        <span class="chip">AI-assisted workflows</span>
-        <span class="chip">User research</span>
-        <span class="chip">Developer handoff</span>
+        <div class="chips-row">
+          <span class="chip">User flows</span>
+          <span class="chip">Wireframing</span>
+          <span class="chip">Design systems</span>
+          <span class="chip">Web &amp; Mobile UI</span>
+          <span class="chip">Technical feasibility</span>
+        </div>
+        <div class="chips-row">
+          <span class="chip">Visual design</span>
+          <span class="chip">Usability testing</span>
+          <span class="chip">AI-assisted workflows</span>
+          <span class="chip">User research</span>
+          <span class="chip">Developer handoff</span>
+        </div>
       </div>
     </section>
 
     <!-- Latest Projects -->
     <section class="home-projects">
-      <p class="section-label">Latest Projects</p>
+      <p class="projects-heading">Latest Projects</p>
 
       <div class="project-list">
 
-        <a href="/unicbank/" class="project-item">
+        <a href="/unicbank/" class="project-card">
           <div class="project-info">
             <p class="project-eyebrow">UnicBank / UX/UI Case Study / 2026</p>
             <h2 class="project-name">Neobank App</h2>
-            <p class="project-tags">UX/UI Design / Mobile App / User Flows /<br>Wireframing / Prototyping / Visual Design</p>
+            <p class="project-tags">UX/UI Design / Mobile App / User Flows / Wireframing / Prototyping / Visual Design</p>
             <span class="project-arrow">↗</span>
           </div>
-          <div class="project-thumb">
-            <img src="/assets/img/unic-hero.jpg" alt="UnicBank mobile banking app screens" />
+          <div class="project-screens">
+            <img src="/assets/img/unic-screen-1.png" alt="UnicBank home screen" class="phone-screen">
+            <img src="/assets/img/unic-screen-2.png" alt="UnicBank cards screen" class="phone-screen">
           </div>
         </a>
 
-        <a href="/subscout/" class="project-item">
+        <a href="/subscout/" class="project-card">
           <div class="project-info">
             <p class="project-eyebrow">SUBScout / UX/UI Case Study / 2025</p>
-            <h2 class="project-name">Subscription Management App</h2>
-            <p class="project-tags">UX/UI Design / Mobile App / Product Discovery / User Flows /<br>Wireframing / Prototyping / Visual Design</p>
+            <h2 class="project-name project-name--lg">Subscription Management App</h2>
+            <p class="project-tags">UX/UI Design / Mobile App / Product Discovery / User Flows / Wireframing / Prototyping / Visual Design</p>
             <span class="project-arrow">↗</span>
           </div>
-          <div class="project-thumb project-thumb--sub" aria-hidden="true">
-            <p class="sub-viz-label">Monthly total</p>
-            <p class="sub-viz-total">€127.43</p>
-            <div class="sub-viz-bars">
-              <div class="sub-viz-bar" style="height:52%;background:#7B61FF;"></div>
-              <div class="sub-viz-bar" style="height:38%;background:#C7B8FF;"></div>
-              <div class="sub-viz-bar" style="height:70%;background:#7B61FF;"></div>
-              <div class="sub-viz-bar" style="height:28%;background:#C7B8FF;"></div>
-              <div class="sub-viz-bar" style="height:60%;background:#7B61FF;"></div>
-              <div class="sub-viz-bar" style="height:44%;background:#C7B8FF;"></div>
-            </div>
+          <div class="project-screens">
+            <img src="/assets/img/sub-screen-1.png" alt="SUBScout analytics screen" class="phone-screen">
+            <img src="/assets/img/sub-screen-2.png" alt="SUBScout details screen" class="phone-screen">
           </div>
         </a>
 
       </div>
     </section>
 
-    <!-- Email -->
-    <div class="home-email">
-      email: <a href="mailto:marina.a.kuzminchuk@gmail.com">marina.a.kuzminchuk@gmail.com</a>
+    <hr class="home-divider">
+
+    <!-- Email footer card -->
+    <div class="home-email-card">
+      <p>email: <a href="mailto:marina.a.kuzminchuk@gmail.com">marina.a.kuzminchuk@gmail.com</a></p>
     </div>
 
   </div>
