@@ -70,7 +70,7 @@ img { display: block; max-width: 100%; }
 }
 
 .top-name {
-  font-family: "Instrument Sans", sans-serif;
+  font-family: "Manrope", sans-serif;
   font-size: 1.5rem;
   font-weight: 400;
   letter-spacing: 0.02em;
@@ -85,7 +85,7 @@ img { display: block; max-width: 100%; }
 }
 
 .top-links a {
-  font-family: "Instrument Sans", sans-serif;
+  font-family: "Manrope", sans-serif;
   font-size: 1.5rem;
   font-weight: 400;
   color: #504d54;
@@ -248,7 +248,7 @@ img { display: block; max-width: 100%; }
 }
 
 .project-eyebrow {
-  font-family: "Instrument Sans", sans-serif;
+  font-family: "Manrope", sans-serif;
   font-size: 1.25rem;
   font-weight: 400;
   color: #000;
@@ -256,7 +256,7 @@ img { display: block; max-width: 100%; }
 }
 
 .project-name {
-  font-family: "Instrument Sans", sans-serif;
+  font-family: "Manrope", sans-serif;
   font-size: 1.75rem;
   font-weight: 500;
   color: #000;
@@ -268,7 +268,7 @@ img { display: block; max-width: 100%; }
 }
 
 .project-tags {
-  font-family: "Instrument Sans", sans-serif;
+  font-family: "Manrope", sans-serif;
   font-size: 1.25rem;
   font-weight: 400;
   color: #000;
@@ -422,7 +422,7 @@ img { display: block; max-width: 100%; }
 
 /* Section labels */
 .sec-label {
-  font-family: "Instrument Sans", sans-serif;
+  font-family: "Manrope", sans-serif;
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.12em;
@@ -496,7 +496,7 @@ img { display: block; max-width: 100%; }
 }
 
 .case-heading {
-  font-family: "Instrument Sans", sans-serif;
+  font-family: "Manrope", sans-serif;
   font-size: clamp(2rem, 4vw, 3.25rem);
   font-weight: 700;
   line-height: 1.05;
@@ -534,7 +534,7 @@ img { display: block; max-width: 100%; }
 }
 
 .meta-card-label {
-  font-family: "Instrument Sans", sans-serif;
+  font-family: "Manrope", sans-serif;
   font-size: 0.68rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -543,7 +543,7 @@ img { display: block; max-width: 100%; }
 }
 
 .meta-card-value {
-  font-family: "Instrument Sans", sans-serif;
+  font-family: "Manrope", sans-serif;
   font-size: 1.35rem;
   line-height: 1.2;
   font-weight: 500;
@@ -585,7 +585,7 @@ img { display: block; max-width: 100%; }
 }
 
 .challenge-card-label {
-  font-family: "Instrument Sans", sans-serif;
+  font-family: "Manrope", sans-serif;
   font-size: 0.7rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -598,7 +598,7 @@ img { display: block; max-width: 100%; }
 }
 
 .challenge-card-title {
-  font-family: "Instrument Sans", sans-serif;
+  font-family: "Manrope", sans-serif;
   font-size: 1.5rem;
   font-weight: 600;
   line-height: 1.2;
@@ -757,7 +757,7 @@ img { display: block; max-width: 100%; }
 }
 
 .hyp-title {
-  font-family: "Instrument Sans", sans-serif;
+  font-family: "Manrope", sans-serif;
   font-size: 1rem;
   line-height: 1.3;
   margin-bottom: 1.25rem;
@@ -812,7 +812,7 @@ img { display: block; max-width: 100%; }
 }
 
 .ai-step-num {
-  font-family: "Instrument Sans", sans-serif;
+  font-family: "Manrope", sans-serif;
   font-size: 1rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
@@ -842,7 +842,7 @@ img { display: block; max-width: 100%; }
 }
 
 .decision-title {
-  font-family: "Instrument Sans", sans-serif;
+  font-family: "Manrope", sans-serif;
   font-size: 1.65rem;
   font-weight: 700;
   line-height: 1.2;
@@ -880,7 +880,7 @@ img { display: block; max-width: 100%; }
 }
 
 .compare-label {
-  font-family: "Instrument Sans", sans-serif;
+  font-family: "Manrope", sans-serif;
   font-size: 0.68rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -961,7 +961,7 @@ img { display: block; max-width: 100%; }
 }
 
 .outcomes-card-label {
-  font-family: "Instrument Sans", sans-serif;
+  font-family: "Manrope", sans-serif;
   font-size: 0.7rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -993,7 +993,7 @@ img { display: block; max-width: 100%; }
 }
 
 .outcome-content-title {
-  font-family: "Instrument Sans", sans-serif;
+  font-family: "Manrope", sans-serif;
   font-size: 1rem;
   font-weight: 600;
   line-height: 1.3;
@@ -1023,7 +1023,7 @@ img { display: block; max-width: 100%; }
 .validation-item:last-child { border-bottom: none; }
 
 .validation-title {
-  font-family: "Instrument Sans", sans-serif;
+  font-family: "Manrope", sans-serif;
   font-size: 1rem;
   font-weight: 600;
   color: white;
@@ -1031,7 +1031,7 @@ img { display: block; max-width: 100%; }
 }
 
 .validation-value {
-  font-family: "Instrument Sans", sans-serif;
+  font-family: "Manrope", sans-serif;
   font-size: 1.1rem;
   color: white;
   margin-bottom: 0.2rem;
