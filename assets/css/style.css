@@ -70,9 +70,9 @@ img { display: block; max-width: 100%; }
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(244, 244, 244, 0.95);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(244, 244, 244, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   margin-left: calc(-1 * var(--page-px));
   margin-right: calc(-1 * var(--page-px));
 }
@@ -374,14 +374,20 @@ img { display: block; max-width: 100%; }
   padding: 0 var(--page-px);
 }
 
+.case-header .top-bar {
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
 /* Case study sticky header */
 .case-header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(244, 244, 244, 0.95);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(244, 244, 244, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
 }
 
