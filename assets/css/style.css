@@ -568,7 +568,7 @@ img { display: block; max-width: 100%; }
 
 .meta-card-label {
   font-family: "Manrope", sans-serif;
-  font-size: 0.68rem;
+  font-size: 1rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--muted);
@@ -620,7 +620,7 @@ img { display: block; max-width: 100%; }
 
 .challenge-card-label {
   font-family: "Manrope", sans-serif;
-  font-size: 0.7rem;
+  font-size: 1rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: #3D3A4B;
@@ -673,7 +673,7 @@ img { display: block; max-width: 100%; }
   padding: 1rem 2rem;
   background: #ffffff;
   border-bottom: 1px solid var(--stroke-lavender);
-  font-size: 0.68rem;
+  font-size: 1rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--muted);
@@ -768,7 +768,7 @@ img { display: block; max-width: 100%; }
 }
 
 .hyp-status {
-  font-size: 0.68rem;
+  font-size: 1rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   margin-bottom: 1.25rem;
@@ -916,7 +916,7 @@ img { display: block; max-width: 100%; }
 
 .compare-label {
   font-family: "Manrope", sans-serif;
-  font-size: 0.68rem;
+  font-size: 1rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--muted);
@@ -997,7 +997,7 @@ img { display: block; max-width: 100%; }
 
 .outcomes-card-label {
   font-family: "Manrope", sans-serif;
-  font-size: 0.7rem;
+  font-size: 1rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: #3D3A4B;
