@@ -320,6 +320,10 @@ img { display: block; max-width: 100%; }
 }
 
 /* Email footer card */
+.case-shell .home-email-card {
+  margin: 0;
+}
+
 .home-email-card {
   background: #fff;
   border: 1.5px solid #dedede;
@@ -445,7 +449,7 @@ img { display: block; max-width: 100%; }
 /* Section labels */
 .sec-label {
   font-family: "Manrope", sans-serif;
-  font-size: 0.72rem;
+  font-size: 1rem;
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
