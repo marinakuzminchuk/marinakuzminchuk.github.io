@@ -334,7 +334,7 @@ img { display: block; max-width: 100%; }
 
 .home-email-card p {
   font-family: "Manrope", sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 400;
   color: #000;
   line-height: 1.4;
@@ -347,6 +347,14 @@ img { display: block; max-width: 100%; }
 
 .home-email-card a:hover {
   text-decoration: underline;
+}
+
+.home-email-card .footer-copy {
+  font-family: "Manrope", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.4);
+  margin-top: 0.5rem;
 }
 
 /* Email footer card — about page */
@@ -498,7 +506,7 @@ img { display: block; max-width: 100%; }
 
 .case-hero-sub {
   font-family: "Manrope", sans-serif;
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   color: #3A3647;
   line-height: 1.7;
   max-width: 500px;
@@ -545,7 +553,7 @@ img { display: block; max-width: 100%; }
 
 .case-body-text {
   font-family: "Manrope", sans-serif;
-  font-size: 1.05rem;
+  font-size: 1.2rem;
   color: #3A3647;
   line-height: 1.75;
 }
@@ -577,7 +585,7 @@ img { display: block; max-width: 100%; }
 
 .meta-card-value {
   font-family: "Manrope", sans-serif;
-  font-size: 1.35rem;
+  font-size: 1.2rem;
   line-height: 1.2;
   font-weight: 500;
 }
@@ -590,7 +598,7 @@ img { display: block; max-width: 100%; }
 }
 
 .scope-card .meta-card-value {
-  font-size: 1.05rem;
+  font-size: 1.2rem;
   font-weight: 400;
   color: #3A3647;
 }
@@ -648,13 +656,13 @@ img { display: block; max-width: 100%; }
 
 .challenge-list li {
   font-family: "Manrope", sans-serif;
-  font-size: 1rem;
+  font-size: 1.2rem;
   line-height: 1.4;
 }
 
 .challenge-card--violet p {
   font-family: "Manrope", sans-serif;
-  font-size: 1rem;
+  font-size: 1.2rem;
   line-height: 1.7;
   color: rgba(255,255,255,0.88);
 }
@@ -691,7 +699,7 @@ img { display: block; max-width: 100%; }
   padding: 1.4rem 2rem;
   border-bottom: 1px solid var(--stroke-lavender);
   align-items: center;
-  font-size: 1rem;
+  font-size: 1.2rem;
   background: #ffffff;
 }
 
@@ -720,7 +728,7 @@ img { display: block; max-width: 100%; }
   flex-wrap: wrap;
   gap: 1.5rem;
   margin-top: 1.25rem;
-  font-size: 0.85rem;
+  font-size: 1rem;
   color: #3A3647;
 }
 
@@ -793,7 +801,7 @@ img { display: block; max-width: 100%; }
 
 .hyp-title {
   font-family: "Manrope", sans-serif;
-  font-size: 1rem;
+  font-size: 1.2rem;
   line-height: 1.3;
   margin-bottom: 1.25rem;
 }
@@ -802,7 +810,7 @@ img { display: block; max-width: 100%; }
 
 .hyp-note {
   font-family: "Manrope", sans-serif;
-  font-size: 0.9rem;
+  font-size: 1rem;
   line-height: 1.5;
 }
 
@@ -848,14 +856,14 @@ img { display: block; max-width: 100%; }
 
 .ai-step-num {
   font-family: "Manrope", sans-serif;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
 }
 
 .ai-step-body {
   font-family: "Manrope", sans-serif;
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: var(--muted);
   line-height: 1.55;
 }
@@ -887,7 +895,7 @@ img { display: block; max-width: 100%; }
 
 .decision-body {
   font-family: "Manrope", sans-serif;
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: #3A3647;
   line-height: 1.75;
 }
@@ -1029,7 +1037,7 @@ img { display: block; max-width: 100%; }
 
 .outcome-content-title {
   font-family: "Manrope", sans-serif;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 600;
   line-height: 1.3;
   display: block;
@@ -1038,7 +1046,7 @@ img { display: block; max-width: 100%; }
 
 .outcome-content-body {
   font-family: "Manrope", sans-serif;
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: #3A3647;
   line-height: 1.55;
 }
@@ -1059,7 +1067,7 @@ img { display: block; max-width: 100%; }
 
 .validation-title {
   font-family: "Manrope", sans-serif;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 600;
   color: white;
   margin-bottom: 0.25rem;
@@ -1074,7 +1082,7 @@ img { display: block; max-width: 100%; }
 
 .validation-note {
   font-family: "Manrope", sans-serif;
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: rgba(255,255,255,0.82);
 }
 
