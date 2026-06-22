@@ -246,6 +246,30 @@ img { display: block; max-width: 100%; }
   text-decoration: none;
 }
 
+.project-card--disabled {
+  cursor: default;
+  pointer-events: none;
+}
+
+.project-card--disabled:hover {
+  box-shadow: none;
+}
+
+.coming-soon-badge {
+  display: inline-block;
+  font-family: "Manrope", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.45);
+  background: #f0f0f0;
+  border-radius: 100px;
+  padding: 0.25rem 0.75rem;
+  white-space: nowrap;
+  align-self: center;
+}
+
 .project-info {
   display: flex;
   flex-direction: column;
