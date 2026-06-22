@@ -976,14 +976,15 @@ img { display: block; max-width: 100%; }
 }
 
 .decision-img-pair {
-  display: flex;
-  gap: 1.5rem;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  align-items: end;
+  width: calc((200% - 1rem) / 3);
+  margin: 0 auto;
 }
 
 .decision-img-pair img {
-  max-width: 240px;
   width: 100%;
   height: auto;
   border-radius: 1rem;
@@ -1302,7 +1303,7 @@ img { display: block; max-width: 100%; }
   .outcomes-grid      { grid-template-columns: 1fr; }
   .hypotheses-intro   { grid-template-columns: 1fr; }
   .compare-pair       { grid-template-columns: 1fr; }
-  .decision-img-pair  { flex-direction: column; align-items: center; }
+  .decision-img-pair  { grid-template-columns: 1fr; width: 100%; }
   .decision-img-triple { grid-template-columns: 1fr; }
 }
 
