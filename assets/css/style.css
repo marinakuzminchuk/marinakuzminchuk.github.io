@@ -108,6 +108,7 @@ img { display: block; max-width: 100%; }
 
 .link-arrow {
   font-size: 1.1rem;
+  margin-left: 4px;
 }
 
 /* Dividers */
@@ -266,8 +267,7 @@ img { display: block; max-width: 100%; }
   background: #f0f0f0;
   border-radius: 100px;
   padding: 0.25rem 0.75rem;
-  white-space: nowrap;
-  align-self: center;
+  vertical-align: middle;
 }
 
 .project-info {
@@ -326,6 +326,7 @@ img { display: block; max-width: 100%; }
   font-size: 1.75rem;
   color: #000;
   line-height: 1;
+  margin-left: 6px;
 }
 
 .project-screens {
@@ -343,10 +344,6 @@ img { display: block; max-width: 100%; }
   border-radius: 4px;
 }
 
-/* Email footer card */
-.case-shell .home-email-card {
-  margin: 0;
-}
 
 .home-email-card {
   background: #fff;
