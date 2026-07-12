@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', function () {
-  var cards = document.querySelectorAll('.project-card');
-  if (!cards.length) return;
+  var targets = document.querySelectorAll('.project-card, .case-section');
+  if (!targets.length) return;
 
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (reduceMotion || !('IntersectionObserver' in window)) {
-    cards.forEach(function (card) { card.classList.add('in-view'); });
+    targets.forEach(function (el) { el.classList.add('in-view'); });
     return;
   }
 
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.15 });
+  }, { threshold: 0, rootMargin: '0px 0px -10% 0px' });
 
-  cards.forEach(function (card) { observer.observe(card); });
+  targets.forEach(function (el) { observer.observe(el); });
 });
