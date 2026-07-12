@@ -716,7 +716,7 @@ img { display: block; max-width: 100%; }
 
 .challenge-card-label {
   font-family: "Manrope", sans-serif;
-  font-size: 16px;
+  font-size: 1rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: #3D3A4B;
