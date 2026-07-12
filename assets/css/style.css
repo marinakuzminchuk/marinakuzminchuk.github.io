@@ -691,12 +691,6 @@ img { display: block; max-width: 100%; }
   padding: 1.25rem 1.5rem;
 }
 
-.scope-card .meta-card-value {
-  font-size: 1.2rem;
-  font-weight: 400;
-  color: #3A3647;
-}
-
 /* Challenge cards */
 .challenge-pair {
   display: grid;
