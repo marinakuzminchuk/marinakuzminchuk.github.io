@@ -724,6 +724,7 @@ img { display: block; max-width: 100%; }
 }
 
 .challenge-card--violet .challenge-card-label {
+  font-size: 1rem;
   color: rgba(255,255,255,0.65);
 }
 
