@@ -835,11 +835,18 @@ img { display: block; max-width: 100%; }
 
 /* Hypotheses grid */
 .hypotheses-intro {
-  display: grid;
-  grid-template-columns: 7fr 5fr;
-  gap: 2.5rem;
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
   margin-bottom: 2.5rem;
+}
+
+.hypotheses-intro .case-body-text {
+  max-width: 100ch;
+}
+
+@media (max-width: 700px) {
+  .hypotheses-intro .case-body-text { max-width: 100%; }
 }
 
 .hypotheses-grid {
@@ -1373,7 +1380,6 @@ img { display: block; max-width: 100%; }
   .decision-article   { grid-template-columns: 1fr; gap: 2rem; }
   .ai-loop-steps      { grid-template-columns: repeat(2, 1fr); }
   .outcomes-grid      { grid-template-columns: 1fr; }
-  .hypotheses-intro   { grid-template-columns: 1fr; }
   .compare-pair       { grid-template-columns: 1fr; }
   .decision-img-pair  { grid-template-columns: 1fr; width: 100%; }
   .decision-img-triple { grid-template-columns: 1fr; }
