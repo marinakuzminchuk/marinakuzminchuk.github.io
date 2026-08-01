@@ -18,6 +18,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
   deck.style.setProperty('--stack-transition-duration', config.transitionDuration + 'ms');
 
+  // Softly caps drag distance so a hard fling can't push the card (and the
+  // page's scrollable area) arbitrarily far off-screen. Asymptotically
+  // approaches 2x max instead of stopping dead.
+  function rubberBand(delta, max) {
+    var sign = delta < 0 ? -1 : 1;
+    var abs = Math.abs(delta);
+    if (abs <= max) return delta;
+    var over = abs - max;
+    return sign * (max + max * (1 - 1 / (over / max + 1)));
+  }
+
   var state = {
     activeCard: null,
     pointerId: null,
@@ -25,6 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
     startY: 0,
     dx: 0,
     dy: 0,
+    maxDrag: 0,
     locked: false
   };
 
@@ -116,6 +128,7 @@ document.addEventListener('DOMContentLoaded', function () {
     state.startY = event.clientY;
     state.dx = 0;
     state.dy = 0;
+    state.maxDrag = deck.getBoundingClientRect().width * 1.3;
 
     topCard.classList.add('is-dragging');
     topCard.setPointerCapture(event.pointerId);
@@ -124,8 +137,8 @@ document.addEventListener('DOMContentLoaded', function () {
   function onPointerMove(event) {
     if (!state.activeCard || event.pointerId !== state.pointerId) return;
 
-    state.dx = event.clientX - state.startX;
-    state.dy = event.clientY - state.startY;
+    state.dx = rubberBand(event.clientX - state.startX, state.maxDrag);
+    state.dy = rubberBand(event.clientY - state.startY, state.maxDrag);
 
     var rotation = Math.max(-config.maxDragRotation, Math.min(config.maxDragRotation, state.dx * 0.045));
     state.activeCard.style.transform =
