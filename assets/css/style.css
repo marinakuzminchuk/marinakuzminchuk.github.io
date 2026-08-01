@@ -142,7 +142,7 @@ img { display: block; max-width: 100%; }
 }
 
 .hero-left {
-  flex: 0 0 44%;
+  flex: 0 0 55%;
   align-self: flex-start;
   display: flex;
   flex-direction: column;
@@ -152,7 +152,7 @@ img { display: block; max-width: 100%; }
 .hero-right {
   flex: 1;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-self: center;
 }
 
@@ -182,7 +182,7 @@ img { display: block; max-width: 100%; }
   font-size: 1.5rem;
   color: #49454f;
   line-height: 1.4;
-  max-width: 480px;
+  max-width: 750px;
   animation: fade-slide-up 0.7s ease-out 0.15s both;
 }
 
