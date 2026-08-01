@@ -5,9 +5,9 @@ document.addEventListener('DOMContentLoaded', function () {
   var config = {
     dragThreshold: 90,
     transitionDuration: 350,
-    offsetX: 8,
-    offsetY: 14,
-    rotationStep: 1.2,
+    offsetX: 6,
+    offsetY: 0,
+    rotationStep: 2,
     scaleStep: 0.045,
     maxDragRotation: 14
   };
