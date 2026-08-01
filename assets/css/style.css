@@ -117,7 +117,6 @@ img { display: block; max-width: 100%; }
 .link-arrow {
   display: inline-block;
   font-size: 1.1rem;
-  margin-left: 4px;
   transition: transform 0.2s ease;
 }
 
