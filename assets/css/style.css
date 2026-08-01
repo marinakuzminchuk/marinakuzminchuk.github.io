@@ -142,14 +142,18 @@ img { display: block; max-width: 100%; }
 }
 
 .hero-left {
-  flex: 0 0 38%;
+  flex: 0 0 44%;
   align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
 }
 
 .hero-right {
   flex: 1;
   display: flex;
   justify-content: flex-end;
+  align-self: center;
 }
 
 .hero-title {
@@ -178,12 +182,59 @@ img { display: block; max-width: 100%; }
   font-size: 1.5rem;
   color: #49454f;
   line-height: 1.4;
-  max-width: 524px;
+  max-width: 480px;
   animation: fade-slide-up 0.7s ease-out 0.15s both;
 }
 
 .hero-bio strong { font-weight: 700; }
 .hero-bio strong em { font-style: normal; }
+
+/* Card stack (draggable deck) */
+.card-stack {
+  --stack-transition-duration: 350ms;
+  --deck-width: clamp(200px, 45vw, 240px);
+  position: relative;
+  width: var(--deck-width);
+  min-height: calc(var(--deck-width) * 2.17);
+  user-select: none;
+  -webkit-user-select: none;
+  animation: fade-slide-up 0.7s ease-out 0.2s both;
+}
+
+.stack-card {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform-origin: 50% 100%;
+  transition: transform var(--stack-transition-duration) cubic-bezier(0.2, 0.8, 0.2, 1), filter 220ms ease;
+  filter: drop-shadow(0 18px 40px rgba(27, 36, 55, 0.18));
+  will-change: transform;
+}
+
+.stack-card:first-child {
+  cursor: grab;
+  touch-action: none;
+}
+
+.stack-card:focus-visible {
+  outline: 2px solid var(--violet);
+  outline-offset: 3px;
+}
+
+.stack-card.is-dragging {
+  cursor: grabbing;
+  transition: none;
+  filter: drop-shadow(0 26px 56px rgba(27, 36, 55, 0.26));
+}
+
+.stack-card-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  pointer-events: none;
+  -webkit-user-drag: none;
+}
 
 /* Skills section */
 .home-skills {
@@ -1322,8 +1373,8 @@ img { display: block; max-width: 100%; }
   .top-links a        { font-size: 1.1rem; }
 
   .home-hero          { flex-direction: column; align-items: stretch; min-height: auto; gap: 0; padding: 2.5rem 0 2rem; }
-  .hero-left          { flex: none; }
-  .hero-right         { flex: none; padding-top: 1.5rem; }
+  .hero-left          { flex: none; gap: 1.5rem; }
+  .hero-right         { flex: none; justify-content: center; align-self: center; padding-top: 2rem; }
   .hero-bio           { max-width: 100%; }
 
   .home-skills        { padding: 2.5rem 0; }
@@ -1410,6 +1461,9 @@ img { display: block; max-width: 100%; }
     opacity: 1 !important;
     transform: none !important;
   }
+
+  .card-stack { animation: none !important; }
+  .stack-card { opacity: 1 !important; transition-duration: 1ms !important; }
 
   .project-card,
   .case-section {
