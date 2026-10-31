@@ -1,24 +1,19 @@
 # marinakuzminchuk.github.io
 
-My personal portfolio website, built with [Eleventy](https://www.11ty.dev/).
+My personal portfolio website — plain HTML, CSS and JS, no build step.
 
 ## Running locally
 
-**Prerequisites:** Node.js 20 (LTS)
+Serve the repo root with any static file server, for example:
 
 ```bash
-nvm install 20
-nvm use 20
-npm install
-npm run dev
+npx serve .
 ```
 
-The site will be available at `http://localhost:8080` with live reload on file changes.
-
-To build static output without the dev server:
+or Python:
 
 ```bash
-npm run build
+python3 -m http.server 8080
 ```
 
-Output is written to `_site/`.
+Then open `http://localhost:8080`.
