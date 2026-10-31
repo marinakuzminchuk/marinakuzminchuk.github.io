@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Straight Forward — Marina Kuzminchuk</title>
+  <meta name="description" content="Case study draft — Marina Kuzminchuk" />
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/png" href="/assets/img/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Instrument+Sans:wght@400;500;600&display=swap" />
+  <script>
+    // Apply the theme before first paint: saved choice, else the system's.
+    (function () {
+      var saved = null;
+      try { saved = localStorage.getItem('case-theme'); } catch (e) {}
+      document.documentElement.dataset.theme =
+        saved || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    })();
+  </script>
+  <link rel="stylesheet" href="/assets/css/case.css" />
+  <script src="/assets/js/case.js" defer></script>
+  <noscript><style>.reveal,.line > span{opacity:1!important;transform:none!important;}</style></noscript>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="bar">
+  <a class="bar__name" href="/">Marina Kuzminchuk</a>
+  <div class="bar__meta">
+    <a class="bar__link" href="/">Work</a>
+    <a class="bar__link" href="/about/">About</a>
+    <button class="theme" type="button" aria-label="Switch theme" data-theme-toggle>
+      <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.4" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M8 1.6a6.4 6.4 0 0 0 0 12.8z" fill="currentColor"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main" class="cs">
+
+  <!-- Left: project summary (sticky). -->
+  <aside class="cs__side">
+    <p class="cs__count line"><span>01 / 03</span></p>
+    <h1 class="cs__title">
+      <span class="line"><span>Straight Forward</span></span>
+    </h1>
+    <p class="cs__overview line"><span>Broadcast your message to private chats without jumping through hoops.</span></p>
+    <dl class="cs__facts">
+      <div class="line"><span><dt>Role</dt><dd>Design Contestant</dd></span></div>
+      <div class="line"><span><dt>Company</dt><dd><a class="ext" href="https://telegram.org" target="_blank" rel="noopener">Telegram<span class="sr"> (opens in a new tab)</span></a></dd></span></div>
+      <div class="line"><span><dt>When</dt><dd>October 2026</dd></span></div>
+    </dl>
+    <p class="cs__figure line"><span><strong>42%</strong> faster private sharing with friends and family</span></p>
+    <a class="cs__back line" href="/"><span>Back to Work</span></a>
+  </aside>
+
+  <!-- Middle: the write-up. -->
+  <div class="cs__main">
+
+    <section class="cs__row cs__split reveal" id="problem">
+      <div class="split__text">
+        <h2 class="cs__label">Problem</h2>
+        <div class="cs__text">
+          <p>Telegram users often want to share personal updates, photos, or memories with several friends and family members individually, without creating a group chat.</p>
+          <p>However, Telegram’s existing workflow introduces unnecessary friction:</p>
+          <ul>
+            <li><strong>Too many steps:</strong> Users must send a message to one person, then select and forward it to others.</li>
+            <li><strong>Unwanted attribution:</strong> Forwarded messages display a “Forwarded from” label by default, making a message feel less personal. Removing it requires additional actions.</li>
+            <li><strong>Fragmented photo sharing:</strong> Message attachments are limited to 10 photos, making large collections cumbersome to select and forward.</li>
+          </ul>
+        </div>
+      </div>
+      <figure class="split__media">
+        <div class="switch" role="group" aria-label="Compare workflows">
+          <button class="switch__item is-active" type="button" aria-pressed="true" data-show="before">Before</button>
+          <button class="switch__item" type="button" aria-pressed="false" data-show="after">After</button>
+          <span class="switch__pill" aria-hidden="true"></span>
+        </div>
+        <div class="device">
+          <div class="device__screen">
+            <div class="device__state is-active" data-state="before">
+              <span class="device__empty">Before</span>
+              <video data-autoplay muted loop playsinline preload="metadata" aria-label="Existing Telegram workflow">
+                <source src="/assets/video/problem-before.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="device__state" data-state="after" aria-hidden="true">
+              <span class="device__empty">After</span>
+              <video data-autoplay muted loop playsinline preload="metadata" aria-label="Straight Forward workflow">
+                <source src="/assets/video/problem-after.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <img class="device__frame" src="/assets/img/iphone-16-black-portrait.png" alt="" draggable="false">
+        </div>
+        <figcaption data-before="Existing Telegram workflow, highlighting three friction points" data-after="The same task with Straight Forward" aria-live="polite">Existing Telegram workflow, highlighting three friction points</figcaption>
+      </figure>
+    </section>
+
+    <section class="cs__row reveal" id="research">
+      <h2 class="cs__label">Research</h2>
+      <div class="cs__text">
+        <p>I interviewed 8 Telegram users from my personal network, exploring their experiences with the app and asking 3 key questions:</p>
+        <ul>
+          <li>When was the last time you shared the same content with multiple people individually? Did you share text, photos, videos, or files?</li>
+          <li>Can you walk me through how you shared it, step by step?</li>
+          <li>Can you recall receiving a message with a “Forwarded from” label showing the sender’s own name? What did you think of it? Have you ever sent a message like that yourself, and did you do anything about the label?</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="cs__media cs__table reveal">
+      <table aria-label="Research findings">
+        <thead>
+          <tr><th scope="col">Finding</th><th scope="col">Observation</th><th scope="col">Action</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Sharing habits</th>
+            <td data-label="Observation">The most common use cases were sharing vacation and family photos, followed by sending holiday greetings for national and religious celebrations.</td>
+            <td data-label="Action">Support multi-recipient sharing for both messages and photo collections.</td>
+          </tr>
+          <tr>
+            <th scope="row">Self-forwarding perception</th>
+            <td data-label="Observation">Most participants felt uncomfortable receiving messages labeled as forwarded from the sender themselves. Very few knew that forwarding attribution could be removed.</td>
+            <td data-label="Action">Automatically remove forwarding attribution when sending original content to multiple recipients.</td>
+          </tr>
+          <tr>
+            <th scope="row">Photo-sharing friction</th>
+            <td data-label="Observation">Several participants showed inconvenience while forwarding photos were split into multiple messages.</td>
+            <td data-label="Action">Integrate direct multi-recipient sharing into the photo-sharing workflow.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <section class="cs__row reveal" id="design">
+      <h2 class="cs__label">Design</h2>
+      <div class="cs__text">
+        <p>Rather than introducing a separate sharing feature or adding another button to the interface, I extended Telegram’s existing Send button and reused Forward functionality.</p>
+        <ol class="steps">
+          <li><strong>Long-press to share</strong><span>Users compose a message or attach photos as usual. Long-pressing Send reveals a new option for sharing with multiple recipients.</span></li>
+          <li><strong>Select recipients</strong><span>Telegram’s existing forwarding sheet opens, with the current conversation’s recipient already selected. Users can add as many additional recipients as needed.</span></li>
+          <li><strong>Send privately</strong><span>The content is delivered to separate private conversations without the “Forwarded from” label.</span></li>
+        </ol>
+        <p>The result is a shorter, more intuitive workflow that feels native to Telegram.</p>
+      </div>
+    </section>
+
+    <figure class="cs__media cs__flow reveal">
+      <div class="frame">
+        <div class="cmp"><span>01 Compose</span><div class="phone">Screen</div></div>
+        <div class="cmp"><span>02 Select</span><div class="phone">Screen</div></div>
+        <div class="cmp"><span>03 Send</span><div class="phone">Screen</div></div>
+      </div>
+      <figcaption>Three-step interaction flow: Compose → Select → Send</figcaption>
+    </figure>
+
+    <section class="cs__row reveal" id="shipped">
+      <h2 class="cs__label">Shipped</h2>
+      <div class="cs__text">
+        <p>I implemented the interaction directly in Telegram’s open-source codebase, creating a functional version of the application rather than a standalone prototype.</p>
+        <p>The feature reuses Telegram’s existing recipient-selection interface and integrates into the standard message composition workflow.</p>
+        <p>This allowed me to evaluate the experience in a realistic environment, using actual conversations and message interactions.</p>
+      </div>
+    </section>
+
+    <figure class="cs__media cs__compare cs__compare--single reveal">
+      <div class="frame">
+        <div class="cmp"><div class="phone">Screen recording</div></div>
+      </div>
+      <figcaption>Screen recording of the implemented feature working in Telegram</figcaption>
+    </figure>
+
+    <section class="cs__row reveal" id="results">
+      <h2 class="cs__label">Results</h2>
+      <div class="cs__text">
+        <p>I tested the working, modified Telegram application with <strong>8 friends and family members</strong>, evaluating the new multi-recipient sharing interaction.</p>
+        <p>The evaluation focused on comparing the existing forwarding workflow with the redesigned experience, including recipient selection and forwarding attribution.</p>
+      </div>
+    </section>
+
+    <figure class="cs__media cs__compare reveal">
+      <div class="frame">
+        <div class="cmp"><span>Before</span><div class="phone">Existing workflow</div></div>
+        <div class="cmp"><span>After</span><div class="phone">Straight Forward</div></div>
+      </div>
+      <figcaption>Before-and-after comparison of task completion times</figcaption>
+    </figure>
+
+    <section class="cs__row reveal">
+      <div class="cs__text">
+        <p><strong>42% faster sharing</strong> is the target headline metric. To report it as a measured result, the original test timings need to establish that improvement.</p>
+        <p>Beyond speed, the new workflow removes the need to forward a message after sending it and gives users a way to preserve the personal feel of separate conversations.</p>
+      </div>
+    </section>
+
+    <section class="cs__row reveal" id="learnings">
+      <h2 class="cs__label">Learnings</h2>
+      <div class="cs__text">
+        <p>This project demonstrated how an existing interaction can be extended to solve a specific usability problem without introducing unnecessary interface complexity.</p>
+        <p><strong>Designing within an established product</strong> required balancing new functionality with Telegram’s familiar interaction patterns.</p>
+        <p><strong>Building a working implementation</strong> made it possible to test the experience in its intended environment, rather than relying only on static mockups.</p>
+        <p>Most importantly, I learned that improving a product doesn’t always require reinventing its interface. Sometimes, it means removing the steps that shouldn’t have been necessary in the first place.</p>
+      </div>
+    </section>
+
+    <nav class="cs__next reveal" aria-label="Next project">
+      <span class="g">Next</span>
+      <a href="/unicbank/">Neobank App</a>
+    </nav>
+  </div>
+
+  <!-- Right: section index (sticky). -->
+  <nav class="cs__index" aria-label="On this page">
+    <ol>
+      <li><a href="#problem">Problem</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#design">Design</a></li>
+      <li><a href="#shipped">Shipped</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="#learnings">Learnings</a></li>
+    </ol>
+  </nav>
+
+</main>
+</body>
+</html>
