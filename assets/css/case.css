@@ -78,11 +78,10 @@ img { max-width: 100%; }
 }
 
 .bar__name {
-  justify-self: start;
-  font-family: var(--serif);
-  font-size: 20px;
-  letter-spacing: 0;
-  line-height: 1;
+  /* Same face and size as the Work / About links, but in ink. */
+  font-family: var(--sans);
+  font-size: var(--t);
+  color: var(--ink);
 }
 
 .bar__meta {
@@ -108,24 +107,30 @@ img { max-width: 100%; }
 
 .cs {
   display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  column-gap: var(--gap);
+  /* Side, write-up, index. The gaps widen with the window. */
+  grid-template-columns: minmax(0, 2.75fr) minmax(0, 8fr) minmax(0, 1.25fr);
+  column-gap: clamp(32px, 4.5vw, 72px);
   align-items: start;
-  padding: var(--top) var(--edge) 0;
+  /* The side columns centre on the middle of the screen (--mid). */
+  --mid: 50svh;
+  padding: var(--bar) var(--edge) 0;
 }
 
 /* Left column */
 .cs__side {
-  grid-column: 1 / 4;
+  grid-column: 1;
   position: sticky;
-  top: var(--top);
+  top: var(--bar);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  /* "safe" falls back to the top when the screen is too short to centre. */
+  justify-content: safe center;
   gap: 24px;
-  /* Fill the screen under the header so the back link sits at its foot. */
-  min-height: calc(100svh - var(--top));
-  padding-bottom: 32px;
+  /* Fill the screen under the header. The bottom padding is larger by the
+     header's height, so the content centres on the middle of the whole screen. */
+  min-height: calc(100svh - var(--bar));
+  padding-block: 72px calc(72px + var(--bar));
 }
 
 .cs__count { margin-bottom: -16px; }
@@ -165,8 +170,10 @@ img { max-width: 100%; }
 }
 
 /* Middle column */
+/* Desktop: the write-up starts a little under the header. */
 .cs__main {
-  grid-column: 4 / 12;
+  padding-top: 40px;
+  grid-column: 2;
   display: grid;
   grid-template-columns: repeat(8, minmax(0, 1fr));
   column-gap: var(--gap);
@@ -177,19 +184,21 @@ img { max-width: 100%; }
 .cs__label { color: var(--grey); margin-bottom: 12px; }
 
 .cs__text { line-height: 1.55; max-width: 34em; }
-.cs__text > * + * { margin-top: 1em; }
+.cs__text > * + * { margin-top: 10px; }
 .cs__text strong { font-weight: 600; }
 
 .cs__text ul { list-style: none; padding: 0; margin-bottom: 0; }
 .cs__text ul li {
   display: block;
-  padding: 12px 0 12px 1.4em;
+  padding-left: 1.4em;
   position: relative;
 }
+/* Items sit close; the list keeps the same 10px gap to paragraphs as text does. */
+.cs__text ul li + li { margin-top: 6.5px; }
 .cs__text ul li::before {
   content: "";
   position: absolute;
-  left: 0.2em; top: calc(12px + 0.65em);
+  left: 0.2em; top: calc(0.775em - 2.5px); /* centred on the first line (line-height 1.55) */
   width: 5px; height: 5px;
   border-radius: 50%;
   background: var(--ink);
@@ -272,10 +281,11 @@ img { max-width: 100%; }
 
 /* Right column */
 .cs__index {
-  grid-column: 12 / 13;
+  grid-column: 3;
   grid-row: 1;
   position: sticky;
-  top: var(--top);
+  top: var(--mid);
+  transform: translateY(-50%);
   justify-self: end;
   text-align: right;
 }
@@ -297,26 +307,22 @@ img { max-width: 100%; }
   color: var(--ink);
 }
 
-/* Back link at the foot of the side column. */
-.cs__back { margin-top: auto; color: var(--grey); transition: color 0.2s var(--ease); }
-.cs__back:hover { color: var(--ink); }
 
-/* Text and phone side by side (desktop); stacked below 1100px. */
-.cs__main > .cs__split {
-  grid-column: 1 / -1;
+/* Before and after phones, side by side, under the Problem text. */
+.cs__phones {
+  margin-top: 48px;
   display: grid;
-  grid-template-columns: minmax(0, 5fr) minmax(0, 3fr);
-  column-gap: calc(var(--gap) * 2);
-  align-items: start;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--gap);
+  justify-items: center;
 }
-.split__media {
-  justify-self: center;
+.phones__item {
   width: min(100%, 280px);
   display: grid;
   justify-items: center;
-  gap: 20px;
+  gap: 16px;
 }
-.split__media figcaption { margin-top: -4px; color: var(--grey); text-align: center; }
+.phones__label { color: var(--grey); }
 
 /* Two-way switch: a pill slides under the active option. */
 .switch {
@@ -349,7 +355,7 @@ img { max-width: 100%; }
   transition: transform 0.45s var(--ease), width 0.45s var(--ease);
 }
 
-/* Phone mockup: Apple's iPhone 16 bezel (1359 × 2736) over the content.
+/* Phone mockup: Apple's iPhone 16 bezel (white) (1359 × 2736) over the content.
    Its screen is 1179 × 2556, inset 90px on every side, corner radius ~190px. */
 .device {
   position: relative;
@@ -444,6 +450,60 @@ img { max-width: 100%; }
 .cs__table tbody th .g { font-weight: 400; margin-right: 4px; font-variant-numeric: tabular-nums; }
 .cs__table td { width: 38%; }
 .cs__table tbody tr:last-child > * { border-bottom: 1px solid var(--line); }
+
+/* Screenshots that already include their phone, in a row under the text. */
+.cs__shots {
+  display: grid;
+  gap: var(--gap);
+  margin-top: 48px;
+  align-items: end;
+}
+.cs__shots--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 600px; }
+.cs__shots--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.cs__shots img { display: block; width: 100%; height: auto; }
+
+/* Before / after step lists, side by side. */
+.cs__duo {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--gap);
+  margin-top: 32px;
+}
+.duo__item {
+  padding: 20px 24px 24px;
+  border-radius: 4px;
+  background: var(--figure);
+}
+.duo__head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.duo__badge { font-family: var(--serif); font-size: 20px; line-height: 1.1; }
+.duo__item ol { list-style: none; counter-reset: step; display: grid; gap: 6.5px; }
+.duo__item li { counter-increment: step; display: grid; grid-template-columns: 2em 1fr; }
+.duo__item li::before { content: counter(step); color: var(--grey); font-variant-numeric: tabular-nums; }
+.duo__item s { color: var(--grey); }
+
+/* Large figure inside text. */
+.cs__big { font-family: var(--serif); font-size: 40px; line-height: 1.1; letter-spacing: -0.01em; }
+
+/* Comparison marks: strong, partial, gap. */
+.mark { display: inline-block; min-width: 1em; text-align: center; }
+.mark--yes { color: var(--ink); font-weight: 600; }
+.mark--partial, .mark--no { color: var(--grey); }
+.cs__table--marks td { text-align: center; width: auto; }
+.cs__table--marks thead th + th { text-align: center; }
+.cs__table--marks tbody th { width: 52%; font-weight: 400; }
+.cs__legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin-top: 12px;
+}
 
 /* Three steps side by side. */
 .cs__flow .frame {
@@ -549,14 +609,14 @@ img { max-width: 100%; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .bar { transition: none; }
-  .line > span, .reveal, .cs__index { transform: none !important; opacity: 1 !important; transition: none !important; }
+  .line > span, .reveal { transform: none !important; opacity: 1 !important; transition: none !important; }
+  .cs__index { opacity: 1 !important; transition: none !important; }
 }
 
 /* ── Narrower screens ───────────────────────────── */
 
 @media (max-width: 1100px) {
   .cs__main > * { grid-column: 1 / -1; }
-  .cs__main > .cs__split { grid-template-columns: minmax(0, 1fr); row-gap: 48px; }
 }
 
 @media (max-width: 960px) {
@@ -564,8 +624,7 @@ img { max-width: 100%; }
     grid-template-columns: minmax(0, 1fr);
     padding-top: calc(var(--bar) + 16px);
   }
-  .cs__side { grid-column: 1; position: static; min-height: 0; padding: 0; gap: 16px; }
-  .cs__back { margin-top: 8px; }
+  .cs__side { grid-column: 1; position: static; min-height: 0; padding: 0; gap: 16px; justify-content: flex-start; }
   .cs__count { margin-bottom: -8px; }
   .cs__main { grid-column: 1; grid-template-columns: minmax(0, 1fr); padding-top: 32px; }
   .cs__index { display: none; }
@@ -574,7 +633,8 @@ img { max-width: 100%; }
   .cs__media + .cs__media { margin-top: -48px; }
   .cs__compare .frame { gap: 16px; padding: 16px 16px 24px; }
   .cs__flow .frame { gap: 12px; padding: 16px 12px 24px; }
-  .split__media { width: min(100%, 240px); }
+  .cs__phones { gap: 12px; margin-top: 32px; }
+  .phones__item { gap: 10px; }
   .cs__row-media { flex-direction: column; }
   .cs__ui { grid-template-columns: 1fr; }
 }
@@ -588,7 +648,6 @@ img { max-width: 100%; }
   }
   /* Mobile: the header slides away on scroll down, back on scroll up. */
   .bar.is-hidden { transform: translateY(-100%); }
-  .cs__back { display: none; }
   .cs__media--pair { grid-template-columns: 1fr; }
   /* Findings stack: one block per finding, each cell labelled. */
   .cs__table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
@@ -597,7 +656,16 @@ img { max-width: 100%; }
   .cs__table tbody tr:last-child { border-bottom: 1px solid var(--line); }
   .cs__table th, .cs__table td,
   .cs__table tbody tr:last-child > * { border: 0; padding: 0; }
+  .cs__table tbody th,
+  .cs__table tbody td { width: auto; } /* override the desktop column widths */
   .cs__table td { margin-top: 10px; }
   .cs__table td::before { content: attr(data-label); display: block; color: var(--grey); }
+  /* Marks: one line per competitor, name then mark. */
+  .cs__table--marks td { text-align: left; display: flex; gap: 12px; margin-top: 6px; }
+  .cs__table--marks td::before { min-width: 5em; }
+  .cs__duo { grid-template-columns: 1fr; }
+  .cs__shots--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+  .cs__shots { margin-top: 32px; }
+  .cs__big { font-size: 32px; }
   .cs__flow .frame { grid-template-columns: 1fr; gap: 32px; }
 }

@@ -41,61 +41,58 @@
 
   <!-- Left: project summary (sticky). -->
   <aside class="cs__side">
-    <p class="cs__count line"><span>01 / 03</span></p>
     <h1 class="cs__title">
       <span class="line"><span>Straight Forward</span></span>
     </h1>
-    <p class="cs__overview line"><span>Broadcast your message to private chats without jumping through hoops.</span></p>
+    <p class="cs__overview line"><span>Broadcast your message to private chats without jumping through hoops and 42% faster.</span></p>
     <dl class="cs__facts">
       <div class="line"><span><dt>Role</dt><dd>Design Contestant</dd></span></div>
       <div class="line"><span><dt>Company</dt><dd><a class="ext" href="https://telegram.org" target="_blank" rel="noopener">Telegram<span class="sr"> (opens in a new tab)</span></a></dd></span></div>
       <div class="line"><span><dt>When</dt><dd>October 2026</dd></span></div>
     </dl>
-    <p class="cs__figure line"><span><strong>42%</strong> faster private sharing with friends and family</span></p>
-    <a class="cs__back line" href="/"><span>Back to Work</span></a>
   </aside>
 
   <!-- Middle: the write-up. -->
   <div class="cs__main">
 
-    <section class="cs__row cs__split reveal" id="problem">
-      <div class="split__text">
-        <h2 class="cs__label">Problem</h2>
-        <div class="cs__text">
-          <p>Telegram users often want to share personal updates, photos, or memories with several friends and family members individually, without creating a group chat.</p>
-          <p>However, Telegram’s existing workflow introduces unnecessary friction:</p>
-          <ul>
-            <li><strong>Too many steps:</strong> Users must send a message to one person, then select and forward it to others.</li>
-            <li><strong>Unwanted attribution:</strong> Forwarded messages display a “Forwarded from” label by default, making a message feel less personal. Removing it requires additional actions.</li>
-            <li><strong>Fragmented photo sharing:</strong> Message attachments are limited to 10 photos, making large collections cumbersome to select and forward.</li>
-          </ul>
-        </div>
+    <section class="cs__row reveal" id="problem">
+      <h2 class="cs__label">Problem</h2>
+      <div class="cs__text">
+        <p>Telegram users often want to share personal updates, photos, or memories with several friends, family members, or colleagues individually, without creating a group chat.</p>
+        <p>However, Telegram’s existing workflow introduces unnecessary friction:</p>
+        <ul>
+          <li><strong>Too many steps:</strong> Users must send a message to one person, then select and forward it to others.</li>
+          <li><strong>Unwanted attribution:</strong> Forwarded messages display a “Forwarded from” label by default, making a message feel less personal. Removing it requires additional actions.</li>
+          <li><strong>Fragmented photo sharing:</strong> Message attachments are limited to 10 photos, making large collections cumbersome to select and forward.</li>
+        </ul>
       </div>
-      <figure class="split__media">
-        <div class="switch" role="group" aria-label="Compare workflows">
-          <button class="switch__item is-active" type="button" aria-pressed="true" data-show="before">Before</button>
-          <button class="switch__item" type="button" aria-pressed="false" data-show="after">After</button>
-          <span class="switch__pill" aria-hidden="true"></span>
-        </div>
-        <div class="device">
-          <div class="device__screen">
-            <div class="device__state is-active" data-state="before">
+      <!-- Before / after, side by side. -->
+      <div class="cs__phones">
+        <figure class="phones__item">
+          <span class="phones__label">Before</span>
+          <div class="device">
+            <div class="device__screen">
               <span class="device__empty">Before</span>
               <video data-autoplay muted loop playsinline preload="metadata" aria-label="Existing Telegram workflow">
                 <source src="/assets/video/problem-before.mp4" type="video/mp4">
               </video>
             </div>
-            <div class="device__state" data-state="after" aria-hidden="true">
+            <img class="device__frame" src="/assets/img/iphone-16-white-portrait.png" alt="" draggable="false">
+          </div>
+        </figure>
+        <figure class="phones__item">
+          <span class="phones__label">After</span>
+          <div class="device">
+            <div class="device__screen">
               <span class="device__empty">After</span>
               <video data-autoplay muted loop playsinline preload="metadata" aria-label="Straight Forward workflow">
                 <source src="/assets/video/problem-after.mp4" type="video/mp4">
               </video>
             </div>
+            <img class="device__frame" src="/assets/img/iphone-16-white-portrait.png" alt="" draggable="false">
           </div>
-          <img class="device__frame" src="/assets/img/iphone-16-black-portrait.png" alt="" draggable="false">
-        </div>
-        <figcaption data-before="Existing Telegram workflow, highlighting three friction points" data-after="The same task with Straight Forward" aria-live="polite">Existing Telegram workflow, highlighting three friction points</figcaption>
-      </figure>
+        </figure>
+      </div>
     </section>
 
     <section class="cs__row reveal" id="research">
