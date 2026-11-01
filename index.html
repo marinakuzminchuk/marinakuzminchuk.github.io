@@ -2,126 +2,112 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Marina Kuzminchuk</title>
   <meta name="description" content="UX/UI Designer portfolio — Marina Kuzminchuk" />
   <link rel="icon" type="image/png" href="/assets/img/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,400;9..144,1,400&family=Gloock:ital@0;1&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@400;500;600;700&family=Schibsted+Grotesk:ital,wght@0,400;0,700;1,700&display=swap" />
-  <link rel="stylesheet" href="/assets/css/style.css" />
-  <script src="/assets/js/toc.js" defer></script>
-  <script src="/assets/js/motion.js" defer></script>
-  <script src="/assets/js/card-stack.js" defer></script>
-  <noscript><style>.project-card,.case-section{opacity:1!important;transform:none!important;}</style></noscript>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Instrument+Sans:wght@400;500;600&display=swap" />
+  <script>
+    // Theme before first paint (shared with the case study pages), and a flag
+    // so the page can lay itself out for the script.
+    (function () {
+      var root = document.documentElement;
+      var saved = null;
+      try { saved = localStorage.getItem('case-theme'); } catch (e) {}
+      root.dataset.theme = saved || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      root.classList.add('js');
+    })();
+  </script>
+  <link rel="stylesheet" href="/assets/css/home.css" />
+  <script src="/assets/js/home.js" defer></script>
 </head>
 <body>
-<div class="home-page">
-  <div class="home-wrap">
+<a class="skip" href="#work">Skip to content</a>
 
-    <!-- Top bar -->
-    <header class="top-bar">
-      <a href="/" class="top-name">Marina Kuzminchuk</a>
-      <div class="top-links">
-        <a href="/telegram-straight-forward/">Case draft</a>
-        <a href="/assets/MarinaKuzminchuk_CV.pdf" target="_blank" rel="noopener">CV <span class="link-arrow">↗︎</span></a>
-        <a href="https://www.linkedin.com/in/marina-kuzminchuk-22bab8255" target="_blank" rel="noopener">LinkedIn <span class="link-arrow">↗︎</span></a>
-      </div>
-    </header>
+<header class="bar">
+  <a class="bar__name" href="/">Marina Kuzminchuk</a>
+  <nav class="bar__meta" aria-label="Main">
+    <a class="bar__link is-on" href="/" aria-current="page">Work</a>
+    <a class="bar__link" href="/about/">About</a>
+    <button class="theme" type="button" aria-label="Switch theme" data-theme-toggle>
+      <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.4" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M8 1.6a6.4 6.4 0 0 0 0 12.8z" fill="currentColor"/></svg>
+    </button>
+  </nav>
+</header>
 
-    <hr class="home-divider">
+<main id="work" class="work">
+  <h1 class="sr">Marina Kuzminchuk — UX/UI Designer. Selected work</h1>
 
-    <!-- Hero -->
-    <section class="home-hero">
-      <div class="hero-left">
-        <h1 class="hero-title">UX/UI<br>Designer</h1>
-        <p class="hero-bio">
-          My name is Marina and I'm a UX/UI Designer with <strong><em>3 years</em></strong> of experience. I leverage <strong><em>user-centered
-          research</em></strong>, <strong><em>AI-powered prototyping</em></strong>, and
-          <strong><em>systems thinking</em></strong> to create
-          <strong><em>intuitive, visually appealing web and mobile interfaces</em></strong>
-          that stand out and are ready to ship.
-        </p>
-      </div>
-      <div class="hero-right">
-        <div class="card-stack" id="hero-card-stack" role="group" aria-label="Project screens. Use Arrow Left or Arrow Right to cycle.">
-          <article class="stack-card" role="group" aria-label="UnicBank home screen">
-            <img src="/assets/img/unic-screen-1.png" alt="" class="stack-card-img" draggable="false">
-          </article>
-          <article class="stack-card" role="group" aria-label="SUBScout analytics screen">
-            <img src="/assets/img/sub-screen-1.png" alt="" class="stack-card-img" draggable="false">
-          </article>
-          <article class="stack-card" role="group" aria-label="Pulse athlete dashboard screen">
-            <img src="/assets/img/pulse-athlete-dashboard.png" alt="" class="stack-card-img" draggable="false">
-          </article>
-        </div>
-      </div>
-    </section>
+  <!-- Each stop is one project: its words (read by the script into the fixed
+       column) and its phone, centred on the screen. -->
 
-    <!-- Skills -->
-    <section class="home-skills">
-      <p class="skills-heading">Things I'm good at</p>
-      <div class="chips">
-        <span class="chip">User flows</span>
-        <span class="chip">Wireframing</span>
-        <span class="chip">Design systems</span>
-        <span class="chip">Web &amp; Mobile UI</span>
-        <span class="chip">Technical feasibility</span>
-        <span class="chip">Visual design</span>
-        <span class="chip">Usability testing</span>
-        <span class="chip">AI-assisted workflows</span>
-        <span class="chip">User research</span>
-        <span class="chip">Developer handoff</span>
-        <span class="chip">Figma MCP</span>
-      </div>
-    </section>
-
-    <!-- Latest Projects -->
-    <section class="home-projects">
-      <p class="projects-heading">Latest Projects</p>
-
-      <div class="project-list">
-
-        <a href="/unicbank/" class="project-card">
-          <div class="project-info">
-            <div class="project-title-row">
-              <h2 class="project-name">Neobank <span class="project-title-end">App<span class="project-arrow">↗︎</span></span></h2>
-            </div>
-            <p class="project-tags">UX/UI · Product discovery · User research · Prototyping · Visual design</p>
-            <p class="project-desc">Reduced setup friction in a neobank concept by making first actions available earlier, turning the home screen into guidance, and adding confirmation control to scheduled transfers.</p>
-          </div>
-          <div class="project-screens">
-            <img src="/assets/img/unic-screen-1.png" alt="UnicBank home screen" class="phone-screen">
-            <img src="/assets/img/unic-screen-2.png" alt="UnicBank cards screen" class="phone-screen">
-          </div>
-        </a>
-
-        <div class="project-card project-card--disabled">
-          <div class="project-info">
-            <div class="project-title-row">
-              <h2 class="project-name">Subscription Management <span class="project-title-end">App</span> <span class="coming-soon-badge">Coming soon</span></h2>
-            </div>
-            <p class="project-tags">UX/UI · Product discovery · Interviews · User flows · Prototyping</p>
-            <p class="project-desc">Turned scattered subscription costs into a clear mobile overview with spending analytics, payment reminders, plan options, and tools to control recurring expenses.</p>
-          </div>
-          <div class="project-screens">
-            <img src="/assets/img/sub-screen-1.png" alt="SUBScout analytics screen" class="phone-screen">
-            <img src="/assets/img/sub-screen-2.png" alt="SUBScout details screen" class="phone-screen">
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <hr class="home-divider">
-
-    <!-- Email footer card -->
-    <div class="home-email-card">
-      <p>Get in touch with me via email: <a href="mailto:marina.a.kuzminchuk@gmail.com"><strong>marina.a.kuzminchuk@gmail.com</strong></a></p>
-      <p class="footer-copy">© 2026 Marina Kuzminchuk</p>
+  <section class="stop" id="neobank" data-href="/unicbank/">
+    <div class="stop__info">
+      <h2 class="i-title">Neobank App</h2>
+      <p class="i-summary">Reduced setup friction by making first actions available earlier, turning the home screen into guidance, and adding control to scheduled transfers.</p>
+      <p class="i-role">UX/UI, Product discovery, 2026</p>
+      <p class="i-link"><a href="/unicbank/"><span>View project</span></a></p>
     </div>
+    <a class="device" href="/unicbank/" tabindex="-1" aria-hidden="true">
+      <span class="device__screen">
+        <img class="device__shot" src="/assets/img/unic-home-screen.png" alt="" draggable="false" decoding="async">
+      </span>
+      <img class="device__frame" src="/assets/img/iphone-16-white-portrait.png" alt="" draggable="false">
+    </a>
+  </section>
 
+  <section class="stop" id="straight-forward" data-href="/telegram-straight-forward/">
+    <div class="stop__info">
+      <h2 class="i-title">Straight Forward</h2>
+      <p class="i-summary">Broadcast a message to several private chats without jumping through hoops, built and tested inside Telegram’s own app.</p>
+      <p class="i-role">Design Contestant, Telegram, 2026</p>
+      <p class="i-link"><a href="/telegram-straight-forward/"><span>View project</span></a></p>
+    </div>
+    <a class="device" href="/telegram-straight-forward/" tabindex="-1" aria-hidden="true">
+      <span class="device__screen">
+        <span class="device__empty">Straight Forward</span>
+        <video muted loop playsinline preload="metadata">
+          <source src="/assets/video/problem-after.mp4" type="video/mp4">
+        </video>
+      </span>
+      <img class="device__frame" src="/assets/img/iphone-16-white-portrait.png" alt="" draggable="false">
+    </a>
+  </section>
+
+  <section class="stop" id="subscout">
+    <div class="stop__info">
+      <h2 class="i-title">Subscription Manager</h2>
+      <p class="i-summary">Turned scattered subscription costs into one clear overview, with spending analytics, payment reminders and tools to control recurring expenses.</p>
+      <p class="i-role">UX/UI, Interviews, User flows</p>
+      <p class="i-link i-soon">Coming soon</p>
+    </div>
+    <div class="device device--android device--soon" aria-hidden="true">
+      <span class="device__screen">
+        <img class="device__shot" src="/assets/img/sub-analytics.jpg" alt="" draggable="false" decoding="async">
+        <span class="device__patch"></span>
+      </span>
+      <img class="device__frame" src="/assets/img/android-frame.png" alt="" draggable="false">
+    </div>
+  </section>
+
+  <!-- Fixed chrome, filled and driven by the script. -->
+  <div class="info" aria-hidden="true">
+    <div class="info__block" data-block></div>
   </div>
-</div>
+
+  <nav class="index" aria-label="Projects"><ol data-index></ol></nav>
+
+  <footer class="links">
+    <a href="/assets/MarinaKuzminchuk_CV.pdf" target="_blank" rel="noopener"><span>CV</span></a>
+    <a href="https://www.linkedin.com/in/marina-kuzminchuk-22bab8255" target="_blank" rel="noopener"><span>LinkedIn</span></a>
+    <!-- With JS, a click copies the address and shows a toast; without, it opens mail. -->
+    <a href="mailto:marina.a.kuzminchuk@gmail.com" data-copy="marina.a.kuzminchuk@gmail.com"><span>Email</span></a>
+  </footer>
+
+  <div class="toast" role="status" aria-live="polite"></div>
+</main>
+
 </body>
 </html>
