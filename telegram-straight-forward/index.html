@@ -20,7 +20,9 @@
     })();
   </script>
   <link rel="stylesheet" href="/assets/css/case.css" />
+  <link rel="stylesheet" href="/assets/css/vplay.css" />
   <script src="/assets/js/case.js" defer></script>
+  <script src="/assets/js/vplay.js" defer></script>
   <noscript><style>.reveal,.line > span{opacity:1!important;transform:none!important;}</style></noscript>
 </head>
 <body>
@@ -70,26 +72,34 @@
       <div class="cs__phones">
         <figure class="phones__item">
           <span class="phones__label">Before</span>
-          <div class="device">
+          <div class="device vplay-host">
             <div class="device__screen">
               <span class="device__empty">Before</span>
-              <video data-autoplay muted loop playsinline preload="metadata" aria-label="Existing Telegram workflow">
-                <source src="/assets/video/problem-before.mp4" type="video/mp4">
+              <video muted loop playsinline preload="metadata" aria-label="Existing Telegram workflow">
+                <source src="/assets/video/problem-before.mp4#t=0.1" type="video/mp4">
               </video>
             </div>
             <img class="device__frame" src="/assets/img/iphone-16-white-portrait.png" alt="" draggable="false">
+            <button class="vplay" type="button" aria-label="Play video">
+              <svg class="i-play" viewBox="0 0 20 20" aria-hidden="true"><path d="M7 4.6v10.8a.6.6 0 0 0 .9.5l8.4-5.4a.6.6 0 0 0 0-1L7.9 4.1a.6.6 0 0 0-.9.5z" fill="currentColor"/></svg>
+              <svg class="i-pause" viewBox="0 0 20 20" aria-hidden="true"><rect x="5.5" y="4.5" width="3" height="11" rx="0.8" fill="currentColor"/><rect x="11.5" y="4.5" width="3" height="11" rx="0.8" fill="currentColor"/></svg>
+            </button>
           </div>
         </figure>
         <figure class="phones__item">
           <span class="phones__label">After</span>
-          <div class="device">
+          <div class="device vplay-host">
             <div class="device__screen">
               <span class="device__empty">After</span>
-              <video data-autoplay muted loop playsinline preload="metadata" aria-label="Straight Forward workflow">
-                <source src="/assets/video/problem-after.mp4" type="video/mp4">
+              <video muted loop playsinline preload="metadata" aria-label="Straight Forward workflow">
+                <source src="/assets/video/problem-after.mp4#t=0.1" type="video/mp4">
               </video>
             </div>
             <img class="device__frame" src="/assets/img/iphone-16-white-portrait.png" alt="" draggable="false">
+            <button class="vplay" type="button" aria-label="Play video">
+              <svg class="i-play" viewBox="0 0 20 20" aria-hidden="true"><path d="M7 4.6v10.8a.6.6 0 0 0 .9.5l8.4-5.4a.6.6 0 0 0 0-1L7.9 4.1a.6.6 0 0 0-.9.5z" fill="currentColor"/></svg>
+              <svg class="i-pause" viewBox="0 0 20 20" aria-hidden="true"><rect x="5.5" y="4.5" width="3" height="11" rx="0.8" fill="currentColor"/><rect x="11.5" y="4.5" width="3" height="11" rx="0.8" fill="currentColor"/></svg>
+            </button>
           </div>
         </figure>
       </div>

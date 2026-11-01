@@ -1,0 +1,89 @@
+/* Play / pause control over a phone's video, shared by the home page and
+   the case studies. It sits on the video, not the page, so it contrasts
+   with the video: a very light grey circle (the table panels' #f5f5f5) with
+   a black icon, brightening to white on hover, the same in both themes —
+   the recordings are dark app
+   UI either way. Shown while paused; while playing it steps back and
+   returns on hover or keyboard focus, as a pause button. */
+.vplay-host { position: relative; }
+
+.vplay {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #f5f5f5; /* the table panels' light grey (--figure, light theme) */
+  color: #000;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgb(0 0 0 / 0.25);
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s var(--ease), transform 0.3s var(--ease), background-color 0.3s var(--ease);
+}
+.vplay:hover { background: #fff; }
+.vplay:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+.vplay svg { width: 18px; height: 18px; display: block; }
+.vplay .i-pause,
+.vplay .i-spin { display: none; }
+.vplay.is-playing .i-play { display: none; }
+.vplay.is-playing .i-pause { display: block; }
+
+/* Loading: the button becomes a spinner (a ring with a turning arc) until
+   playback starts, so a slow download reads as "preparing", not broken. */
+.vplay.is-loading .i-play,
+.vplay.is-loading .i-pause { display: none; }
+.vplay.is-loading .i-spin {
+  display: block;
+  width: 22px;
+  height: 22px;
+  animation: vplay-spin 0.9s linear infinite;
+}
+.vplay.is-loading { cursor: progress; }
+@keyframes vplay-spin { to { transform: rotate(360deg); } }
+
+/* A screen that holds a video is black until the first frame arrives, like
+   a phone waking up, rather than an empty grey panel. */
+.vplay-host .device__screen:has(video) { background: #000; }
+/* The play button / spinner is the cue now; no placeholder text behind it. */
+.vplay-host .device__empty { display: none; }
+
+.vplay:hover { transform: translate(-50%, -50%) scale(1.06); background: #fff; }
+
+/* Playing: out of the way until the phone is hovered or the button focused.
+   (Loading always shows: the spinner is the point.) */
+.vplay.is-playing:not(.is-loading) {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.9);
+}
+.vplay-host:hover .vplay.is-playing,
+.vplay.is-playing:focus-visible {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Autoplay hosts (home page): before the video is asked to play there's
+   nothing to press yet, so the idle play button waits hidden; it appears
+   as the spinner while loading, as pause on hover, or as play once paused. */
+.vplay-host[data-autoplay] .vplay:not(.is-loading):not(.is-playing):not(.was-paused) {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* No-controls hosts (home page): the overlay is only ever the loading
+   spinner — never a play or pause button, never clickable. */
+.vplay-host[data-no-controls] .vplay { pointer-events: none; }
+.vplay-host[data-no-controls] .vplay:not(.is-loading) {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.9);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vplay { transition: none; }
+  .vplay.is-loading .i-spin { animation-duration: 2.4s; }
+}

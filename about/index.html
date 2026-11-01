@@ -2,151 +2,59 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>About — Marina Kuzminchuk</title>
-  <meta name="description" content="UX/UI Designer portfolio — Marina Kuzminchuk" />
+  <meta name="description" content="About Marina Kuzminchuk, UX/UI Designer" />
   <link rel="icon" type="image/png" href="/assets/img/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,400;9..144,1,400&family=Gloock:ital@0;1&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@400;500;600;700&family=Schibsted+Grotesk:ital,wght@0,400;0,700;1,700&display=swap" />
-  <link rel="stylesheet" href="/assets/css/style.css" />
-  <script src="/assets/js/toc.js" defer></script>
-  <script src="/assets/js/motion.js" defer></script>
-  <script src="/assets/js/card-stack.js" defer></script>
-  <noscript><style>.project-card,.case-section{opacity:1!important;transform:none!important;}</style></noscript>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Instrument+Sans:wght@400;500;600&display=swap" />
+  <script>
+    // Theme before first paint (shared with the other pages).
+    (function () {
+      var root = document.documentElement;
+      var saved = null;
+      try { saved = localStorage.getItem('case-theme'); } catch (e) {}
+      root.dataset.theme = saved || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      root.classList.add('js');
+    })();
+  </script>
+  <link rel="stylesheet" href="/assets/css/home.css" />
+  <!-- home.js: theme toggle and the Email copy toast (it skips the project
+       paging, which needs the home page's stops). -->
+  <script src="/assets/js/home.js" defer></script>
 </head>
 <body>
-<div class="about-wrap">
+<a class="skip" href="#about">Skip to content</a>
 
-  <!-- Top bar -->
-  <header class="top-bar about-topbar">
-    <a href="/" class="case-back">← Work</a>
-    <div class="top-links">
-      <a href="/assets/MarinaKuzminchuk_CV.pdf" target="_blank" rel="noopener">CV ↗︎</a>
-      <a href="https://www.linkedin.com/in/marina-kuzminchuk-22bab8255" target="_blank" rel="noopener">LinkedIn ↗︎</a>
-    </div>
-  </header>
+<header class="bar">
+  <a class="bar__name" href="/">Marina Kuzminchuk</a>
+  <nav class="bar__meta" aria-label="Main">
+    <a class="bar__link" href="/">Work</a>
+    <a class="bar__link is-on" href="/about/" aria-current="page">About</a>
+    <button class="theme" type="button" aria-label="Switch theme" data-theme-toggle>
+      <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.4" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M8 1.6a6.4 6.4 0 0 0 0 12.8z" fill="currentColor"/></svg>
+    </button>
+  </nav>
+</header>
 
-  <!-- Intro -->
-  <div class="card about-card">
-    <h1 style="font-size:1.75rem;font-weight:700;letter-spacing:-0.025em;margin-bottom:0.25rem;">Marina Kuzminchuk</h1>
-    <p style="font-size:0.82rem;color:var(--muted);margin-bottom:1.75rem;">UX/UI Designer · Berlin</p>
-
-    <p class="about-intro-text">
-      Two years into my engineering career at Cross4Channel, I kept noticing the same pattern: the hardest conversations weren't about how to build something — they were about what it should actually do and how it should feel. I was already contributing to UX decisions: improving layout structure for medical datasets, optimising map interactions, making interface components navigable for healthcare professionals. That attention kept pulling me toward design.
-    </p>
-    <p class="about-intro-text">
-      I made the move deliberate. Now I work from research to handoff — user interviews, flow mapping, wireframing, high-fidelity design, usability testing. My engineering background means I understand implementation constraints, read developer feedback without translation, and design things that are feasible to build.
-    </p>
+<!-- The home page's three blocks: left column, centre, right column.
+     For now only the centre holds content. -->
+<main id="about" class="about">
+  <h1 class="sr">About Marina Kuzminchuk</h1>
+  <div class="about__left"></div>
+  <div class="about__center">
+    <p class="about__intro">My name is Marina and I'm a UX/UI Designer with 3 years of experience. I leverage user-centered research, AI-powered prototyping, and systems thinking to create intuitive, visually appealing web and mobile interfaces that stand out and are ready to ship.</p>
   </div>
+  <div class="about__right"></div>
 
-  <!-- Experience -->
-  <div class="card about-card">
-    <p class="about-section-label">Experience</p>
-    <ul class="about-row-list">
-      <li class="about-row">
-        <span class="about-row-year">2026</span>
-        <div>
-          <p class="about-row-primary">UX/UI Designer — Planit</p>
-          <p class="about-row-secondary">AI Planner &amp; Habits · Remote</p>
-          <p class="about-row-note">Usability testing across 40+ screens · Niche feature adoption +30% · 7 marketing visuals · German localisation</p>
-        </div>
-      </li>
-      <li class="about-row">
-        <span class="about-row-year">2026</span>
-        <div>
-          <p class="about-row-primary">UX/UI Designer — UnicBank</p>
-          <p class="about-row-secondary">Mobile Banking App Concept · Berlin</p>
-          <p class="about-row-note">End-to-end UX research · 65-screen prototype · iOS UI Kit · Developer handoff</p>
-        </div>
-      </li>
-      <li class="about-row">
-        <span class="about-row-year">2026</span>
-        <div>
-          <p class="about-row-primary">UX/UI Designer — SubScout</p>
-          <p class="about-row-secondary">Subscription Management App Concept · Berlin</p>
-          <p class="about-row-note">28-screen prototype · 18 user scenarios covering core, secondary, and edge cases</p>
-        </div>
-      </li>
-      <li class="about-row">
-        <span class="about-row-year">2023–2025</span>
-        <div>
-          <p class="about-row-primary">Junior Software Engineer — Cross4Channel</p>
-          <p class="about-row-secondary">Digitales Healthcare Marketing GmbH · Berlin</p>
-          <p class="about-row-note">3 cross-platform mobile apps · 1 web app · 20+ releases · AI support ticket analysis reducing manual review by 80%</p>
-        </div>
-      </li>
-    </ul>
-  </div>
+  <footer class="links">
+    <a href="/assets/MarinaKuzminchuk_CV.pdf" target="_blank" rel="noopener"><span>CV</span></a>
+    <a href="https://www.linkedin.com/in/marina-kuzminchuk-22bab8255" target="_blank" rel="noopener"><span>LinkedIn</span></a>
+    <a href="mailto:marina.a.kuzminchuk@gmail.com" data-copy="marina.a.kuzminchuk@gmail.com"><span>Email</span></a>
+  </footer>
 
-  <!-- Education -->
-  <div class="card about-card">
-    <p class="about-section-label">Education</p>
-    <ul class="about-row-list">
-      <li class="about-row">
-        <span class="about-row-year">2025–2026</span>
-        <div>
-          <p class="about-row-primary">UX/UI Design — Yandex Practicum</p>
-          <p class="about-row-secondary">Berlin</p>
-        </div>
-      </li>
-      <li class="about-row">
-        <span class="about-row-year">2020–2024</span>
-        <div>
-          <p class="about-row-primary">Media Informatics, B.Sc. — HTW Berlin</p>
-          <p class="about-row-secondary">University of Applied Sciences for Engineering and Economics · Berlin</p>
-        </div>
-      </li>
-    </ul>
-  </div>
-
-  <!-- Skills -->
-  <div class="card about-card">
-    <p class="about-section-label" style="margin-bottom:0.5rem;">UX/UI</p>
-    <div class="about-tags" style="margin-bottom:1.5rem;">
-      <span class="about-tag">User flows</span>
-      <span class="about-tag">Use cases</span>
-      <span class="about-tag">User stories</span>
-      <span class="about-tag">Competitor analysis</span>
-      <span class="about-tag">Wireframing</span>
-      <span class="about-tag">Prototyping</span>
-      <span class="about-tag">Usability testing</span>
-      <span class="about-tag">Accessibility</span>
-    </div>
-
-    <p class="about-section-label" style="margin-bottom:0.5rem;">Tools</p>
-    <div class="about-tags" style="margin-bottom:1.5rem;">
-      <span class="about-tag">Figma</span>
-      <span class="about-tag">Figma Make</span>
-      <span class="about-tag">Tilda</span>
-      <span class="about-tag">Adobe Photoshop</span>
-      <span class="about-tag">Midjourney</span>
-      <span class="about-tag">Claude Code</span>
-    </div>
-
-    <p class="about-section-label" style="margin-bottom:0.5rem;">Engineering</p>
-    <div class="about-tags" style="margin-bottom:1.5rem;">
-      <span class="about-tag">HTML</span>
-      <span class="about-tag">CSS</span>
-      <span class="about-tag">JavaScript</span>
-      <span class="about-tag">SQL</span>
-      <span class="about-tag">Git</span>
-    </div>
-
-    <p class="about-section-label" style="margin-bottom:0.5rem;">Languages</p>
-    <div class="about-tags">
-      <span class="about-tag">German</span>
-      <span class="about-tag">English</span>
-      <span class="about-tag">Russian</span>
-      <span class="about-tag">Belarusian</span>
-    </div>
-  </div>
-
-  <!-- Email footer -->
-  <div class="card email-card">
-    email: <a href="mailto:marina.a.kuzminchuk@gmail.com">marina.a.kuzminchuk@gmail.com</a>
-  </div>
-
-</div>
+  <div class="toast" role="status" aria-live="polite"></div>
+</main>
 </body>
 </html>

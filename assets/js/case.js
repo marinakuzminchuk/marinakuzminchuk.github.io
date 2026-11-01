@@ -97,34 +97,17 @@
     items.forEach(function (el) { el.classList.add('is-in'); });
   }
 
-  // Phone videos: only the shown layer plays, and only while the phone is on
-  // screen. With reduced motion nothing autoplays; controls let the visitor choose.
-  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-
+  // Phone videos: playback is the visitor's choice, through the play button
+  // over each phone (vplay.js). Here: hide the placeholder once a frame loads.
   document.querySelectorAll('.device').forEach(function (device) {
-    var visible = false;
-    function activeVideo() { return device.querySelector('.device__state.is-active video, .device__screen > video'); }
-    function playActive() {
-      device.querySelectorAll('video').forEach(function (v) { if (v !== activeVideo()) v.pause(); });
-      var v = activeVideo();
-      if (!v || reduce || !visible) return;
-      var p = v.play(); if (p) p.catch(function () {});
-    }
-
     device.querySelectorAll('video').forEach(function (v) {
-      v.addEventListener('loadeddata', function () {
+      function hideEmpty() {
         var empty = v.parentNode.querySelector('.device__empty');
         if (empty) empty.hidden = true;
-      });
-      if (reduce) v.controls = true;
+      }
+      if (v.readyState >= 2) hideEmpty();
+      else v.addEventListener('loadeddata', hideEmpty);
     });
-
-    if ('IntersectionObserver' in window) {
-      new IntersectionObserver(function (entries) {
-        visible = entries[0].isIntersecting;
-        if (visible) playActive(); else device.querySelectorAll('video').forEach(function (v) { v.pause(); });
-      }, { threshold: 0.25 }).observe(device);
-    }
 
     // A Before / After switch in the same figure swaps the layer and caption.
     var figure = device.closest('figure');
@@ -152,11 +135,10 @@
         layer.classList.toggle('is-active', on);
         if (on) layer.removeAttribute('aria-hidden'); else layer.setAttribute('aria-hidden', 'true');
       });
-      var v = activeVideo();
-      if (v && !reduce) { try { v.currentTime = 0; } catch (e) {} }
+      // The hidden layer's video stops; the shown one waits for its play button.
+      device.querySelectorAll('.device__state:not(.is-active) video').forEach(function (v) { v.pause(); });
       if (caption && caption.dataset[state]) caption.textContent = caption.dataset[state];
       placePill();
-      playActive();
     }
 
     options.forEach(function (o) {

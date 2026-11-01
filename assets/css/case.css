@@ -6,12 +6,14 @@
   --grey:   #666666; /* AA: 5.7:1 on bg, 5.3:1 on --figure */
   --line:   #e8e8e8;
   --figure: #f5f5f5;
+  --rule:   #dedede; /* 1px lines on a --figure panel (--line vanishes there) */
   --edge:   32px;
   --gap:    24px;
   --t:      15px;
   --serif:  "Gloock", Georgia, serif;
   --sans:   "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
   --t-big:  48px;
+  --t-title: 32px; /* project title: the same size as on the home page */
   --bar:    56px;
   --top:    calc(var(--bar) + 40px);
   --ease:    cubic-bezier(0.2, 0, 0, 1);
@@ -25,6 +27,7 @@
   --grey:   #9a9a9a; /* AA: 6.9:1 on bg, 6.3:1 on --figure */
   --line:   #262626;
   --figure: #181818;
+  --rule:   #2e2e2e;
   color-scheme: dark;
 }
 
@@ -137,8 +140,8 @@ img { max-width: 100%; }
 
 .cs__title {
   font-family: var(--serif);
-  font-size: var(--t-big);
-  line-height: 1.05;
+  font-size: var(--t-title);
+  line-height: 1.1;
   letter-spacing: -0.005em;
   text-wrap: balance;
 }
@@ -269,7 +272,7 @@ img { max-width: 100%; }
 .cs__next a {
   justify-self: start;
   font-family: var(--serif);
-  font-size: var(--t-big);
+  font-size: var(--t-title); /* same as the project titles (left panel, home) */
   line-height: 1.1;
 }
 .cs__next a::after {
@@ -356,7 +359,12 @@ img { max-width: 100%; }
 }
 
 /* Phone mockup: Apple's iPhone 16 bezel (white) (1359 × 2736) over the content.
-   Its screen is 1179 × 2556, inset 90px on every side, corner radius ~190px. */
+   Its transparent opening is 1179 × 2556 at (90, 90), with smooth corners
+   ~164px deep. The screen box runs 10px under the black bezel on every side
+   (1199 × 2576 at (80, 80)) with a 166px radius that stays inside the
+   opening's curve, so the content reaches the frame everywhere and no
+   background shows at an edge or corner — the frame's own inner edge is
+   the visible rounding (same geometry as the home page and .mock). */
 .device {
   position: relative;
   width: 100%;
@@ -364,13 +372,13 @@ img { max-width: 100%; }
 }
 .device__screen {
   position: absolute;
-  left: 6.623%;   /* 90 / 1359 */
-  top: 3.289%;    /* 90 / 2736 */
-  width: 86.755%; /* 1179 / 1359 */
-  height: 93.421%; /* 2556 / 2736 */
+  left: calc(80 / 1359 * 100%);
+  top: calc(80 / 2736 * 100%);
+  width: calc(1199 / 1359 * 100%);
+  height: calc(2576 / 2736 * 100%);
   overflow: hidden;
-  border-radius: 16.1% / 7.43%; /* 190 / 1179, 190 / 2556 */
-  background: var(--figure);
+  border-radius: calc(166 / 1199 * 100%) / calc(166 / 2576 * 100%);
+  background: #000; /* anything that ever peeks reads as bezel, not white */
   isolation: isolate;
 }
 /* Before / after layers crossfade. */
@@ -429,8 +437,18 @@ img { max-width: 100%; }
 .cs__compare .cmp { display: grid; gap: 24px; justify-items: center; width: 100%; }
 .cs__compare .cmp > span { justify-self: start; color: var(--grey); }
 
-/* Findings table: finding, what we saw, what we did about it. */
-.cs__main > .cs__table { margin-top: -48px; overflow-x: auto; }
+/* Research tables (findings, competitors, hypotheses), each on a rounded
+   panel styled like the Before / After panels: --figure background, 4px
+   corners, and the same light / dark switch via the theme tokens.
+   Inside: 1px rules between rows (--rule, visible on the panel), a header
+   row set off by its own rule, no lines on the panel's outer edges. */
+.cs__main > .cs__table { margin-top: -48px; }
+.cs__table {
+  padding: 6px 24px 10px;
+  border-radius: 4px;
+  background: var(--figure);
+  overflow-x: auto;
+}
 .cs__table table {
   width: 100%;
   border-collapse: collapse;
@@ -442,25 +460,77 @@ img { max-width: 100%; }
   padding: 14px 24px 14px 0;
   vertical-align: top;
   font-weight: 400;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid var(--rule);
 }
 .cs__table tr > :last-child { padding-right: 0; }
-.cs__table thead th { color: var(--grey); padding-block: 10px; }
+/* Column headers: grey labels on their own row, the first rule under them. */
+.cs__table thead th {
+  color: var(--grey);
+  padding-block: 10px 12px;
+  border-top: 0;
+  white-space: nowrap;
+}
 .cs__table tbody th { width: 24%; font-weight: 600; }
 .cs__table tbody th .g { font-weight: 400; margin-right: 4px; font-variant-numeric: tabular-nums; }
 .cs__table td { width: 38%; }
-.cs__table tbody tr:last-child > * { border-bottom: 1px solid var(--line); }
 
 /* Screenshots that already include their phone, in a row under the text. */
+/* Screenshots in iPhone mockups (same frame and screen geometry as the
+   home page). Every row is a 3-column grid, so a mockup is always a third
+   of the column wide: a row of 2 leaves the third column empty rather than
+   growing, and all mockups share one size. */
 .cs__shots {
   display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: var(--gap);
   margin-top: 48px;
-  align-items: end;
+  align-items: start;
 }
-.cs__shots--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 600px; }
-.cs__shots--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.cs__shots img { display: block; width: 100%; height: auto; }
+
+/* iphone-16-white-portrait.png (1359 × 2736): transparent opening
+   1179 × 2556 at (90, 90). The screen box runs 10px under the black bezel
+   on every side and its 166px corner radius sits inside the opening's
+   curve, so no gap shows at an edge or corner (as on the home page). */
+.mock {
+  position: relative;
+  margin: 0;
+  aspect-ratio: 1359 / 2736;
+}
+.mock__screen {
+  position: absolute;
+  left: calc(80 / 1359 * 100%);
+  top: calc(80 / 2736 * 100%);
+  width: calc(1199 / 1359 * 100%);
+  height: calc(2576 / 2736 * 100%);
+  overflow: hidden;
+  border-radius: calc(166 / 1199 * 100%) / calc(166 / 2576 * 100%);
+  background: #000;
+}
+/* The exports carry a purple bezel baked in, b px on each side. Each image
+   sets --bx = b / width and --by = b / height; the image is enlarged and
+   shifted so only the area inside the bezel fills the screen box. cover
+   keeps the aspect (it only ever crops a sliver more). */
+.mock__shot {
+  --bx: 0;
+  --by: 0;
+  position: absolute;
+  left: calc(-100% * var(--bx) / (1 - 2 * var(--bx)));
+  top: calc(-100% * var(--by) / (1 - 2 * var(--by)));
+  width: calc(100% / (1 - 2 * var(--bx)));
+  height: calc(100% / (1 - 2 * var(--by)));
+  max-width: none; /* the global img cap would stop the enlargement */
+  object-fit: cover;
+  display: block;
+}
+.mock__frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  user-select: none;
+  filter: drop-shadow(0 10px 18px rgb(0 0 0 / 0.12)) drop-shadow(0 1px 3px rgb(0 0 0 / 0.06));
+}
 
 /* Before / after step lists, side by side. */
 .cs__duo {
@@ -491,19 +561,50 @@ img { max-width: 100%; }
 /* Large figure inside text. */
 .cs__big { font-family: var(--serif); font-size: 40px; line-height: 1.1; letter-spacing: -0.01em; }
 
-/* Comparison marks: strong, partial, gap. */
-.mark { display: inline-block; min-width: 1em; text-align: center; }
-.mark--yes { color: var(--ink); font-weight: 600; }
-.mark--partial, .mark--no { color: var(--grey); }
-.cs__table--marks td { text-align: center; width: auto; }
+/* Comparison marks: strong, partial, gap — a small tinted circle with its
+   symbol, so the three read apart by colour and by shape (✓ ~ —).
+   Muted green / soft amber / neutral grey; each theme sets its own tint
+   and symbol colour (symbol on tint ≥ 4.5:1). */
+:root {
+  --mark-yes: #2c7046;     --mark-yes-bg: #dcefe2;
+  --mark-partial: #8a5a00; --mark-partial-bg: #f6e7c8;
+  --mark-no: #5c5c5c;      --mark-no-bg: #e3e3e3;
+}
+:root[data-theme="dark"] {
+  --mark-yes: #8fd1a7;     --mark-yes-bg: #1c3327;
+  --mark-partial: #e6bc63; --mark-partial-bg: #3a2d12;
+  --mark-no: #a3a3a3;      --mark-no-bg: #2c2c2c;
+}
+.mark {
+  display: inline-grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+  vertical-align: middle;
+}
+.mark--yes     { color: var(--mark-yes);     background: var(--mark-yes-bg); }
+.mark--partial { color: var(--mark-partial); background: var(--mark-partial-bg); font-size: 17px; } /* ~ draws small: match ✓ and — */
+.mark--no      { color: var(--mark-no);      background: var(--mark-no-bg); }
+.cs__table--marks td { text-align: center; width: auto; vertical-align: middle; }
+.cs__table--marks tbody th { vertical-align: middle; }
 .cs__table--marks thead th + th { text-align: center; }
 .cs__table--marks tbody th { width: 52%; font-weight: 400; }
+.cs__table--marks td { padding-block: 11px; } /* the circle is taller than a line */
+
+/* The competitor block: the panel, then its legend underneath. */
+.cs__main > .cs__marks { margin-top: -48px; }
 .cs__legend {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 8px 20px;
-  margin-top: 12px;
+  margin-top: 14px;
 }
+.cs__legend > span:not(.g) { display: inline-flex; align-items: center; gap: 8px; }
 
 /* Three steps side by side. */
 .cs__flow .frame {
@@ -620,6 +721,7 @@ img { max-width: 100%; }
 }
 
 @media (max-width: 960px) {
+  :root { --t-title: 26px; } /* matches the home page at this width */
   .cs {
     grid-template-columns: minmax(0, 1fr);
     padding-top: calc(var(--bar) + 16px);
@@ -649,23 +751,23 @@ img { max-width: 100%; }
   /* Mobile: the header slides away on scroll down, back on scroll up. */
   .bar.is-hidden { transform: translateY(-100%); }
   .cs__media--pair { grid-template-columns: 1fr; }
-  /* Findings stack: one block per finding, each cell labelled. */
+  /* Findings stack: one block per finding, each cell labelled; the panel
+     stays, with a rule between blocks (none on its outer edges). */
+  .cs__table { padding: 2px 16px 4px; }
   .cs__table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
   .cs__table table, .cs__table tbody, .cs__table tr, .cs__table th, .cs__table td { display: block; width: auto; }
-  .cs__table tr { padding: 16px 0; border-top: 1px solid var(--line); }
-  .cs__table tbody tr:last-child { border-bottom: 1px solid var(--line); }
-  .cs__table th, .cs__table td,
-  .cs__table tbody tr:last-child > * { border: 0; padding: 0; }
+  .cs__table tr { padding: 16px 0; border-top: 1px solid var(--rule); }
+  .cs__table tbody tr:first-child { border-top: 0; }
+  .cs__table th, .cs__table td { border: 0; padding: 0; }
   .cs__table tbody th,
   .cs__table tbody td { width: auto; } /* override the desktop column widths */
   .cs__table td { margin-top: 10px; }
   .cs__table td::before { content: attr(data-label); display: block; color: var(--grey); }
   /* Marks: one line per competitor, name then mark. */
-  .cs__table--marks td { text-align: left; display: flex; gap: 12px; margin-top: 6px; }
+  .cs__table--marks td { text-align: left; display: flex; align-items: center; gap: 12px; margin-top: 6px; }
   .cs__table--marks td::before { min-width: 5em; }
   .cs__duo { grid-template-columns: 1fr; }
-  .cs__shots--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
-  .cs__shots { margin-top: 32px; }
+  .cs__shots { margin-top: 32px; gap: 8px; }
   .cs__big { font-size: 32px; }
   .cs__flow .frame { grid-template-columns: 1fr; gap: 32px; }
 }

@@ -114,11 +114,10 @@
       if (j === i) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
     });
 
+    // Videos wait for their play button (vplay.js); leaving a project pauses its video.
     stops.forEach(function (s, j) {
       var v = s.querySelector('video');
-      if (!v) return;
-      if (j === i && !reduce.matches) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
-      else v.pause();
+      if (v && j !== i) v.pause();
     });
 
     function swapIn() {

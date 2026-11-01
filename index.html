@@ -21,7 +21,9 @@
     })();
   </script>
   <link rel="stylesheet" href="/assets/css/home.css" />
+  <link rel="stylesheet" href="/assets/css/vplay.css" />
   <script src="/assets/js/home.js" defer></script>
+  <script src="/assets/js/vplay.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#work">Skip to content</a>
@@ -45,9 +47,9 @@
 
   <section class="stop" id="neobank" data-href="/unicbank/">
     <div class="stop__info">
-      <h2 class="i-title">Neobank App</h2>
+      <h2 class="i-title">UNIC Bank</h2>
       <p class="i-summary">Reduced setup friction by making first actions available earlier, turning the home screen into guidance, and adding control to scheduled transfers.</p>
-      <p class="i-role">UX/UI, Product discovery, 2026</p>
+      <p class="i-role">Product designer, Yandex Praktikum, 2026</p>
       <p class="i-link"><a href="/unicbank/"><span>View project</span></a></p>
     </div>
     <a class="device" href="/unicbank/" tabindex="-1" aria-hidden="true">
@@ -65,15 +67,20 @@
       <p class="i-role">Design Contestant, Telegram, 2026</p>
       <p class="i-link"><a href="/telegram-straight-forward/"><span>View project</span></a></p>
     </div>
-    <a class="device" href="/telegram-straight-forward/" tabindex="-1" aria-hidden="true">
-      <span class="device__screen">
-        <span class="device__empty">Straight Forward</span>
-        <video muted loop playsinline preload="metadata">
-          <source src="/assets/video/problem-after.mp4" type="video/mp4">
-        </video>
-      </span>
-      <img class="device__frame" src="/assets/img/iphone-16-white-portrait.png" alt="" draggable="false">
-    </a>
+    <!-- data-autoplay: nothing downloads until the phone is on screen, then it
+         loads and plays (vplay.js). data-no-controls: no play / pause button
+         here; the only overlay is a spinner while the video is still loading. -->
+    <div class="device-wrap vplay-host" data-autoplay data-no-controls>
+      <a class="device" href="/telegram-straight-forward/" tabindex="-1" aria-hidden="true">
+        <span class="device__screen">
+          <video muted loop playsinline preload="none" aria-label="Straight Forward demo">
+            <source src="/assets/video/straight-forward-short.mp4" type="video/mp4">
+          </video>
+        </span>
+        <img class="device__frame" src="/assets/img/iphone-16-white-portrait.png" alt="" draggable="false">
+      </a>
+      <span class="vplay" aria-hidden="true"></span>
+    </div>
   </section>
 
   <section class="stop" id="subscout">

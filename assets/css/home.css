@@ -225,6 +225,12 @@ h1, h2, p, ol { margin: 0; padding: 0; font-weight: inherit; font-size: inherit;
 a.device { cursor: pointer; }
 a.device:hover { transform: translateY(-8px); } /* whole pixels: sharp at rest */
 
+/* A phone with a play button: the wrapper lifts instead (phone and button
+   together), on hovering either, so the button never slides off the screen. */
+.device-wrap { transition: transform 0.6s var(--ease); }
+.device-wrap a.device:hover { transform: none; }
+.device-wrap:has(a.device:hover, .vplay:hover) { transform: translateY(-8px); }
+
 .device__screen {
   position: absolute;
   left: calc(var(--bx) / var(--fw) * 100%);
@@ -423,6 +429,28 @@ a.device:hover { transform: translateY(-8px); } /* whole pixels: sharp at rest *
   .toast { bottom: 52px; } /* above the centred footer row */
 }
 
+/* ── About: the home page's three blocks ──────────
+   A left column and a right column as wide as the home page's (--col) at
+   the page margins, and the centre block between them, centred under the
+   header like the phone is. Only the centre has content for now. */
+.about {
+  display: grid;
+  grid-template-columns: var(--col) minmax(0, 1fr) var(--col);
+  column-gap: clamp(24px, 4vw, 64px);
+  align-items: center;
+  min-height: 100svh;
+  padding: var(--bar) var(--edge) 0; /* centred under the header, like the phone */
+}
+.about__center {
+  justify-self: center;
+  max-width: 32em;
+}
+.about__intro {
+  font-size: 20px;
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+
 /* ── Narrow windows: words on top, the phone under them ── */
 
 @media (max-width: 960px) {
@@ -439,6 +467,17 @@ a.device:hover { transform: translateY(-8px); } /* whole pixels: sharp at rest *
 
   .device { --h: min(52svh, calc(68vw * 2736 / 1359)); }
   a.device:hover { transform: none; }
+
+  /* About: one column; the text starts under the header like the project
+     words do, and the empty side blocks fold away. */
+  .about {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+    padding: calc(var(--bar) + 16px) var(--edge) 64px;
+  }
+  .about__left, .about__right { display: none; }
+  .about__center { justify-self: start; }
+  .about__intro { font-size: 18px; }
 
   .js .info,
   .stop__info {
