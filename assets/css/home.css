@@ -160,9 +160,19 @@ h1, h2, p, ol { margin: 0; padding: 0; font-weight: inherit; font-size: inherit;
   transition: background-color 0.4s var(--ease);
 }
 
+.bar__name { font-weight: 500; }
 .bar__meta { display: flex; align-items: center; gap: 12px; }
 .bar__link { color: var(--grey); transition: color 0.2s var(--ease); }
-.bar__link:hover, .bar__link.is-on { color: var(--ink); }
+.bar__link:hover, .bar__link.is-on { color: var(--ink); font-weight: 500; }
+/* Hidden medium-weight copy of the label reserves its width,
+   so the bolder hover/selected state doesn't nudge neighbours. */
+.bar__link { display: inline-flex; flex-direction: column; align-items: center; }
+.bar__link::after {
+  content: attr(data-label);
+  font-weight: 500;
+  height: 0; overflow: hidden; visibility: hidden;
+  user-select: none; pointer-events: none;
+}
 
 .theme {
   display: grid; place-items: center;

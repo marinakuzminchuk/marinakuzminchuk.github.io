@@ -81,9 +81,10 @@ img { max-width: 100%; }
 }
 
 .bar__name {
-  /* Same face and size as the Work / About links, but in ink. */
+  /* Same face and size as the Work / About links, but in ink and medium weight. */
   font-family: var(--sans);
   font-size: var(--t);
+  font-weight: 500;
   color: var(--ink);
 }
 
@@ -94,7 +95,16 @@ img { max-width: 100%; }
   gap: 12px;
 }
 .bar__link { color: var(--grey); transition: color 0.2s var(--ease); }
-.bar__link:hover { color: var(--ink); }
+.bar__link:hover { color: var(--ink); font-weight: 500; }
+/* Hidden medium-weight copy of the label reserves its width,
+   so the bolder hover state doesn't nudge neighbours. */
+.bar__link { display: inline-flex; flex-direction: column; align-items: center; }
+.bar__link::after {
+  content: attr(data-label);
+  font-weight: 500;
+  height: 0; overflow: hidden; visibility: hidden;
+  user-select: none; pointer-events: none;
+}
 
 .theme {
   display: grid; place-items: center;
@@ -473,6 +483,16 @@ img { max-width: 100%; }
 .cs__table tbody th { width: 24%; font-weight: 600; }
 .cs__table tbody th .g { font-weight: 400; margin-right: 4px; font-variant-numeric: tabular-nums; }
 .cs__table td { width: 38%; }
+/* Unic Bank hypotheses: a fixed, narrow hypothesis column (each wraps onto
+   two lines), a Result column that shrinks to its content, and the Note
+   taking the rest — so the only space between columns is an even 60px. */
+@media (min-width: 761px) {
+  .cs__table--hyp th,
+  .cs__table--hyp td { padding-right: 60px; }
+  .cs__table--hyp tbody th { width: calc(12em + 60px); } /* text + gap */
+  .cs__table--hyp td[data-label="Result"] { width: 1%; white-space: nowrap; }
+  .cs__table--hyp td[data-label="Note"] { width: auto; }
+}
 
 /* Screenshots that already include their phone, in a row under the text. */
 /* Screenshots in iPhone mockups (same frame and screen geometry as the
@@ -552,14 +572,14 @@ img { max-width: 100%; }
   gap: 8px;
   margin-bottom: 14px;
 }
-.duo__badge { font-family: var(--serif); font-size: 20px; line-height: 1.1; }
+.duo__badge { font-family: var(--sans); font-size: var(--t); font-weight: 500; }
 .duo__item ol { list-style: none; counter-reset: step; display: grid; gap: 6.5px; }
 .duo__item li { counter-increment: step; display: grid; grid-template-columns: 2em 1fr; }
 .duo__item li::before { content: counter(step); color: var(--grey); font-variant-numeric: tabular-nums; }
 .duo__item s { color: var(--grey); }
 
 /* Large figure inside text. */
-.cs__big { font-family: var(--serif); font-size: 40px; line-height: 1.1; letter-spacing: -0.01em; }
+.cs__big { font-family: var(--sans); font-size: var(--t); font-weight: 500; }
 
 /* Comparison marks: strong, partial, gap — a small tinted circle with its
    symbol, so the three read apart by colour and by shape (✓ ~ —).
@@ -768,6 +788,5 @@ img { max-width: 100%; }
   .cs__table--marks td::before { min-width: 5em; }
   .cs__duo { grid-template-columns: 1fr; }
   .cs__shots { margin-top: 32px; gap: 8px; }
-  .cs__big { font-size: 32px; }
   .cs__flow .frame { grid-template-columns: 1fr; gap: 32px; }
 }
