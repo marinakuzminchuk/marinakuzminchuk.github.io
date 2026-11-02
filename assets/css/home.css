@@ -440,25 +440,112 @@ a.device:hover { transform: translateY(-8px); } /* whole pixels: sharp at rest *
 }
 
 /* ── About: the home page's three blocks ──────────
-   A left column and a right column as wide as the home page's (--col) at
-   the page margins, and the centre block between them, centred under the
-   header like the phone is. Only the centre has content for now. */
+   Laid out like the home page: the intro in the left column (--col wide,
+   at the margin) set like a project's summary, the CV in the right column
+   against the margin, both starting at the home page's 38svh line, and
+   the portrait in the centre, centred under the header like the phone.
+   The side tracks share what's left equally, so the portrait sits on the
+   page's centre line; when room runs short, the portrait gives first. */
 .about {
+  --ph: min(784px, calc((100svh - var(--bar)) * 0.94)); /* portrait height: 560px × 1.4, kept inside the window */
   display: grid;
-  grid-template-columns: var(--col) minmax(0, 1fr) var(--col);
+  grid-template-columns:
+    minmax(var(--col), 1fr)
+    minmax(0, calc(var(--ph) * 1087 / 1447))
+    minmax(max-content, 1fr);
   column-gap: clamp(24px, 4vw, 64px);
-  align-items: center;
+  align-items: start;
   min-height: 100svh;
-  padding: var(--bar) var(--edge) 0; /* centred under the header, like the phone */
+  padding: var(--bar) var(--edge) 0;
 }
+.about__left { margin-top: calc(38svh - var(--bar)); }
+/* The CV: centred on the window itself, not the space under the header.
+   The grid row starts below the bar, so centring there lands bar/2 low;
+   a negative top margin of one bar moves the centre up by exactly bar/2. */
+.about__right {
+  align-self: center;
+  margin-top: calc(-1 * var(--bar));
+}
+.about__left { width: var(--col); }
 .about__center {
+  align-self: center; /* middle of the space under the header */
   justify-self: center;
-  max-width: 32em;
+  width: 100%;
+}
+/* Black line art on transparency: inverted in dark mode, landing near
+   --ink (#f2f2f2) so it reads like the text. */
+.about__portrait {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1087 / 1447;
+  transition: filter 0.4s var(--ease);
+}
+:root[data-theme="dark"] .about__portrait { filter: invert(0.95); }
+
+/* The portrait draws itself, once, on load. Each mask stroke (pathLength 1)
+   runs its dash from hidden to full at a steady pen speed, one after
+   another: --t its start, --d its length in time. The dash pattern's gap
+   (2) is longer than the path, and the start offset sits just past 1, so
+   no round cap shows as a dot before a stroke begins. At --end a full
+   reveal fades in under the strokes to settle the last antialiased edge
+   pixels, leaving the PNG exactly as drawn. With JS, it waits for the
+   PNG (.is-ready); with reduced motion, it's simply there. */
+.portrait-draw mask path {
+  stroke-dasharray: 1 2;
+  stroke-dashoffset: 1.001;
+  animation: portrait-stroke var(--d) linear var(--t) forwards;
+}
+.portrait-draw__done {
+  opacity: 0;
+  animation: portrait-done 0.6s var(--ease) var(--end) forwards;
+}
+.js .portrait-draw:not(.is-ready) path,
+.js .portrait-draw:not(.is-ready) .portrait-draw__done { animation-play-state: paused; }
+@keyframes portrait-stroke { to { stroke-dashoffset: 0; } }
+@keyframes portrait-done { to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  .portrait-draw mask path { animation: none; stroke-dashoffset: 0; }
+  .portrait-draw__done { animation: none; opacity: 1; }
 }
 .about__intro {
-  font-size: 20px;
-  line-height: 1.5;
+  color: var(--grey); /* as .i-summary on the home page */
   text-wrap: pretty;
+}
+.about__right {
+  justify-self: end;
+  width: max-content;
+  max-width: 100%;
+}
+
+/* Experience / Education, right-aligned against the margin: a grey label,
+   then each entry as two lines — "Role, Company" (the company an
+   underlined link to its site), and the years under it in grey.
+   Colours come from the tokens, so dark mode follows. */
+.cv { text-align: right; }
+.cv + .cv { margin-top: 48px; }
+.cv__title {
+  margin-bottom: 16px;
+  color: var(--grey);
+}
+.cv__list {
+  list-style: none;
+  display: grid;
+  gap: 16px;
+}
+.cv__where { white-space: nowrap; } /* wraps whole, never split */
+a.cv__where {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--grey);
+  transition: text-decoration-color 0.2s var(--ease);
+}
+a.cv__where:hover { text-decoration-color: var(--ink); }
+.cv__when {
+  margin-top: 2px;
+  color: var(--grey);
+  font-variant-numeric: tabular-nums;
 }
 
 /* ── Narrow windows: words on top, the phone under them ── */
@@ -478,16 +565,22 @@ a.device:hover { transform: translateY(-8px); } /* whole pixels: sharp at rest *
   .device { --h: min(52svh, calc(68vw * 2736 / 1359)); }
   a.device:hover { transform: none; }
 
-  /* About: one column; the text starts under the header like the project
-     words do, and the empty side blocks fold away. */
+  /* About: one column; the intro starts under the header like the project
+     words do, then the portrait, then the CV. */
   .about {
     grid-template-columns: minmax(0, 1fr);
     align-items: start;
     padding: calc(var(--bar) + 16px) var(--edge) 64px;
   }
-  .about__left, .about__right { display: none; }
-  .about__center { justify-self: start; }
-  .about__intro { font-size: 18px; }
+  .about__left { width: auto; margin-top: 0; }
+  .about__center { width: min(100%, 420px); margin-top: 40px; }
+  .about__right { /* the CV follows the portrait, full width */
+    justify-self: stretch;
+    width: auto;
+    margin-bottom: 0;
+    margin-top: 40px;
+  }
+  .cv { text-align: left; } /* under a left-aligned intro, right-aligned reads as broken */
 
   .js .info,
   .stop__info {
