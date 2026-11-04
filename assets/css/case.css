@@ -231,7 +231,7 @@ img { max-width: 100%; }
 }
 .cs__text ol li:last-child { border-bottom: 1px solid var(--line); }
 .cs__text ol li::before {
-  content: counter(item, decimal-leading-zero);
+  content: counter(item);
   color: var(--grey);
   font-variant-numeric: tabular-nums;
 }
