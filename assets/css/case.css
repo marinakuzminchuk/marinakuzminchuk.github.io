@@ -958,3 +958,24 @@ img { max-width: 100%; }
   .shot-box__label--right { left: auto; right: 10px; }
   .cs__flow .frame { grid-template-columns: 1fr; gap: 32px; }
 }
+
+/* Even spacing (Straight Forward page, .cs__main--even). Three steps only:
+     --lead   text → the visuals it describes
+     --after  visuals → more text in the same section
+     --sec    section → section (the .cs__row bottom margin)
+   Media that follow a row are pulled up so the gap after the text is
+   --lead; .cs__media--continues is followed by more of its own section. */
+.cs__main--even { --sec: 96px; --lead: 24px; --after: 40px; }
+@media (max-width: 960px) {
+  .cs__main--even { --sec: 64px; --lead: 16px; --after: 32px; }
+}
+.cs__main--even .cs__shots,
+.cs__main--even .cs__split { margin-top: var(--lead); }
+.cs__main--even .cs__split + .cs__text { margin-top: var(--after); }
+.cs__main.cs__main--even > .cs__media,
+.cs__main.cs__main--even > .cs__table { margin-top: calc(var(--lead) - var(--sec)); }
+.cs__main.cs__main--even > .cs__media--continues { margin-bottom: var(--after); }
+.cs__main.cs__main--even > .cs__next { margin-top: 0; }
+@media (max-width: 760px) {
+  .cs__main--even .cs__shots--stack { gap: 8px; }
+}

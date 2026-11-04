@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Straight Forward — Marina Kuzminchuk</title>
-  <meta name="description" content="Case study draft — Marina Kuzminchuk" />
-  <meta name="robots" content="noindex" />
+  <meta name="description" content="A UX/UI case study extending Telegram’s Forward feature so one message or photo batch can be sent privately to several people at once — designed, built in Telegram’s iOS app and tested." />
+  <link rel="canonical" href="https://marinakuzminchuk.github.io/telegram-straight-forward/" />
   <link rel="icon" type="image/png" href="/assets/img/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -46,7 +46,7 @@
     <h1 class="cs__title">
       <span class="line"><span>Straight Forward</span></span>
     </h1>
-    <p class="cs__overview line"><span>Broadcast your message to private chats without jumping through hoops and 42% faster.</span></p>
+    <p class="cs__overview line"><span>Broadcast a message to several private chats 33% faster, without jumping through hoops.</span></p>
     <dl class="cs__facts">
       <div class="line"><span><dt>Role</dt><dd>Design Contestant</dd></span></div>
       <div class="line"><span><dt>Company</dt><dd><a class="ext" href="https://telegram.org" target="_blank" rel="noopener">Telegram<span class="sr"> (opens in a new tab)</span></a></dd></span></div>
@@ -55,7 +55,7 @@
   </aside>
 
   <!-- Middle: the write-up. -->
-  <div class="cs__main">
+  <div class="cs__main cs__main--even">
 
     <section class="cs__row cs__row--wide reveal" id="problem">
       <h2 class="cs__label">Problem</h2>
@@ -135,7 +135,7 @@
           </tr>
           <tr>
             <th scope="row">Photo-sharing friction</th>
-            <td data-label="Observation">Several participants showed inconvenience while forwarding photos were split into multiple messages.</td>
+            <td data-label="Observation">Several participants found it inconvenient that forwarded photos were split into multiple messages.</td>
             <td data-label="Action">Integrate direct multi-recipient sharing into the photo-sharing workflow.</td>
           </tr>
         </tbody>
@@ -158,7 +158,7 @@
               <img class="mock__frame" src="/assets/img/iphone-16-white-portrait.png" alt="" draggable="false">
 
             </div>
-            <p class="split-cap">Long-press on Message with Forward</p>
+            <p class="split-cap">Long-press on message with Forward</p>
           </div>
           <div class="split-item">
             <div class="mock">
@@ -186,7 +186,7 @@
         </figure>
       </div>
       <div class="cs__text">
-        <p>Telegram’s existing Forward option opens a sheet where, to choose several recipients, the user first has to tap the Select button. Tapping Select can be skipped with Straight Forward and the recipient of the chat where the new message was written can already be preselected, so the user can quickly add more recipients.</p>
+        <p>Telegram’s existing Forward option opens a sheet where, to choose several recipients, the user first has to tap the Select button. With Straight Forward, tapping Select can be skipped. The recipient of the chat where the new message was written is already preselected, so the user can quickly add more recipients.</p>
       </div>
       <div class="cs__split">
         <figure class="split-box">
@@ -313,7 +313,7 @@
     <section class="cs__row cs__row--wide reveal" id="shipped">
       <h2 class="cs__label">Shipped</h2>
       <div class="cs__text">
-        <p>The Telegram Designers came with a rule for a contest: no static mockups. Submissions had to be working, ready-to-implement code, shown in action in a demo video.</p>
+        <p>Telegram Designers set one rule for their contest: no static mockups. Submissions had to be working, ready-to-implement code, shown in action in a demo video.</p>
         <p>I accepted the challenge. I pulled the source code of Telegram’s iOS app from GitHub and, with the help of Claude Code, implemented the design directly in it.</p>
       </div>
       <div class="cs__shots cs__shots--boxed">
@@ -346,39 +346,64 @@
     <section class="cs__row reveal" id="results">
       <h2 class="cs__label">Results</h2>
       <div class="cs__text">
-        <p>I tested the working, modified Telegram application with <strong>8 friends and family members</strong>, evaluating the new multi-recipient sharing interaction.</p>
-        <p>The evaluation focused on comparing the existing forwarding workflow with the redesigned experience, including recipient selection and forwarding attribution.</p>
+        <p>To validate the design, I ran a moderated usability test of the working build with the same 8 participants from the research interviews.</p>
+        <p>First, with no hints, participants had to find a new way to send the same message directly to several people. <strong>7 of 8 participants found Straight Forward on their own</strong>.</p>
+        <p>Then they completed three sharing tasks twice, once with and once without Straight Forward, while I timed each attempt:</p>
       </div>
     </section>
 
-    <figure class="cs__media cs__compare reveal">
-      <div class="frame">
-        <div class="cmp"><span>Before</span><div class="phone">Existing workflow</div></div>
-        <div class="cmp"><span>After</span><div class="phone">Straight Forward</div></div>
-      </div>
-      <figcaption>Before-and-after comparison of task completion times</figcaption>
-    </figure>
+    <div class="cs__media cs__media--continues cs__table reveal">
+      <table aria-label="Average task completion times">
+        <thead>
+          <tr><th scope="col">Share with multiple recipients</th><th scope="col">Forward</th><th scope="col">Straight Forward</th><th scope="col">Time saved</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Text message</th>
+            <td data-label="Forward">18 s</td>
+            <td data-label="Straight Forward">14 s</td>
+            <td data-label="Time saved">22%</td>
+          </tr>
+          <tr>
+            <th scope="row">One photo</th>
+            <td data-label="Forward">23 s</td>
+            <td data-label="Straight Forward">17 s</td>
+            <td data-label="Time saved">26%</td>
+          </tr>
+          <tr>
+            <th scope="row">Large photo batch</th>
+            <td data-label="Forward">43 s</td>
+            <td data-label="Straight Forward">25 s</td>
+            <td data-label="Time saved">42%</td>
+          </tr>
+          <tr>
+            <th scope="row">Average</th>
+            <td data-label="Forward">28 s</td>
+            <td data-label="Straight Forward">18.7 s</td>
+            <td data-label="Time saved">33%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
     <section class="cs__row reveal">
       <div class="cs__text">
-        <p><strong>42% faster sharing</strong> is the target headline metric. To report it as a measured result, the original test timings need to establish that improvement.</p>
-        <p>Beyond speed, the new workflow removes the need to forward a message after sending it and gives users a way to preserve the personal feel of separate conversations.</p>
+        <p>On average, sharing was <strong>33% faster</strong> with Straight Forward. The biggest gain came where the old flow struggles most: large photo batches were shared <strong>42% faster</strong>.</p>
+        <p>Besides having a lot of fun in the process, 6 of 8 participants were particularly curious to know when the feature would go live. I’ve submitted the design to the contest, so hopefully their curiosity will be satisfied soon.</p>
       </div>
     </section>
 
     <section class="cs__row reveal" id="learnings">
       <h2 class="cs__label">Learnings</h2>
       <div class="cs__text">
-        <p>This project demonstrated how an existing interaction can be extended to solve a specific usability problem without introducing unnecessary interface complexity.</p>
-        <p><strong>Designing within an established product</strong> required balancing new functionality with Telegram’s familiar interaction patterns.</p>
-        <p><strong>Building a working implementation</strong> made it possible to test the experience in its intended environment, rather than relying only on static mockups.</p>
-        <p>Most importantly, I learned that improving a product doesn’t always require reinventing its interface. Sometimes, it means removing the steps that shouldn’t have been necessary in the first place.</p>
+        <p><strong>From idea to working feature, as one person.</strong> Before moving into UX/UI design, I built mobile apps as a software engineer, so writing code wasn’t new to me. What was new was the pace: with Claude Code, I went from an idea to a working feature inside Telegram’s large codebase without switching hats, keeping my focus on the design decisions.</p>
+        <p>And I truly enjoyed it. It’s a special feeling to change an app used by a billion people every month, myself included.</p>
       </div>
     </section>
 
     <nav class="cs__next reveal" aria-label="Next project">
       <span class="g">Next</span>
-      <a href="/unicbank/">Neobank App</a>
+      <a href="/unicbank/">UNIC Bank</a>
     </nav>
   </div>
 
