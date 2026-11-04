@@ -573,12 +573,11 @@ img { max-width: 100%; }
 }
 .shot-box .mock,
 .shot-box .device { width: min(100%, 230px); }
-/* Dark panel (e.g. "After"): the dark-mode page colour (#0e0e0e) in light
-   mode; pure black in dark mode, a step darker than that page. The label
-   is the dark-theme grey in both. */
-.shot-box--dark { background: #0e0e0e; }
+/* Dark panel (e.g. "After"): #181818 — the dark-theme panel colour, as on
+   the Working build panel in dark mode — in both themes, so every After
+   panel matches. The label is the dark-theme grey.  */
+.shot-box--dark { background: #181818; }
 .shot-box--dark .shot-box__label { color: #9a9a9a; }
-:root[data-theme="dark"] .shot-box--dark { background: #000; }
 /* Light panel (e.g. "Before"): the light-mode grey in both themes. */
 .shot-box--light,
 :root[data-theme="dark"] .shot-box--light { background: #f5f5f5; }
@@ -703,6 +702,13 @@ img { max-width: 100%; }
 }
 /* Titles too long for one line wrap into balanced lines, phone-wide. */
 .split-cap--wrap { max-width: 230px; white-space: normal; text-wrap: balance; }
+/* Before / after colours on the multi-phone panels (.split-box sets its
+   own grey after the .shot-box rules, so these restate them). */
+.split-box.shot-box--light { background: #f5f5f5; }
+.split-box.shot-box--dark { background: #181818; }
+/* Titles on the coloured panels: the same greys as those panels’ labels. */
+.shot-box--dark .split-cap { color: #9a9a9a; }
+:root[data-theme="dark"] .shot-box--light .split-cap { color: #666; }
 
 /* Before / after step lists, side by side. */
 .cs__duo {
@@ -899,6 +905,9 @@ img { max-width: 100%; }
     padding-top: calc(var(--bar) + 16px);
   }
   .cs__side { grid-column: 1; position: static; min-height: 0; padding: 0; gap: 16px; justify-content: flex-start; }
+  /* Stacked on top of the write-up, the side column just appears: no
+     line-by-line reveal (that stays on wide screens). */
+  .cs__side .line > span { transform: none; transition: none; }
   .cs__count { margin-bottom: -8px; }
   .cs__main { grid-column: 1; grid-template-columns: minmax(0, 1fr); padding-top: 32px; }
   .cs__index { display: none; }
@@ -965,9 +974,15 @@ img { max-width: 100%; }
      --sec    section → section (the .cs__row bottom margin)
    Media that follow a row are pulled up so the gap after the text is
    --lead; .cs__media--continues is followed by more of its own section. */
-.cs__main--even { --sec: 96px; --lead: 24px; --after: 40px; }
+/* --lead and --sec match UNIC Bank (text → visuals 48 / 32px, sections
+   96 / 64px). --after stays larger than --lead so each paragraph groups
+   with the screens below it, not the ones above. */
+.cs__main--even { --sec: 96px; --lead: 48px; --after: 64px; }
 @media (max-width: 960px) {
-  .cs__main--even { --sec: 64px; --lead: 16px; --after: 32px; }
+  .cs__main--even { --sec: 64px; }
+}
+@media (max-width: 760px) {
+  .cs__main--even { --lead: 32px; --after: 48px; }
 }
 .cs__main--even .cs__shots,
 .cs__main--even .cs__split { margin-top: var(--lead); }

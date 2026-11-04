@@ -74,9 +74,11 @@
   var items = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
   var step = 60;
   var onLoad = 0;
+  // Narrow screens skip the side column's reveal, so nothing to wait for.
+  var after = matchMedia('(max-width: 960px)').matches ? 0 : lines.length;
   items.forEach(function (el) {
     if (el.getBoundingClientRect().top < window.innerHeight) {
-      el.style.setProperty('--delay', (lines.length + onLoad++) * step + 'ms');
+      el.style.setProperty('--delay', (after + onLoad++) * step + 'ms');
     }
   });
 
