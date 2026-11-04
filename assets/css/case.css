@@ -571,7 +571,61 @@ img { max-width: 100%; }
   border-radius: 4px;
   background: var(--figure);
 }
-.shot-box .mock { width: min(100%, 230px); }
+.shot-box .mock,
+.shot-box .device { width: min(100%, 230px); }
+/* Dark panel (e.g. "After"): the dark-mode page colour (#0e0e0e) in light
+   mode; pure black in dark mode, a step darker than that page. The label
+   is the dark-theme grey in both. */
+.shot-box--dark { background: #0e0e0e; }
+.shot-box--dark .shot-box__label { color: #9a9a9a; }
+:root[data-theme="dark"] .shot-box--dark { background: #000; }
+/* Light panel (e.g. "Before"): the light-mode grey in both themes. */
+.shot-box--light,
+:root[data-theme="dark"] .shot-box--light { background: #f5f5f5; }
+:root[data-theme="dark"] .shot-box--light .shot-box__label { color: #666; }
+:root[data-theme="dark"] .shot-box--light.vplay-host > .vplay:focus-visible { outline-color: #000; }
+
+/* A video's play / pause button in the panel's top-right corner, level
+   with the label (vplay.css centres it on the phone by default). Off the
+   video it no longer covers anything, so it stays visible while playing,
+   as the pause button. White with a black icon on both panels. */
+.shot-box.vplay-host > .vplay,
+.shot-box.vplay-host > .vplay:hover,
+.shot-box.vplay-host > .vplay.is-playing,
+.shot-box.vplay-host:hover > .vplay.is-playing {
+  opacity: 1;
+  transform: none;
+}
+.shot-box.vplay-host > .vplay {
+  top: 12px;
+  right: 20px;
+  left: auto;
+  width: 40px;
+  height: 40px;
+  background: #fff;
+  color: #000;
+  /* A soft shadow lifts the white button off the light grey panel. */
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.12), 0 4px 12px rgb(0 0 0 / 0.08);
+}
+.shot-box.vplay-host > .vplay {
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+/* Hovering the button or the phone (a click there also plays) lifts the
+   button: it grows and its shadow deepens, to say "this will play". */
+.shot-box.vplay-host > .vplay:hover,
+.shot-box.vplay-host > .vplay.is-playing:hover,
+.shot-box.vplay-host:has(.device:hover) > .vplay,
+.shot-box.vplay-host:has(.device:hover) > .vplay.is-playing {
+  transform: scale(1.15);
+  background: #fff;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.16), 0 8px 24px rgb(0 0 0 / 0.16);
+}
+@media (prefers-reduced-motion: reduce) {
+  .shot-box.vplay-host > .vplay { transition: none; }
+}
+.shot-box.vplay-host > .vplay:focus-visible { outline-color: var(--ink); }
+.shot-box.vplay-host > .vplay svg { width: 16px; height: 16px; }
+.shot-box--dark.vplay-host > .vplay:focus-visible { outline-color: #fff; }
 .shot-box__label {
   position: absolute;
   top: 20px;
@@ -603,6 +657,52 @@ img { max-width: 100%; }
 }
 .shot-col__label { justify-self: start; color: var(--grey); }
 .shot-col .mock { width: min(100%, 230px); }
+
+/* Before (two phones) and After (one phone) panels side by side, in the
+   .shot-box style. The 2 : 1 split gives every phone the same room, so
+   all three render at the same size; each sits centred in its share. */
+.cs__split {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--gap);
+  margin-top: 24px; /* close to the paragraph that describes the screens */
+}
+.split-box {
+  position: relative;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  gap: var(--gap);
+  place-items: start center; /* tops line up, so phones stay level across panels */
+  margin: 0;
+  /* Bottom: 12px gap + one title line + 20px = the 56px above the phones. */
+  padding: 56px 20px 20px;
+  border-radius: 4px;
+  background: var(--figure);
+}
+/* Several text + screens pairs in one section: a modest gap before the
+   next paragraph, so the pairs read apart but the section stays whole. */
+.cs__split + .cs__text { margin-top: 40px; }
+
+/* A phone with its title centred underneath. */
+/* Screenshots sit in the iPhone mockup (.mock), at the size used for
+   phones elsewhere on the case pages. */
+.split-item .mock { width: min(100%, 230px); }
+.split-item {
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  width: 100%;
+}
+/* One line, even when a little wider than the phone (it overflows evenly
+   to both sides, into the gap). Phones wrap it again below. */
+.split-cap {
+  color: var(--grey);
+  text-align: center;
+  white-space: nowrap;
+}
+/* Titles too long for one line wrap into balanced lines, phone-wide. */
+.split-cap--wrap { max-width: 230px; white-space: normal; text-wrap: balance; }
 
 /* Before / after step lists, side by side. */
 .cs__duo {
@@ -841,6 +941,16 @@ img { max-width: 100%; }
   .cs__duo { grid-template-columns: 1fr; }
   .cs__shots { margin-top: 32px; gap: 8px; }
   .shot-box { padding: 36px 10px; }
+  /* Stacked pairs: one panel per row, full width, so each keeps the
+     desktop spacing, label and button size. */
+  .cs__shots--stack { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .cs__shots--stack .shot-box { padding: 56px 20px; }
+  .cs__shots--stack .shot-box__label { top: 20px; left: 20px; font-size: inherit; line-height: inherit; }
+  .cs__split { gap: 8px; margin-top: 16px; }
+  .split-box { gap: 8px; padding: 36px 10px 12px; }
+  .cs__split + .cs__text { margin-top: 32px; }
+  .split-item { gap: 8px; }
+  .split-cap { font-size: 12px; line-height: 1.3; white-space: normal; text-wrap: balance; }
   .cs__shots--strip { padding: 10px 10px 36px; }
   .shot-col { gap: 8px; }
   .shot-col__label { font-size: 12px; line-height: 1.3; }

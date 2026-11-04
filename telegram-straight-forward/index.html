@@ -57,7 +57,7 @@
   <!-- Middle: the write-up. -->
   <div class="cs__main">
 
-    <section class="cs__row reveal" id="problem">
+    <section class="cs__row cs__row--wide reveal" id="problem">
       <h2 class="cs__label">Problem</h2>
       <div class="cs__text">
         <p>Telegram users often want to share personal updates, photos, or memories with several friends, family members, or colleagues individually, without creating a group chat.</p>
@@ -68,11 +68,11 @@
           <li><strong>Fragmented photo sharing:</strong> Message attachments are limited to 10 photos, making large collections cumbersome to select and forward.</li>
         </ul>
       </div>
-      <!-- Before / after, side by side. -->
-      <div class="cs__phones">
-        <figure class="phones__item">
-          <span class="phones__label">Before</span>
-          <div class="device vplay-host">
+      <!-- Before / after, side by side: grey panel, then black panel. -->
+      <div class="cs__shots cs__shots--boxed cs__shots--stack">
+        <figure class="shot-box shot-box--light vplay-host">
+          <figcaption class="shot-box__label">Before</figcaption>
+          <div class="device">
             <div class="device__screen">
               <span class="device__empty">Before</span>
               <video muted loop playsinline preload="metadata" aria-label="Existing Telegram workflow">
@@ -80,15 +80,15 @@
               </video>
             </div>
             <img class="device__frame" src="/assets/img/iphone-16-white-portrait.png" alt="" draggable="false">
-            <button class="vplay" type="button" aria-label="Play video">
-              <svg class="i-play" viewBox="0 0 20 20" aria-hidden="true"><path d="M7 4.6v10.8a.6.6 0 0 0 .9.5l8.4-5.4a.6.6 0 0 0 0-1L7.9 4.1a.6.6 0 0 0-.9.5z" fill="currentColor"/></svg>
-              <svg class="i-pause" viewBox="0 0 20 20" aria-hidden="true"><rect x="5.5" y="4.5" width="3" height="11" rx="0.8" fill="currentColor"/><rect x="11.5" y="4.5" width="3" height="11" rx="0.8" fill="currentColor"/></svg>
-            </button>
           </div>
+          <button class="vplay" type="button" aria-label="Play video">
+            <svg class="i-play" viewBox="0 0 20 20" aria-hidden="true"><path d="M7 4.6v10.8a.6.6 0 0 0 .9.5l8.4-5.4a.6.6 0 0 0 0-1L7.9 4.1a.6.6 0 0 0-.9.5z" fill="currentColor"/></svg>
+            <svg class="i-pause" viewBox="0 0 20 20" aria-hidden="true"><rect x="5.5" y="4.5" width="3" height="11" rx="0.8" fill="currentColor"/><rect x="11.5" y="4.5" width="3" height="11" rx="0.8" fill="currentColor"/></svg>
+          </button>
         </figure>
-        <figure class="phones__item">
-          <span class="phones__label">After</span>
-          <div class="device vplay-host">
+        <figure class="shot-box shot-box--dark vplay-host">
+          <figcaption class="shot-box__label">After</figcaption>
+          <div class="device">
             <div class="device__screen">
               <span class="device__empty">After</span>
               <video muted loop playsinline preload="metadata" aria-label="Straight Forward workflow">
@@ -96,11 +96,11 @@
               </video>
             </div>
             <img class="device__frame" src="/assets/img/iphone-16-white-portrait.png" alt="" draggable="false">
-            <button class="vplay" type="button" aria-label="Play video">
-              <svg class="i-play" viewBox="0 0 20 20" aria-hidden="true"><path d="M7 4.6v10.8a.6.6 0 0 0 .9.5l8.4-5.4a.6.6 0 0 0 0-1L7.9 4.1a.6.6 0 0 0-.9.5z" fill="currentColor"/></svg>
-              <svg class="i-pause" viewBox="0 0 20 20" aria-hidden="true"><rect x="5.5" y="4.5" width="3" height="11" rx="0.8" fill="currentColor"/><rect x="11.5" y="4.5" width="3" height="11" rx="0.8" fill="currentColor"/></svg>
-            </button>
           </div>
+          <button class="vplay" type="button" aria-label="Play video">
+            <svg class="i-play" viewBox="0 0 20 20" aria-hidden="true"><path d="M7 4.6v10.8a.6.6 0 0 0 .9.5l8.4-5.4a.6.6 0 0 0 0-1L7.9 4.1a.6.6 0 0 0-.9.5z" fill="currentColor"/></svg>
+            <svg class="i-pause" viewBox="0 0 20 20" aria-hidden="true"><rect x="5.5" y="4.5" width="3" height="11" rx="0.8" fill="currentColor"/><rect x="11.5" y="4.5" width="3" height="11" rx="0.8" fill="currentColor"/></svg>
+          </button>
         </figure>
       </div>
     </section>
@@ -108,7 +108,7 @@
     <section class="cs__row reveal" id="research">
       <h2 class="cs__label">Research</h2>
       <div class="cs__text">
-        <p>I interviewed 8 Telegram users from my personal network, exploring their experiences with the app and asking 3 key questions:</p>
+        <p>I interviewed 8 Telegram users from my personal network, exploring their experiences with the app and asking 3 groups of questions:</p>
         <ul>
           <li>When was the last time you shared the same content with multiple people individually? Did you share text, photos, videos, or files?</li>
           <li>Can you walk me through how you shared it, step by step?</li>
@@ -142,43 +142,206 @@
       </table>
     </div>
 
-    <section class="cs__row reveal" id="design">
+    <section class="cs__row cs__row--wide reveal" id="design">
       <h2 class="cs__label">Design</h2>
       <div class="cs__text">
-        <p>Rather than introducing a separate sharing feature or adding another button to the interface, I extended Telegram’s existing Send button and reused Forward functionality.</p>
-        <ol class="steps">
-          <li><strong>Long-press to share</strong><span>Users compose a message or attach photos as usual. Long-pressing Send reveals a new option for sharing with multiple recipients.</span></li>
-          <li><strong>Select recipients</strong><span>Telegram’s existing forwarding sheet opens, with the current conversation’s recipient already selected. Users can add as many additional recipients as needed.</span></li>
-          <li><strong>Send privately</strong><span>The content is delivered to separate private conversations without the “Forwarded from” label.</span></li>
-        </ol>
-        <p>The result is a shorter, more intuitive workflow that feels native to Telegram.</p>
+        <p>Long-pressing a sent message opens a menu with the familiar Forward option. The same gesture on the Send button opens a menu with enough room for that same option — a natural entry point for Straight Forward.</p>
+      </div>
+      <div class="cs__split">
+        <figure class="split-box">
+          <figcaption class="shot-box__label">Before</figcaption>
+          <div class="split-item">
+            <div class="mock">
+
+              <span class="mock__screen"><img class="mock__shot" src="/assets/img/sf-message-menu.jpg" alt="Long-press menu on a sent message in Telegram: Reply, Copy, Edit, Pin, Forward, Delete and Select." loading="lazy" decoding="async"></span>
+
+              <img class="mock__frame" src="/assets/img/iphone-16-white-portrait.png" alt="" draggable="false">
+
+            </div>
+            <p class="split-cap">Long-press on Message with Forward</p>
+          </div>
+          <div class="split-item">
+            <div class="mock">
+
+              <span class="mock__screen"><img class="mock__shot" src="/assets/img/sf-send-menu-before.jpg" alt="Original long-press menu on the Send button: Send Without Sound, Send When Online and Schedule Message." loading="lazy" decoding="async"></span>
+
+              <img class="mock__frame" src="/assets/img/iphone-16-white-portrait.png" alt="" draggable="false">
+
+            </div>
+            <p class="split-cap">Long-press on Send</p>
+          </div>
+        </figure>
+        <figure class="split-box">
+          <figcaption class="shot-box__label">After</figcaption>
+          <div class="split-item">
+            <div class="mock">
+
+              <span class="mock__screen"><img class="mock__shot" src="/assets/img/sf-send-menu-after.jpg" alt="Redesigned long-press menu on the Send button with a fourth option, Forward, below Schedule Message." loading="lazy" decoding="async"></span>
+
+              <img class="mock__frame" src="/assets/img/iphone-16-white-portrait.png" alt="" draggable="false">
+
+            </div>
+            <p class="split-cap">Long-press on Send with Forward</p>
+          </div>
+        </figure>
+      </div>
+      <div class="cs__text">
+        <p>Telegram’s existing Forward option opens a sheet where, to choose several recipients, the user first has to tap the Select button. Tapping Select can be skipped with Straight Forward and the recipient of the chat where the new message was written can already be preselected, so the user can quickly add more recipients.</p>
+      </div>
+      <div class="cs__split">
+        <figure class="split-box">
+          <figcaption class="shot-box__label">Before</figcaption>
+          <div class="split-item">
+            <div class="mock">
+
+              <span class="mock__screen"><img class="mock__shot" src="/assets/img/sf-forward-select.jpg" alt="Telegram Forward sheet listing chats, with a Select button in the top-right corner and no one selected." loading="lazy" decoding="async"></span>
+
+              <img class="mock__frame" src="/assets/img/iphone-16-white-portrait.png" alt="" draggable="false">
+
+            </div>
+            <p class="split-cap">Forward with Select</p>
+          </div>
+          <div class="split-item">
+            <div class="mock">
+
+              <span class="mock__screen"><img class="mock__shot" src="/assets/img/sf-forward-after-select.jpg" alt="Forward sheet after tapping Select: each chat has an empty checkbox and a Forward Message bar sits above the message field." loading="lazy" decoding="async"></span>
+
+              <img class="mock__frame" src="/assets/img/iphone-16-white-portrait.png" alt="" draggable="false">
+
+            </div>
+            <p class="split-cap">Forward after Select</p>
+          </div>
+        </figure>
+        <figure class="split-box">
+          <figcaption class="shot-box__label">After</figcaption>
+          <div class="split-item">
+            <div class="mock">
+
+              <span class="mock__screen"><img class="mock__shot" src="/assets/img/sf-forward-preselected.jpg" alt="Straight Forward sheet with the current chat, Ilya, already ticked and the new message ready to send." loading="lazy" decoding="async"></span>
+
+              <img class="mock__frame" src="/assets/img/iphone-16-white-portrait.png" alt="" draggable="false">
+
+            </div>
+            <p class="split-cap">Forward with preselected recipient</p>
+          </div>
+        </figure>
+      </div>
+      <div class="cs__text">
+        <p>With Telegram’s existing Forward option, hiding the sender’s name is a separate manual step. Straight Forward hides it automatically when the message is sent.</p>
+      </div>
+      <div class="cs__split">
+        <figure class="split-box">
+          <figcaption class="shot-box__label">Before</figcaption>
+          <div class="split-item">
+            <div class="mock">
+
+              <span class="mock__screen"><img class="mock__shot" src="/assets/img/sf-sender-show.jpg" alt="Forward Message preview showing a Forwarded from Marina label, with Show Sender Name ticked." loading="lazy" decoding="async"></span>
+
+              <img class="mock__frame" src="/assets/img/iphone-16-white-portrait.png" alt="" draggable="false">
+
+            </div>
+            <p class="split-cap">Forward with Show Sender Name</p>
+          </div>
+          <div class="split-item">
+            <div class="mock">
+
+              <span class="mock__screen"><img class="mock__shot" src="/assets/img/sf-sender-hide.jpg" alt="Forward Message preview without the Forwarded from label, after choosing Hide Sender Name." loading="lazy" decoding="async"></span>
+
+              <img class="mock__frame" src="/assets/img/iphone-16-white-portrait.png" alt="" draggable="false">
+
+            </div>
+            <p class="split-cap">Forward with Hide Sender Name</p>
+          </div>
+        </figure>
+        <figure class="split-box">
+          <figcaption class="shot-box__label">After</figcaption>
+          <div class="split-item">
+            <div class="mock">
+
+              <span class="mock__screen"><img class="mock__shot" src="/assets/img/sf-sender-none.jpg" alt="Chat with Ilya showing the Straight Forward message delivered as a normal message, with no Forwarded from label." loading="lazy" decoding="async"></span>
+
+              <img class="mock__frame" src="/assets/img/iphone-16-white-portrait.png" alt="" draggable="false">
+
+            </div>
+            <p class="split-cap split-cap--wrap">Straight Forward message without sender name</p>
+          </div>
+        </figure>
+      </div>
+      <div class="cs__text">
+        <p>Finally, the same Forward option can be added to the Send button that appears after attaching images, so photos can be shared with several people as easily as text.</p>
+      </div>
+      <div class="cs__split">
+        <figure class="split-box">
+          <figcaption class="shot-box__label">Before</figcaption>
+          <div class="split-item">
+            <div class="mock">
+
+              <span class="mock__screen"><img class="mock__shot" src="/assets/img/sf-attach-images.jpg" alt="Telegram photo picker with two photos selected and the caption Straight Forward typed above the keyboard." loading="lazy" decoding="async"></span>
+
+              <img class="mock__frame" src="/assets/img/iphone-16-white-portrait.png" alt="" draggable="false">
+
+            </div>
+            <p class="split-cap">Attach images</p>
+          </div>
+          <div class="split-item">
+            <div class="mock">
+
+              <span class="mock__screen"><img class="mock__shot" src="/assets/img/sf-attach-send-menu.jpg" alt="Original long-press menu on Send for two attached photos: Move Caption Up, Send Without Sound, Send When Online and Schedule Message." loading="lazy" decoding="async"></span>
+
+              <img class="mock__frame" src="/assets/img/iphone-16-white-portrait.png" alt="" draggable="false">
+
+            </div>
+            <p class="split-cap split-cap--wrap">Attach images and long-press on Send</p>
+          </div>
+        </figure>
+        <figure class="split-box">
+          <figcaption class="shot-box__label">After</figcaption>
+          <div class="split-item">
+            <div class="mock">
+
+              <span class="mock__screen"><img class="mock__shot" src="/assets/img/sf-attach-send-forward.jpg" alt="Two attached photos with a Straight Forward caption; the long-press menu on Send lists Move Caption Up, Send Without Sound, Send When Online, Schedule Message and Forward." loading="lazy" decoding="async"></span>
+
+              <img class="mock__frame" src="/assets/img/iphone-16-white-portrait.png" alt="" draggable="false">
+
+            </div>
+            <p class="split-cap split-cap--wrap">Attach images and long-press on Send with Forward</p>
+          </div>
+        </figure>
       </div>
     </section>
 
-    <figure class="cs__media cs__flow reveal">
-      <div class="frame">
-        <div class="cmp"><span>1 Compose</span><div class="phone">Screen</div></div>
-        <div class="cmp"><span>2 Select</span><div class="phone">Screen</div></div>
-        <div class="cmp"><span>3 Send</span><div class="phone">Screen</div></div>
-      </div>
-      <figcaption>Three-step interaction flow: Compose → Select → Send</figcaption>
-    </figure>
-
-    <section class="cs__row reveal" id="shipped">
+    <section class="cs__row cs__row--wide reveal" id="shipped">
       <h2 class="cs__label">Shipped</h2>
       <div class="cs__text">
-        <p>I implemented the interaction directly in Telegram’s open-source codebase, creating a functional version of the application rather than a standalone prototype.</p>
-        <p>The feature reuses Telegram’s existing recipient-selection interface and integrates into the standard message composition workflow.</p>
-        <p>This allowed me to evaluate the experience in a realistic environment, using actual conversations and message interactions.</p>
+        <p>The Telegram Designers came with a rule for a contest: no static mockups. Submissions had to be working, ready-to-implement code, shown in action in a demo video.</p>
+        <p>I accepted the challenge. I pulled the source code of Telegram’s iOS app from GitHub and, with the help of Claude Code, implemented the design directly in it.</p>
+      </div>
+      <div class="cs__shots cs__shots--boxed">
+        <figure class="shot-box">
+          <figcaption class="shot-box__label">Contest announcement</figcaption>
+          <div class="mock">
+            <span class="mock__screen"><img class="mock__shot" src="/assets/img/sf-contest-announcement.jpg" alt="Telegram Designers post, Designers × AI: the mockup era is over. We accept working, ready-to-implement code complemented by a demo video of the feature in action. We no longer accept static mockups, demo videos with no code behind them, or text-only concepts." loading="lazy" decoding="async"></span>
+            <img class="mock__frame" src="/assets/img/iphone-16-white-portrait.png" alt="" draggable="false">
+          </div>
+        </figure>
+        <figure class="shot-box vplay-host">
+          <figcaption class="shot-box__label">Working build</figcaption>
+          <div class="device">
+            <div class="device__screen">
+              <span class="device__empty">Working build</span>
+              <video muted loop playsinline preload="metadata" aria-label="Straight Forward working in the Telegram iOS app">
+                <source src="/assets/video/problem-after.mp4#t=0.1" type="video/mp4">
+              </video>
+            </div>
+            <img class="device__frame" src="/assets/img/iphone-16-white-portrait.png" alt="" draggable="false">
+          </div>
+          <button class="vplay" type="button" aria-label="Play video">
+            <svg class="i-play" viewBox="0 0 20 20" aria-hidden="true"><path d="M7 4.6v10.8a.6.6 0 0 0 .9.5l8.4-5.4a.6.6 0 0 0 0-1L7.9 4.1a.6.6 0 0 0-.9.5z" fill="currentColor"/></svg>
+            <svg class="i-pause" viewBox="0 0 20 20" aria-hidden="true"><rect x="5.5" y="4.5" width="3" height="11" rx="0.8" fill="currentColor"/><rect x="11.5" y="4.5" width="3" height="11" rx="0.8" fill="currentColor"/></svg>
+          </button>
+        </figure>
       </div>
     </section>
-
-    <figure class="cs__media cs__compare cs__compare--single reveal">
-      <div class="frame">
-        <div class="cmp"><div class="phone">Screen recording</div></div>
-      </div>
-      <figcaption>Screen recording of the implemented feature working in Telegram</figcaption>
-    </figure>
 
     <section class="cs__row reveal" id="results">
       <h2 class="cs__label">Results</h2>
