@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>UnicBank — Reduced time-to-value in mobile banking — Marina Kuzminchuk</title>
   <meta name="description" content="A UX/UI case study redesigning core mobile banking flows — registration, account opening, cards and transfers — to help users reach value faster." />
+  <link rel="canonical" href="https://marinakuzminchuk.github.io/unicbank/" />
   <link rel="icon" type="image/png" href="/assets/img/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -55,20 +56,26 @@
   <!-- Middle: the write-up. -->
   <div class="cs__main">
 
-    <section class="cs__row reveal" id="problem">
+    <section class="cs__row cs__row--wide reveal" id="problem">
       <h2 class="cs__label">Problem</h2>
       <div class="cs__text">
         <p>UNIC originally started as a website for international money transfers. As the company expanded into mobile banking, the new app needed to support registration and account opening, UNIC and third-party card management, and domestic and international transfers.</p>
         <p>The challenge was to introduce these new services and grow the customer base without disrupting the experience of existing users who primarily came to send money.</p>
       </div>
-      <div class="cs__shots">
-        <figure class="mock">
-          <span class="mock__screen"><img class="mock__shot" src="/assets/img/unic-screen-1.png" alt="UnicBank home screen" style="--bx: 0.01914; --by: 0.00899;" loading="lazy" decoding="async"></span>
-          <img class="mock__frame" src="/assets/img/iphone-16-white-portrait.png" alt="" draggable="false">
+      <div class="cs__shots cs__shots--boxed">
+        <figure class="shot-box">
+          <figcaption class="shot-box__label">Preview — Home screen</figcaption>
+          <div class="mock">
+            <span class="mock__screen"><img class="mock__shot" src="/assets/img/unic-screen-1.png" alt="UnicBank home screen" style="--bx: 0.01914; --by: 0.00899;" loading="lazy" decoding="async"></span>
+            <img class="mock__frame" src="/assets/img/iphone-16-white-portrait.png" alt="" draggable="false">
+          </div>
         </figure>
-        <figure class="mock">
-          <span class="mock__screen"><img class="mock__shot" src="/assets/img/unic-screen-2.png" alt="UnicBank cards screen" style="--bx: 0.01914; --by: 0.00899;" loading="lazy" decoding="async"></span>
-          <img class="mock__frame" src="/assets/img/iphone-16-white-portrait.png" alt="" draggable="false">
+        <figure class="shot-box">
+          <figcaption class="shot-box__label">Preview — Card management</figcaption>
+          <div class="mock">
+            <span class="mock__screen"><img class="mock__shot" src="/assets/img/unic-screen-2.png" alt="UnicBank cards screen" style="--bx: 0.01914; --by: 0.00899;" loading="lazy" decoding="async"></span>
+            <img class="mock__frame" src="/assets/img/iphone-16-white-portrait.png" alt="" draggable="false">
+          </div>
         </figure>
       </div>
     </section>
@@ -187,66 +194,83 @@
       </div>
     </section>
 
-    <section class="cs__row reveal">
+    <section class="cs__row cs__row--wide reveal">
       <h2 class="cs__label">Decision 02</h2>
       <div class="cs__text">
         <p><strong>Home screen as progressive onboarding.</strong> The home screen is a dashboard and a discovery layer at the same time. It surfaces the next meaningful action based on what the user has already done.</p>
       </div>
-      <div class="cs__shots">
-        <figure class="mock">
-          <span class="mock__screen"><img class="mock__shot" src="/assets/img/initial-home.png" alt="UNIC Bank initial home screen with zero balance and prominent Open bank account call to action." style="--bx: 0.01009; --by: 0.00469;" loading="lazy" decoding="async"></span>
-          <img class="mock__frame" src="/assets/img/iphone-16-white-portrait.png" alt="" draggable="false">
+      <div class="cs__shots cs__shots--boxed">
+        <figure class="shot-box">
+          <figcaption class="shot-box__label">Before account opening</figcaption>
+          <div class="mock">
+            <span class="mock__screen"><img class="mock__shot" src="/assets/img/initial-home.png" alt="UNIC Bank initial home screen with zero balance and prominent Open bank account call to action." style="--bx: 0.01009; --by: 0.00469;" loading="lazy" decoding="async"></span>
+            <img class="mock__frame" src="/assets/img/iphone-16-white-portrait.png" alt="" draggable="false">
+          </div>
         </figure>
-        <figure class="mock">
-          <span class="mock__screen"><img class="mock__shot" src="/assets/img/home-screen-4.png" alt="UNIC Bank home screen after account opening showing balance, IBAN and recent transactions." style="--bx: 0.01009; --by: 0.00469;" loading="lazy" decoding="async"></span>
-          <img class="mock__frame" src="/assets/img/iphone-16-white-portrait.png" alt="" draggable="false">
+        <figure class="shot-box">
+          <figcaption class="shot-box__label">After account opening</figcaption>
+          <div class="mock">
+            <span class="mock__screen"><img class="mock__shot" src="/assets/img/home-screen-4.png" alt="UNIC Bank home screen after account opening showing balance, IBAN and recent transactions." style="--bx: 0.01009; --by: 0.00469;" loading="lazy" decoding="async"></span>
+            <img class="mock__frame" src="/assets/img/iphone-16-white-portrait.png" alt="" draggable="false">
+          </div>
         </figure>
       </div>
     </section>
 
-    <section class="cs__row reveal">
+    <section class="cs__row cs__row--wide reveal">
       <h2 class="cs__label">Decision 03</h2>
       <div class="cs__text">
         <p><strong>Scheduled transfers with confirmation.</strong> Users can choose to receive a confirmation notification before each scheduled transfer is executed. Automation stays convenient, while users remain in control.</p>
       </div>
-      <div class="cs__shots">
-        <figure class="mock">
-          <span class="mock__screen"><img class="mock__shot" src="/assets/img/scheduled-create.png" alt="UNIC Bank create scheduled transfer screen showing payment details, monthly frequency and required confirmation." style="--bx: 0.01887; --by: 0.00885;" loading="lazy" decoding="async"></span>
-          <img class="mock__frame" src="/assets/img/iphone-16-white-portrait.png" alt="" draggable="false">
+      <div class="cs__shots cs__shots--strip">
+        <figure class="shot-col">
+          <figcaption class="shot-col__label">01 / Schedule</figcaption>
+          <div class="mock">
+            <span class="mock__screen"><img class="mock__shot" src="/assets/img/scheduled-create.png" alt="UNIC Bank create scheduled transfer screen showing payment details, monthly frequency and required confirmation." style="--bx: 0.01887; --by: 0.00885;" loading="lazy" decoding="async"></span>
+            <img class="mock__frame" src="/assets/img/iphone-16-white-portrait.png" alt="" draggable="false">
+          </div>
         </figure>
-        <figure class="mock">
-          <span class="mock__screen"><img class="mock__shot" src="/assets/img/scheduled-notification.png" alt="iOS lock screen push notification prompting the user to confirm a scheduled transfer to Leo Smith." style="--bx: 0.01914; --by: 0.00899;" loading="lazy" decoding="async"></span>
-          <img class="mock__frame" src="/assets/img/iphone-16-white-portrait.png" alt="" draggable="false">
+        <figure class="shot-col">
+          <figcaption class="shot-col__label">02 / Notification</figcaption>
+          <div class="mock">
+            <span class="mock__screen"><img class="mock__shot" src="/assets/img/scheduled-notification.png" alt="iOS lock screen push notification prompting the user to confirm a scheduled transfer to Leo Smith." style="--bx: 0.01914; --by: 0.00899;" loading="lazy" decoding="async"></span>
+            <img class="mock__frame" src="/assets/img/iphone-16-white-portrait.png" alt="" draggable="false">
+          </div>
         </figure>
-        <figure class="mock">
-          <span class="mock__screen"><img class="mock__shot" src="/assets/img/scheduled-review.png" alt="UNIC Bank review transfer details screen with a Confirm transfer button at the bottom." style="--bx: 0.01887; --by: 0.00885;" loading="lazy" decoding="async"></span>
-          <img class="mock__frame" src="/assets/img/iphone-16-white-portrait.png" alt="" draggable="false">
+        <figure class="shot-col">
+          <figcaption class="shot-col__label">03 / Confirm</figcaption>
+          <div class="mock">
+            <span class="mock__screen"><img class="mock__shot" src="/assets/img/scheduled-review.png" alt="UNIC Bank review transfer details screen with a Confirm transfer button at the bottom." style="--bx: 0.01887; --by: 0.00885;" loading="lazy" decoding="async"></span>
+            <img class="mock__frame" src="/assets/img/iphone-16-white-portrait.png" alt="" draggable="false">
+          </div>
         </figure>
       </div>
     </section>
 
-    <section class="cs__row reveal" id="outcomes">
-      <h2 class="cs__label">Concept outcomes</h2>
+    <section class="cs__row reveal" id="concept">
+      <h2 class="cs__label">Final concept</h2>
       <div class="cs__text">
-        <ol class="steps">
-          <li><strong>Registration became a lightweight entry</strong><span>Full KYC moved from the first step to the moment when account opening became relevant.</span></li>
-          <li><strong>Home screen became a guided starting point</strong><span>The first home screen explained available actions instead of showing a passive empty state.</span></li>
-          <li><strong>Scheduled transfers gained confirmation control</strong><span>Users could keep recurring payments convenient without allowing money to move silently.</span></li>
-          <li><strong>Recent recipients were deprioritized</strong><span>Testing showed stronger interest in recent transactions than quick access to recent recipients.</span></li>
+        <p>The final concept combined UNIC’s existing money transfer services with broader mobile banking functionality.</p>
+        <ol>
+          <li><span>Lightweight registration, with full KYC required only when opening a bank account</span></li>
+          <li><span>A progressive home screen that adapts as users unlock banking features</span></li>
+          <li><span>Domestic and international transfers, including scheduled payments with optional confirmation</span></li>
+          <li><span>UNIC and third-party card management</span></li>
+          <li><span>Recent transaction history for easier access to previous payments</span></li>
         </ol>
       </div>
     </section>
 
-    <section class="cs__row reveal" id="validation">
-      <h2 class="cs__label">Prototype validation</h2>
+    <figure class="cs__media reveal">
+      <div class="frame"><img src="/assets/img/unic-figma-flows.png" alt="Figma overview of all UNIC Bank flows: UI kit, registration, login, creating a virtual card, opening an account, adding a card from another bank, and transfers abroad with scheduled transfers." width="1735" height="1048" loading="lazy" decoding="async"></div>
+      <figcaption>End-to-end flows mapped in Figma</figcaption>
+    </figure>
+
+    <section class="cs__row reveal" id="results">
+      <h2 class="cs__label">Results</h2>
       <div class="cs__text">
-        <p class="cs__big">~10 min → ~3 min</p>
-        <p>Time to first useful interaction. <span class="g">Estimated from the prototype flow.</span></p>
-        <ul>
-          <li><strong>Next-action clarity:</strong> Users understood what to do next from the first home screen.</li>
-          <li><strong>Account-opening timing:</strong> Users recognized full account opening as a contextual next step, not an upfront blocker.</li>
-          <li><strong>Transfer confirmation clarity:</strong> Users understood that scheduled transfers would not be sent without confirmation.</li>
-        </ul>
+        <p>The final prototype was tested with users to validate the redesigned flows. The results showed an estimated reduction in time to first useful interaction from ~10 to ~3 minutes.</p>
+        <p>Testing also showed that users understood what to do next from the home screen, recognized account opening as a separate step rather than an upfront requirement, and understood that scheduled transfers required confirmation before execution.</p>
       </div>
     </section>
 
@@ -263,8 +287,8 @@
       <li><a href="#competitors">Competitors</a></li>
       <li><a href="#interviews">Interviews</a></li>
       <li><a href="#decisions">Decisions</a></li>
-      <li><a href="#outcomes">Outcomes</a></li>
-      <li><a href="#validation">Validation</a></li>
+      <li><a href="#concept">Final concept</a></li>
+      <li><a href="#results">Results</a></li>
     </ol>
   </nav>
 
