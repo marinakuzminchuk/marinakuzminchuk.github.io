@@ -509,7 +509,7 @@ a.device:hover { transform: translateY(-8px); } /* whole pixels: sharp at rest *
   .portrait-draw__done { animation: none; opacity: 1; }
 }
 .about__intro {
-  color: var(--grey); /* as .i-summary on the home page */
+  color: var(--ink);
   text-wrap: pretty;
 }
 .about__right {
