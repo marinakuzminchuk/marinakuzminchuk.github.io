@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://marinakuzminchuk.github.io/sitemap.xml
