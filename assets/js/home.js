@@ -254,7 +254,16 @@
   window.addEventListener('scroll', function () {
     if (!ticking) { ticking = true; requestAnimationFrame(sync); }
   }, { passive: true });
+  // A real resize (window width, or turning a phone) keeps the same project
+  // in place. Height-only changes are left to the browser's snapping: on
+  // phones the address bar hides on swipes down and returns on swipes up,
+  // resizing the window mid-swipe, and jumping there would cut into the
+  // snap in one direction only, so the two directions moved differently.
+  var lastWidth = window.innerWidth;
   window.addEventListener('resize', function () {
+    var widthChanged = window.innerWidth !== lastWidth;
+    lastWidth = window.innerWidth;
+    if (!widthChanged) { sync(); return; }
     cancelTween();
     window.scrollTo(0, stopTop(target)); // stay on the same project
     sync();
