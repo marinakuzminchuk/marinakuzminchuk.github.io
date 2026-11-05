@@ -194,6 +194,10 @@ img { max-width: 100%; }
   display: grid;
   grid-template-columns: repeat(8, minmax(0, 1fr));
   column-gap: var(--gap);
+  /* Phone groups size themselves by this column's width (see "Phone
+     groups that don't fit"), not the window's: on tablets the side
+     columns leave much less room than the window suggests. */
+  container: cs-main / inline-size;
 }
 .cs__main > * { grid-column: 1 / 7; }
 
@@ -666,7 +670,7 @@ img { max-width: 100%; }
    all three render at the same size; each sits centred in its share. */
 .cs__split {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); /* captions can't widen a share */
   gap: var(--gap);
   margin-top: 24px; /* close to the paragraph that describes the screens */
 }
@@ -693,6 +697,10 @@ img { max-width: 100%; }
 .split-item .mock { width: min(100%, 230px); }
 .split-item {
   display: grid;
+  /* One column, the item's own width: a long one-line title overflows it
+     (evenly, into the gap) rather than widening it, so the phone shrinks
+     with its neighbours. */
+  grid-template-columns: minmax(0, 1fr);
   justify-items: center;
   gap: 12px;
   width: 100%;
@@ -713,6 +721,23 @@ img { max-width: 100%; }
 /* Titles on the coloured panels: the same greys as those panels’ labels. */
 .shot-box--dark .split-cap { color: #9a9a9a; }
 :root[data-theme="dark"] .shot-box--light .split-cap { color: #666; }
+
+/* Phone groups that don't fit: three phones in a row need ~700px of the
+   write-up column to stay a readable size (~190px each). Below that (most
+   tablets, and phones) they follow one another, as on mobile: Before,
+   then After; a panel with two phones stacks them on its one background;
+   the three-step strip stacks inside its panel. */
+/* Tight rows (phones under 230px): titles wrap into balanced lines
+   instead of running past the panel's edge. */
+@container cs-main (max-width: 860px) {
+  .split-cap { white-space: normal; text-wrap: balance; }
+}
+@container cs-main (max-width: 700px) {
+  .cs__split { grid-template-columns: minmax(0, 1fr); }
+  .split-box { grid-auto-flow: row; gap: 40px; padding: 56px 20px 20px; }
+  .split-cap { white-space: normal; text-wrap: balance; max-width: 230px; }
+  .cs__shots--strip { grid-template-columns: minmax(0, 1fr); row-gap: 40px; padding: 20px 20px 56px; }
+}
 
 /* Before / after step lists, side by side. */
 .cs__duo {
