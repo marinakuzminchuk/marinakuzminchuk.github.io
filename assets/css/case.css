@@ -955,11 +955,14 @@ img { max-width: 100%; }
   .cs__shots--stack { grid-template-columns: minmax(0, 1fr); gap: 12px; }
   .cs__shots--stack .shot-box { padding: 56px 20px; }
   .cs__shots--stack .shot-box__label { top: 20px; left: 20px; font-size: inherit; line-height: inherit; }
-  .cs__split { gap: 8px; margin-top: 16px; }
-  .split-box { gap: 8px; padding: 36px 10px 12px; }
+  /* Before / after splits: one phone per row, Before panel first, then
+     After. A panel with two phones keeps both on its one background,
+     stacked. Same full-size spacing and label as the stacked pairs. */
+  .cs__split { grid-template-columns: minmax(0, 1fr); gap: 8px; margin-top: 16px; }
+  .split-box { grid-auto-flow: row; gap: 40px; padding: 56px 20px 20px; }
+  .split-box .shot-box__label { top: 20px; left: 20px; font-size: inherit; line-height: inherit; }
   .cs__split + .cs__text { margin-top: 32px; }
-  .split-item { gap: 8px; }
-  .split-cap { font-size: 12px; line-height: 1.3; white-space: normal; text-wrap: balance; }
+  .split-cap { white-space: normal; text-wrap: balance; max-width: 230px; }
   .cs__shots--strip { padding: 10px 10px 36px; }
   .shot-col { gap: 8px; }
   .shot-col__label { font-size: 12px; line-height: 1.3; }
