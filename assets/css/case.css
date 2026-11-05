@@ -108,7 +108,7 @@ img { max-width: 100%; }
 
 .theme {
   display: grid; place-items: center;
-  width: 32px; height: 32px;
+  width: 32px; height: 32px; margin-right: -8px; /* icon on the margin, as on the home page */
   padding: 0; border: 0; border-radius: 50%;
   background: none; color: var(--ink); cursor: pointer;
 }
@@ -139,7 +139,8 @@ img { max-width: 100%; }
   align-items: flex-start;
   /* "safe" falls back to the top when the screen is too short to centre. */
   justify-content: safe center;
-  gap: 24px;
+  --side-gap: 24px;
+  gap: var(--side-gap);
   /* Fill the screen under the header. The bottom padding is larger by the
      header's height, so the content centres on the middle of the whole screen. */
   min-height: calc(100svh - var(--bar));
@@ -154,6 +155,9 @@ img { max-width: 100%; }
   line-height: 1.1;
   letter-spacing: -0.005em;
   text-wrap: balance;
+  /* Title to description as on the home page (.b-title): 0.18em under
+     the line plus 8px, in place of the column's wider gap. */
+  margin-bottom: calc(0.18em + 8px - var(--side-gap));
 }
 
 .cs__overview { color: var(--grey); max-width: 30em; }
@@ -904,7 +908,7 @@ img { max-width: 100%; }
     grid-template-columns: minmax(0, 1fr);
     padding-top: calc(var(--bar) + 16px);
   }
-  .cs__side { grid-column: 1; position: static; min-height: 0; padding: 0; gap: 16px; justify-content: flex-start; }
+  .cs__side { grid-column: 1; position: static; min-height: 0; padding: 0; --side-gap: 16px; justify-content: flex-start; }
   /* Stacked on top of the write-up, the side column just appears: no
      line-by-line reveal (that stays on wide screens). */
   .cs__side .line > span { transform: none; transition: none; }
