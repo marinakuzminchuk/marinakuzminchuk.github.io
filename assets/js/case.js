@@ -157,3 +157,45 @@
     requestAnimationFrame(function () { document.body.classList.add('is-ready'); });
   });
 })();
+
+// Tap to zoom (phones): a [data-zoom] picture gets a zoom button in its
+// corner; tapping the picture or the button opens it full screen, at the
+// screen's height, to swipe across (and pinch). × or Esc / back closes it.
+(function () {
+  var frames = document.querySelectorAll('[data-zoom]');
+  if (!frames.length || !window.HTMLDialogElement) return;
+  var phone = matchMedia('(max-width: 760px)');
+  var X = '<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+  var EXPAND = '<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M12 3.5h4.5V8M8 16.5H3.5V12M16.5 3.5l-5 5M3.5 16.5l5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+  var dlg = document.createElement('dialog');
+  dlg.className = 'zoom';
+  dlg.innerHTML = '<div class="zoom__pane"><img class="zoom__img" alt=""></div>' +
+    '<button class="zoom__close" type="button" aria-label="Close">' + X + '</button>';
+  document.body.appendChild(dlg);
+  var pane = dlg.querySelector('.zoom__pane');
+  var big = dlg.querySelector('.zoom__img');
+  dlg.querySelector('.zoom__close').addEventListener('click', function () { dlg.close(); });
+  dlg.addEventListener('close', function () { document.documentElement.classList.remove('zoom-open'); });
+
+  frames.forEach(function (frame) {
+    var img = frame.querySelector('img');
+    if (!img) return;
+    var btn = document.createElement('button');
+    btn.className = 'zoom-btn';
+    btn.type = 'button';
+    btn.setAttribute('aria-label', 'Zoom in: ' + (img.alt || 'image'));
+    btn.innerHTML = EXPAND;
+    frame.appendChild(btn);
+    frame.addEventListener('click', function () {
+      if (!phone.matches) return;
+      big.src = img.currentSrc || img.src;
+      big.alt = img.alt;
+      dlg.setAttribute('aria-label', img.alt || 'Zoomed image');
+      document.documentElement.classList.add('zoom-open');
+      dlg.showModal();
+      pane.scrollLeft = 0;
+      pane.scrollTop = 0;
+    });
+  });
+})();
