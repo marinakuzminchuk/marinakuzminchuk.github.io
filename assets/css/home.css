@@ -320,6 +320,45 @@ a.device:hover { transform: translateY(-8px); } /* whole pixels: sharp at rest *
   color: var(--grey);
 }
 
+/* A desktop screenshot (storyboard-preview.jpg, 1800 × 1170, an app screen
+   with ~14px rounded corners in its own pixels, filled white behind them).
+   The corners are drawn with border-radius (0.8% / 1.25%, rounded up a
+   little to clip that fill). 81% (90% of 90%) of the largest size that is
+   no taller than a phone and clears the words on the left and the index
+   on the right. */
+.browser {
+  width: calc(0.81 * min(
+    900px,
+    calc(100vw - 2 * (var(--col) + var(--edge) + 40px)),
+    calc((100svh - var(--bar)) * 0.86 * 1800 / 1170)
+  ));
+  aspect-ratio: 1800 / 1170;
+  border-radius: 0.8% / 1.25%;
+  overflow: hidden;
+  /* Subtle depth: a soft lift plus a faint contact edge, so the white
+     screen separates from the white page. */
+  box-shadow:
+    0 0 0 1px rgb(0 0 0 / 0.04),
+    0 2px 6px rgb(0 0 0 / 0.05),
+    0 16px 40px rgb(0 0 0 / 0.08);
+}
+.browser img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  user-select: none;
+}
+
+/* The company in a project's role line. */
+.i-company, .b-role a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--grey);
+  transition: color 0.2s var(--ease), text-decoration-color 0.2s var(--ease);
+}
+.i-company:hover, .b-role a:hover { color: var(--ink); text-decoration-color: var(--ink); }
+
 .device__frame {
   position: absolute;
   inset: 0;
@@ -564,6 +603,7 @@ a.cv__where:hover { text-decoration-color: var(--ink); }
 
   .device { --h: min(52svh, calc(68vw * 2736 / 1359)); }
   a.device:hover { transform: none; }
+  .browser { width: min(100vw - 2 * var(--edge), 52svh * 1800 / 1170, 720px); }
 
   /* About: one column; the intro starts under the header like the project
      words do, then the portrait, then the CV. */
@@ -620,6 +660,7 @@ a.cv__where:hover { text-decoration-color: var(--ink); }
    64px under the phone, with a gap between words and phone. */
 @media (max-width: 960px) and (max-height: 700px) {
   .device { --h: min(52svh, calc(100svh - 360px), calc(68vw * 2736 / 1359)); }
+  .browser { width: min(100vw - 2 * var(--edge), (100svh - 360px) * 1800 / 1170, 720px); }
 }
 
 @media (prefers-reduced-motion: reduce) {
